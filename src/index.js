@@ -4,13 +4,15 @@ import './index.css';
 import App from './App';
 import Home from './pages/home/Home'
 import * as serviceWorker from './serviceWorker';
+// import 'antd/dist/antd.css'; // or 'antd/dist/antd.less';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <Home />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
+ReactDOM.render(<Home/>,document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

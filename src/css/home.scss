@@ -1,10 +1,17 @@
 *{
   margin: 0;
   padding: 0;
-  overflow: hidden;
+}
+p{
+  margin-bottom: 0 ;
 }
 li{
   list-style: none;
+}
+@media screen and (max-width: 990px) {
+  .header {
+    display: none!important;
+  }
 }
 .wrap{
   width: 100%;
@@ -68,6 +75,186 @@ li{
         border-radius: 4px;
         font-weight: bold;
         cursor: pointer;
+      }
+    }
+  }
+  .center{
+    .tips{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 120px;
+      background: #fff;
+      p{
+        font-size: 14px;
+        color: #474e5f;
+        padding: 15px 0;
+        cursor: pointer;
+        span{
+          margin-left: 80px;
+        }
+
+      }
+    }
+    .content{
+      width: 100%;
+      .box_wrap{
+        height: auto;
+        background: #f8faff;
+        padding-top: 50px;
+        .title{
+          text-align: center;
+        }
+        .max{
+          font-size: 36px;
+          color: #2f3342;
+        }
+        .min{
+          font-size: 18px;
+          color: #626775;
+          margin-top: 19px;
+        }
+        .cont_wrap{
+          padding: 50px 120px;
+          display: flex;
+          .item{
+            flex: 1;
+          }
+          .left{
+            .box{
+              width:100%;
+              display: flex;
+              padding: 30px;
+              background: #fff;
+              .radius{
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background: #ebf6ff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                  width: 24px;
+                  height: 24px;
+                  vertical-align: middle;
+                }
+              }
+              .list{
+                margin-left: 40px;
+                p{
+                  font-size: 15px;
+                  color: #474e5f;
+                }
+                .name{
+                  font-size: 20px;
+                  color: #2f3342;
+                  padding-bottom: 14px;
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+          .cen{
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
+            .img_box{
+              img{
+                height: 448px;
+              }
+            }
+          }
+        }
+      }
+      .module_wrap{
+        background: #fff;
+        .module{
+          padding: 50px 120px;
+          display: flex;
+          flex-wrap: wrap;
+          .box{
+            width: 16%;
+            height: auto;
+            //background: #fff;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            .boxRadius{
+              width: 90px;
+              height: 90px;
+              border-radius: 50%;
+              background: #fff;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              box-shadow: 0px 2px 14px 0px rgba(23, 71, 113, 0.1);
+              img{
+                width: 38px;
+                height: 38px;
+                vertical-align: middle;
+              }
+            }
+            .name{
+              font-size: 18px;
+              color: #2f3342;
+              font-weight: bold;
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+      .back_wrap{
+        .title{
+          color: #fff;
+        }
+        .contBox{
+          padding: 70px 120px;
+          ul{
+            display: flex;
+            .lis:hover{
+              transition: all 500ms ease-in;
+              margin-top: -20px;
+            }
+            .lis{
+              flex: 1;
+              height: 295px;
+              background: #fff;
+              margin-right: 10px;
+              .imgTop{
+                width: 100%;
+                height: 170px;
+                img{
+                  width: 100%;
+                  height: 100%;
+                  vertical-align: middle;
+                }
+              }
+            }
+          }
+        }
+      }
+      .ban_wrap{
+        .banner_box{
+          padding: 50px 120px;
+          .icon_left,.icon_right{
+            width: 50px;
+            height: 10px;
+            background: red;
+          }
+          .banner{
+            .cont{
+              display: flex;
+              .box{
+                width: 30%;
+                height: 100px;
+                background: red;
+                margin-right: 10px;
+              }
+            }
+          }
+        }
       }
     }
   }
