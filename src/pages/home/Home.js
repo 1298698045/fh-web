@@ -7,6 +7,7 @@ import { HashRouter,Link ,Route } from 'react-router-dom';
 import Detail from './Detail'
 import { createBrowserHistory, createHashHistory } from 'history';
 import backUrl from '../../images/bj.png';
+import fotUrl from '../../images/fot.png';
 const history = createBrowserHistory() // history模式
 // history.push('/')
 var sectionStyle = {
@@ -15,6 +16,13 @@ var sectionStyle = {
 // makesure here is String确保这里是一个字符串，以下是es6写法
     backgroundImage: `url(${backUrl})`
 };
+const fotStyle = {
+    width: "100%",
+    height:"205px",
+    backgroundImage: `url(${fotUrl})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover"
+}
 const contentStyle = {
     height: '470px',
     color: '#fff',
@@ -247,11 +255,11 @@ class Home extends Component{
                             <div className="title max">客户案例</div>
                             <div className="title min">凤凰办公的产品，全方位为您提供服务</div>
                             <div className="banner_box">
-                                <div className="icon_left" onClick={this.getNext.bind(this)}>
+                                <div className="icon_left" onClick={this.getPrev.bind(this)}>
 
                                 </div>
                                 <div className="banner">
-                                    <Carousel ref="welcome" dots={true}>
+                                    <Carousel ref="welcome" dots={false}>
                                         <div style={contentStyle}>
                                             <div className="cont">
                                                 <div className="box"></div>
@@ -267,10 +275,16 @@ class Home extends Component{
                                         </div>
                                     </Carousel>
                                 </div>
-                                <div className="icon_right" onClick={this.getPrev.bind(this)}></div>
+                                <div className="icon_right" onClick={this.getNext.bind(this)}></div>
                             </div>
                         </div>
+                        <div style={fotStyle}>
+
+                        </div>
                     </div>
+                </div>
+                <div className="footer">
+                    © 2019 北京凤凰世纪科技有限公司  |  京ICP备16024828号
                 </div>
             </div>
         )
