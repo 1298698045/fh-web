@@ -32,6 +32,14 @@ const contentStyle = {
     autoplay:false
 
 };
+const swiperStyle = {
+    width:"80%",
+    height:"315px",
+    color: "#fff",
+    lineHeight: "315px",
+    background: "#fff",
+    autoplay: false
+}
 class Home extends Component{
     constructor(props) {
         super(props);
@@ -98,6 +106,31 @@ class Home extends Component{
                         <p>· 涵盖科室的全面管理=</p>
                         <p>· 跨部门级全面应用</p>
                         <p>· 前后胎数据一体化</p>
+                    </div>
+                </div>
+            )
+        })
+    }
+    bannerList(){
+        let arr = [{item:[1,2,3]},{item:[1,2,3]},{item:[1,2,3]}];
+        return  arr.map((item,index)=>{
+            return (
+                <div style={swiperStyle} key={index}>
+                    <div className="cont">
+                        {
+                            item.item.map((v,idx)=>{
+                                return (
+                                    <div className="box" key={idx}>
+                                        <p className="img">
+                                            <img src={require('../../images/r.png')} alt=""/>
+                                        </p>
+                                        <p>医药医疗：山西省长治市人民医院</p>
+                                        <p>移动办公快速解决农户燃眉之需</p>
+                                    </div>
+                                )
+
+                            })
+                        }
                     </div>
                 </div>
             )
@@ -233,6 +266,54 @@ class Home extends Component{
                                         <p className="name">组织架构</p>
                                     </div>
                                 </div>
+                                <div className="box">
+                                    <div>
+                                        <div className="boxRadius">
+                                            <img src={require('../../images/d.png')} alt=""/>
+                                        </div>
+                                        <p className="name">组织架构</p>
+                                    </div>
+                                </div>
+                                <div className="box">
+                                    <div>
+                                        <div className="boxRadius">
+                                            <img src={require('../../images/d.png')} alt=""/>
+                                        </div>
+                                        <p className="name">组织架构</p>
+                                    </div>
+                                </div>
+                                <div className="box">
+                                    <div>
+                                        <div className="boxRadius">
+                                            <img src={require('../../images/d.png')} alt=""/>
+                                        </div>
+                                        <p className="name">组织架构</p>
+                                    </div>
+                                </div>
+                                <div className="box">
+                                    <div>
+                                        <div className="boxRadius">
+                                            <img src={require('../../images/d.png')} alt=""/>
+                                        </div>
+                                        <p className="name">组织架构</p>
+                                    </div>
+                                </div>
+                                <div className="box">
+                                    <div>
+                                        <div className="boxRadius">
+                                            <img src={require('../../images/d.png')} alt=""/>
+                                        </div>
+                                        <p className="name">组织架构</p>
+                                    </div>
+                                </div>
+                                <div className="box">
+                                    <div>
+                                        <div className="boxRadius">
+                                            <img src={require('../../images/d.png')} alt=""/>
+                                        </div>
+                                        <p className="name">组织架构</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="box_wrap back_wrap" style={sectionStyle}>
@@ -260,19 +341,20 @@ class Home extends Component{
                                 </div>
                                 <div className="banner">
                                     <Carousel ref="welcome" dots={false}>
-                                        <div style={contentStyle}>
-                                            <div className="cont">
-                                                <div className="box"></div>
-                                                <div className="box"></div>
-                                                <div className="box"></div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <h3 style={contentStyle}>2</h3>
-                                        </div>
-                                        <div>
-                                            <h3 style={contentStyle}>3</h3>
-                                        </div>
+                                        {/*<div style={swiperStyle}>*/}
+                                            {/*<div className="cont">*/}
+                                                {/*<div className="box">*/}
+                                                    {/*<p className="img">*/}
+                                                        {/*<img src={require('../../images/icon.png')} alt=""/>*/}
+                                                    {/*</p>*/}
+                                                    {/*<p>医药医疗：山西省长治市人民医院</p>*/}
+                                                    {/*<p>移动办公快速解决农户燃眉之需</p>*/}
+                                                {/*</div>*/}
+                                                {/*<div className="box"></div>*/}
+                                                {/*<div className="box"></div>*/}
+                                            {/*</div>*/}
+                                        {/*</div>*/}
+                                        {this.bannerList()}
                                     </Carousel>
                                 </div>
                                 <div className="icon_right" onClick={this.getNext.bind(this)}></div>

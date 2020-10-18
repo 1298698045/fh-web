@@ -170,14 +170,16 @@ li{
       .module_wrap{
         background: #fff;
         .module{
-          padding: 50px 120px;
+          padding: 0 120px 50px 120px;
           display: flex;
           flex-wrap: wrap;
           .box{
-            width: 16%;
+            //width: 15%;
+            flex: 0 0 15%;
             height: auto;
             //background: #fff;
-            margin: 5px;
+            margin-right: 19px;
+            margin-top: 58px;
             display: flex;
             justify-content: center;
             text-align: center;
@@ -238,19 +240,29 @@ li{
       .ban_wrap{
         .banner_box{
           padding: 50px 120px;
+          display: flex;
+          align-items: center;
           .icon_left,.icon_right{
-            width: 50px;
-            height: 10px;
+            width: 30px;
+            height: 30px;
             background: red;
           }
+          .icon_left{
+            margin-right: 20px;
+          }
+          .icon_right{
+            margin-left: 10px;
+          }
           .banner{
+            width: 90%;
             .cont{
               display: flex;
               .box{
-                width: 30%;
-                height: 100px;
-                background: red;
+                width: 33.3%;
+                height: 315px;
+                background: #fff;
                 margin-right: 10px;
+                border: 1px solid #dbdbdb;
               }
             }
           }
