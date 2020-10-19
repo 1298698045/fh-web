@@ -121,11 +121,21 @@ li{
             flex: 1;
           }
           .left{
+            //.box:hover{
+            //  background: #fff;
+            //  transition: all 500ms ease-in;
+            //  box-shadow: 0 2px 34px rgba(97, 113, 154, 0.1);
+            //}
+            .box.boxHover{
+              background: #fff;
+              transition: all 500ms ease-in;
+              box-shadow: 0 2px 34px rgba(97, 113, 154, 0.1);
+            }
             .box{
               width:100%;
               display: flex;
               padding: 30px;
-              background: #fff;
+              background: #f8faff;
               .radius{
                 width: 60px;
                 height: 60px;
@@ -170,16 +180,14 @@ li{
       .module_wrap{
         background: #fff;
         .module{
-          padding: 0 120px 50px 120px;
+          padding: 50px 120px;
           display: flex;
           flex-wrap: wrap;
           .box{
-            //width: 15%;
-            flex: 0 0 15%;
+            width: 16%;
             height: auto;
             //background: #fff;
-            margin-right: 19px;
-            margin-top: 58px;
+            margin: 5px;
             display: flex;
             justify-content: center;
             text-align: center;
@@ -267,6 +275,39 @@ li{
             }
           }
         }
+      }
+    }
+  }
+  .bottom_wrap{
+    padding: 50px 120px;
+    background: #fff;
+    display: flex;
+    justify-content:space-around;
+    .item{
+      .title{
+        font-size: 20px;
+        color: #474e5f;
+        font-weight: bold;
+      }
+      .text{
+        font-size: 15px;
+        color: #626775;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    }
+    .qrCode{
+      .imgs{
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+        text-align: center;
+        background: #f5f5f5;
+        font-size: 14px;
+        color: #505050;
+      }
+      .text{
+        color: #626775;
       }
     }
   }

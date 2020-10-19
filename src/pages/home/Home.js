@@ -74,9 +74,24 @@ class Home extends Component{
                     arr:[]
                 }
             ],
-            num:[1,2,3]
+            num:[{
+                id:1,
+                hover:false
+            },
+                {
+                    id:2,
+                    hover:false
+                },
+                {
+                    id:3,
+                    hover:false
+                }],
+            show:false
         }
         this.handleRegister = this.handleRegister.bind(this);
+        this.handleMouseOver = this.handleMouseOver.bind(this);
+        this.handleMouseOut = this.handleMouseOut.bind(this);
+
     }
     handleRegister(){
         // let { history } = this.props
@@ -94,16 +109,40 @@ class Home extends Component{
     getPrev(){
         this.refs.welcome.prev();
     }
+    handleMouseOver=(e,id)=>{
+        // console.log(e,key);
+        const ToDoList1 = JSON.parse( JSON.stringify([...this.state.num]))
+        this.setState({
+            num:ToDoList1.map((item)=>{
+                if(item.id==id){
+                    item.hover = true;
+                }
+                return item;
+            })
+        })
+    }
+    handleMouseOut=(e,id)=>{
+        const ToDoList1 = JSON.parse( JSON.stringify([...this.state.num]))
+        this.setState({
+            num:ToDoList1.map((item)=>{
+                if(item.id==id){
+                    item.hover = false;
+                }
+                return item;
+            })
+        })
+    }
     todoList(){
-       return this.state.num.map(key=>{
+       return this.state.num.map((key,index)=>{
             return (
-                <div className="box" key={key}>
+                <div className={key.hover?'boxHover box':'box'} key={index} onMouseOver={(e)=>{this.handleMouseOver(e,key.id)}}
+                     onMouseOut={(e)=>{this.handleMouseOut(e,key.id)}} >
                     <div className="radius">
                         <img src={require('../../images/icon.png')} alt=""/>
                     </div>
                     <div className="list">
                         <p className="name">一体化</p>
-                        <p>· 涵盖科室的全面管理=</p>
+                        <p>· 涵盖科室的全面管理</p>
                         <p>· 跨部门级全面应用</p>
                         <p>· 前后胎数据一体化</p>
                     </div>
@@ -112,7 +151,7 @@ class Home extends Component{
         })
     }
     bannerList(){
-        let arr = [{item:[1,2,3]},{item:[1,2,3]},{item:[1,2,3]}];
+        let arr = [{item:[1,2,3]},{item:[4,5,6]},{item:[7,8,9]}];
         return  arr.map((item,index)=>{
             return (
                 <div style={swiperStyle} key={index}>
@@ -126,6 +165,7 @@ class Home extends Component{
                                         </p>
                                         <p>医药医疗：山西省长治市人民医院</p>
                                         <p>移动办公快速解决农户燃眉之需</p>
+                                        <p>{v}</p>
                                     </div>
                                 )
 
@@ -363,6 +403,43 @@ class Home extends Component{
                         <div style={fotStyle}>
 
                         </div>
+
+                    </div>
+                </div>
+                <div className="bottom_wrap">
+                    <div className="item">
+                        <p className="title">联系我们</p>
+                        <p className="text">010-87897479</p>
+                        <p className="text">lzy@phxinfo.com.cn</p>
+                        <p className="text">北京市海淀区花园路5号2F  北京凤凰世纪科技有限公司</p>
+                    </div>
+                    <div className="item">
+                        <p className="title">快速通道</p>
+                        <p className="text">首页</p>
+                    </div>
+                    <div className="item">
+                        <p className="title">产品</p>
+                        <p className="text">人力资源系统</p>
+                        <p className="text">医院绩效管理系统</p>
+                        <p className="text">档案管理系统</p>
+                        <p className="text">合同管理系统</p>
+                    </div>
+                    <div className="item">
+                        <p className="title">关于我们</p>
+                        <p className="text">公司简介</p>
+                        <p className="text">新闻动态</p>
+                        <p className="text">人才招聘</p>
+                        <p className="text">联系我们</p>
+                    </div>
+                    <div className="item">
+                        <p className="title">相关链接</p>
+                        <p className="text">体验凤凰办公</p>
+                    </div>
+                    <div className="item qrCode">
+                        <div className="imgs">
+                            二维码
+                        </div>
+                        <p className="text">下载：凤凰办公</p>
                     </div>
                 </div>
                 <div className="footer">
