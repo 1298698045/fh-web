@@ -2,12 +2,15 @@ import React,{Component} from "react";
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less';
 import '../../css/home.scss';
 import { Carousel } from 'antd';
-
 import { HashRouter,Link ,Route } from 'react-router-dom';
 import Detail from './Detail'
 import { createBrowserHistory, createHashHistory } from 'history';
 import backUrl from '../../images/bj.png';
 import fotUrl from '../../images/fot.png';
+import http from '../../utils/request';
+import {IconStyle} from '../../static/iconfont/iconfont';
+import store from '../../store'
+
 const history = createBrowserHistory() // history模式
 // history.push('/')
 var sectionStyle = {
@@ -43,6 +46,7 @@ const swiperStyle = {
 class Home extends Component{
     constructor(props) {
         super(props);
+        console.log(store.getState(),'------');
         this.state = {
             tabList:[
                 {
@@ -91,7 +95,17 @@ class Home extends Component{
         this.handleRegister = this.handleRegister.bind(this);
         this.handleMouseOver = this.handleMouseOver.bind(this);
         this.handleMouseOut = this.handleMouseOut.bind(this);
+        this.handleTopping = this.handleTopping.bind(this);
+        this.handlePhone = this.handlePhone.bind(this);
 
+    }
+    // 置顶
+    handleTopping(){
+        window.scrollTo(0,0);
+    }
+    // 拨打电话
+    handlePhone(){
+        window.location.href = "tel://10086";
     }
     handleRegister(){
         // let { history } = this.props
@@ -102,6 +116,16 @@ class Home extends Component{
         // history.push('Detail')
         // window.location.href="/Detail";
         this.refs.welcome.next();
+    }
+    componentDidMount(){
+        // return new Promise((resolve, reject) => {
+            http("get",'/rest?method=message.statics.getlist&SessionKey=207a11c0-12e3-4f7e-8033-f61b6883ffd8').then(res => {
+                console.log (res);
+            },error => {
+                console.log("网络异常~",error);
+                // reject(error)
+            })
+        // })
     }
     getNext(){
         this.refs.welcome.next();
@@ -183,38 +207,44 @@ class Home extends Component{
         })
         return (
             <div className="wrap">
-                <HashRouter>
-                    <div>
-                        <ul>
-                            <li>
-                                <Link to="/Detail">Detail</Link>
-                            </li>
-                        </ul>
-                        <hr/>
-                        <Route path="/Detail" component={Detail}></Route>
-                    </div>
-                </HashRouter>
-                <div className="header">
-                    <div className={'l'}>
-                        <p>
-                            <img src={require('../../images/banner.png')} alt=""/>
-                        </p>
-                    </div>
-                    <div className={'c'}>
-                        <ul>
-                            {str}
-                        </ul>
-                    </div>
-                    <div className={'r'}>
-                        <p className={'login'}>登录</p>
-                        <p className={'register'} onClick={this.handleRegister}>注册</p>
+                {/*<HashRouter>*/}
+                {/*    <div>*/}
+                {/*        <ul>*/}
+                {/*            <li>*/}
+                {/*                <Link to="/Detail">Detail</Link>*/}
+                {/*                <IconStyle />*/}
+                {/*                <i className="iconfont">&#xe627;</i>*/}
+                {/*            </li>*/}
+                {/*        </ul>*/}
+                {/*        <hr/>*/}
+                {/*        <Route path="/Detail" component={Detail}></Route>*/}
+                {/*    </div>*/}
+                {/*</HashRouter>*/}
+                <div className="header_wrap">
+                    <div className="header">
+                        <div className={'l'}>
+                            <p>
+                                <img src={require('../../images/banner.png')} alt=""/>
+                            </p>
+                        </div>
+                        <div className={'c'}>
+                            <ul>
+                                {str}
+                            </ul>
+                        </div>
+                        <div className={'r'}>
+                            <p className={'login'}>登录</p>
+                            <p className={'register'} onClick={this.handleRegister}>注册</p>
+                        </div>
                     </div>
                 </div>
                 <div className="center">
                     <div className="banner">
                         <Carousel ref="welcome">
                             <div>
-                                <h3 style={contentStyle}>1</h3>
+                                <h3 style={contentStyle}>
+                                    <img src={require('../../images/banner_1.png')} alt=""/>
+                                </h3>
                             </div>
                             <div>
                                 <h3 style={contentStyle}>2</h3>
@@ -226,6 +256,21 @@ class Home extends Component{
                                 <h3 style={contentStyle}>4</h3>
                             </div>
                         </Carousel>
+                        <div className="posBox">
+                            <div className="row" onClick={this.handlePhone}>
+                                <div className="icon">
+                                    <IconStyle/>
+                                    <i className="iconfont">&#xe627;</i>
+                                </div>
+                                <div className="phone">
+                                    010-87897479
+                                </div>
+                            </div>
+                            <div className="qrCode">
+                                <IconStyle/>
+                                <i className="iconfont">&#xe600;</i>
+                            </div>
+                        </div>
                     </div>
                     <div className="tips">
                         <p>最新动态 <span>【2019-07-19】北京安定医院临床心理中心成立暨临床心理病房正式开区</span> </p>
@@ -255,6 +300,20 @@ class Home extends Component{
                             </div>
                         </div>
                         <div className="box_wrap module_wrap">
+                            <div className="posBox">
+                                <div className="box" onClick={this.handlePhone}>
+                                    <IconStyle/>
+                                    <i className="iconfont">&#xe627;</i>
+                                </div>
+                                <div className="box">
+                                    <IconStyle/>
+                                    <i className="iconfont">&#xe600;</i>
+                                </div>
+                                <div className="box" onClick={this.handleTopping}>
+                                    <IconStyle/>
+                                    <i className="iconfont">&#xe63b;</i>
+                                </div>
+                            </div>
                             <div className="title max">医院运营管理整体解决方案</div>
                             <div className="title min">随时随地利用碎片化时间，轻松办公</div>
                             <div className="module">
@@ -377,7 +436,8 @@ class Home extends Component{
                             <div className="title min">凤凰办公的产品，全方位为您提供服务</div>
                             <div className="banner_box">
                                 <div className="icon_left" onClick={this.getPrev.bind(this)}>
-
+                                    <IconStyle/>
+                                    <i className="iconfont">&#xe629;</i>
                                 </div>
                                 <div className="banner">
                                     <Carousel ref="welcome" dots={false}>
@@ -397,7 +457,10 @@ class Home extends Component{
                                         {this.bannerList()}
                                     </Carousel>
                                 </div>
-                                <div className="icon_right" onClick={this.getNext.bind(this)}></div>
+                                <div className="icon_right" onClick={this.getNext.bind(this)}>
+                                    <IconStyle/>
+                                    <i className="iconfont">&#xe62a;</i>
+                                </div>
                             </div>
                         </div>
                         <div style={fotStyle}>
