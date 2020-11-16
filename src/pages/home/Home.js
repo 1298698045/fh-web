@@ -10,12 +10,12 @@ import fotUrl from '../../images/fot.png';
 import http from '../../utils/request';
 import {IconStyle} from '../../static/iconfont/iconfont';
 import store from '../../store'
-
+import CustomerCase from "../customerCase/CustomerCase";
 const history = createBrowserHistory() // history模式
 // history.push('/')
 var sectionStyle = {
     width: "100%",
-    height: "560px",
+    height: "auto",
 // makesure here is String确保这里是一个字符串，以下是es6写法
     backgroundImage: `url(${backUrl})`
 };
@@ -47,34 +47,42 @@ class Home extends Component{
     constructor(props) {
         super(props);
         console.log(store.getState(),'------');
+        document.title = '凤凰世纪'
         this.state = {
             tabList:[
                 {
                     name:"首页",
+                    path:'/Home',
                     arr:[]
                 },
                 {
                     name:"产品",
+                    path:'/Home',
                     arr:[]
                 },
                 {
                     name:"解决方案",
+                    path:'/Home',
                     arr:[]
                 },
                 {
                     name:"客户案例",
+                    path:'/CustomerCase',
                     arr:[]
                 },
                 {
                     name:"服务中心",
+                    path:'/Home',
                     arr:[]
                 },
                 {
                     name:"下载APP",
+                    path:'/Home',
                     arr:[]
                 },
                 {
                     name:"联系我们",
+                    path:'/Home',
                     arr:[]
                 }
             ],
@@ -90,14 +98,19 @@ class Home extends Component{
                     id:3,
                     hover:false
                 }],
-            show:false
+            show:false,
+            plateList:[1,2,3,4,5,6,7,8,9,10,11,12,13,15,15,16,17,18,19,20,21]
         }
         this.handleRegister = this.handleRegister.bind(this);
         this.handleMouseOver = this.handleMouseOver.bind(this);
         this.handleMouseOut = this.handleMouseOut.bind(this);
         this.handleTopping = this.handleTopping.bind(this);
         this.handlePhone = this.handlePhone.bind(this);
+        this.handleRouter = this.handleRouter.bind(this);
+    }
+    handleRouter(){
 
+        history.push('/CustomerCase')
     }
     // 置顶
     handleTopping(){
@@ -187,9 +200,21 @@ class Home extends Component{
                                         <p className="img">
                                             <img src={require('../../images/r.png')} alt=""/>
                                         </p>
-                                        <p>医药医疗：山西省长治市人民医院</p>
-                                        <p>移动办公快速解决农户燃眉之需</p>
-                                        <p>{v}</p>
+                                        <div className="caseCont">
+                                            <div className="imgs">
+                                                <img src={require('../../images/104.png')} alt=""/>
+                                            </div>
+                                            <p className={'text textRow'}>医药医疗：山西省长治市人民医院</p>
+                                            <p className={'title_'}>移动办公快速解决农户燃眉之需</p>
+                                            <div className="divs">
+                                                <p className="text show">通过云和移动的技术助推医疗信息化改革，释放核心医疗资源，提升医生工作效率，解决患者看病难的问题。</p>
+                                                <div className="signRed">
+                                                    <p>1000人以上</p><p>提升沟通效率、高效组织会议{v}</p>
+                                                </div>
+                                                <p>{v}</p>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 )
 
@@ -203,7 +228,21 @@ class Home extends Component{
     render() {
         let str ;
         str = this.state.tabList.map((item,index)=>{
-            return <li key={index}>{item.name}</li>
+            return(
+                    <Link to={`${item.path}`}>
+                        <li key={index} onClick={this.handleRouter}>{item.name}</li>
+                    </Link>
+                )
+        })
+        let plate;
+        plate = this.state.plateList.map((item,index)=>{
+            return (
+                <div className="plate">
+                    <p>
+                        <img src={require('../../images/113.png')} alt=""/>
+                    </p>
+                </div>
+            )
         })
         return (
             <div className="wrap">
@@ -220,28 +259,28 @@ class Home extends Component{
                 {/*        <Route path="/Detail" component={Detail}></Route>*/}
                 {/*    </div>*/}
                 {/*</HashRouter>*/}
-                <div className="header_wrap">
-                    <div className="header">
-                        <div className={'l'}>
-                            <p>
-                                <img src={require('../../images/banner.png')} alt=""/>
-                            </p>
-                        </div>
-                        <div className={'c'}>
-                            <ul>
-                                {str}
-                            </ul>
-                        </div>
-                        <div className={'r'}>
-                            <p className={'login'}>登录</p>
-                            <p className={'register'} onClick={this.handleRegister}>注册</p>
-                        </div>
-                    </div>
-                </div>
+                {/*<div className="header_wrap">*/}
+                {/*    <div className="header">*/}
+                {/*        <div className={'l'}>*/}
+                {/*            <p>*/}
+                {/*                <img src={require('../../images/banner.png')} alt=""/>*/}
+                {/*            </p>*/}
+                {/*        </div>*/}
+                {/*        <div className={'c'}>*/}
+                {/*            <ul>*/}
+                {/*                {str}*/}
+                {/*            </ul>*/}
+                {/*        </div>*/}
+                {/*        <div className={'r'}>*/}
+                {/*            <p className={'login'}>登录</p>*/}
+                {/*            <p className={'register'} onClick={this.handleRegister}>注册</p>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 <div className="center">
                     <div className="banner">
                         <Carousel ref="welcome">
-                            <div>
+                            <div className={'rotation'}>
                                 <h3 style={contentStyle}>
                                     <img src={require('../../images/banner_1.png')} alt=""/>
                                 </h3>
@@ -276,7 +315,7 @@ class Home extends Component{
                         <p>最新动态 <span>【2019-07-19】北京安定医院临床心理中心成立暨临床心理病房正式开区</span> </p>
                         <p>更多</p>
                     </div>
-                    <div className="content">
+                    <div className="contents">
                         <div className="box_wrap">
                             <div className="title max">医院运营管理整体解决方案</div>
                             <div className="title min">随时随地利用碎片化时间，轻松办公</div>
@@ -424,10 +463,46 @@ class Home extends Component{
                                         <div className="imgTop">
                                             <img src={require('../../images/r.png')} alt=""/>
                                         </div>
+                                        <div className="cont_text">
+                                            <div className="title">360度服务体验</div>
+                                            <div className="text">
+                                                通过邮件、电话等方式监控设备运行状况，及时掌控设施缺陷及安全问题。
+                                            </div>
+                                        </div>
                                     </li>
-                                    <li className="lis"></li>
-                                    <li className="lis"></li>
-                                    <li className="lis"></li>
+                                    <li className="lis">
+                                        <div className="imgTop">
+                                            <img src={require('../../images/82.png')} alt=""/>
+                                        </div>
+                                        <div className="cont_text">
+                                            <div className="title">专业的技术团队</div>
+                                            <div className="text">
+                                                由多位资深IT及移动化经验的技术人员组成的专业服务团队。
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="lis">
+                                        <div className="imgTop">
+                                            <img src={require('../../images/83.png')} alt=""/>
+                                        </div>
+                                        <div className="cont_text">
+                                            <div className="title">完善的培训机制</div>
+                                            <div className="text">
+                                                我们免费给您提供解决方案，系统功能更新、技术专题的讲解与培训。
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="lis">
+                                        <div className="imgTop">
+                                            <img src={require('../../images/84.png')} alt=""/>
+                                        </div>
+                                        <div className="cont_text">
+                                            <div className="title">定制化的解决方案</div>
+                                            <div className="text">
+                                                为企业提供移动化、平台化、云端化、定制化的生态系统整体解决方案。
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -456,6 +531,9 @@ class Home extends Component{
                                         {/*</div>*/}
                                         {this.bannerList()}
                                     </Carousel>
+                                    <div className="advertPlate">
+                                        {plate}
+                                    </div>
                                 </div>
                                 <div className="icon_right" onClick={this.getNext.bind(this)}>
                                     <IconStyle/>
@@ -469,45 +547,45 @@ class Home extends Component{
 
                     </div>
                 </div>
-                <div className="bottom_wrap">
-                    <div className="item">
-                        <p className="title">联系我们</p>
-                        <p className="text">010-87897479</p>
-                        <p className="text">lzy@phxinfo.com.cn</p>
-                        <p className="text">北京市海淀区花园路5号2F  北京凤凰世纪科技有限公司</p>
-                    </div>
-                    <div className="item">
-                        <p className="title">快速通道</p>
-                        <p className="text">首页</p>
-                    </div>
-                    <div className="item">
-                        <p className="title">产品</p>
-                        <p className="text">人力资源系统</p>
-                        <p className="text">医院绩效管理系统</p>
-                        <p className="text">档案管理系统</p>
-                        <p className="text">合同管理系统</p>
-                    </div>
-                    <div className="item">
-                        <p className="title">关于我们</p>
-                        <p className="text">公司简介</p>
-                        <p className="text">新闻动态</p>
-                        <p className="text">人才招聘</p>
-                        <p className="text">联系我们</p>
-                    </div>
-                    <div className="item">
-                        <p className="title">相关链接</p>
-                        <p className="text">体验凤凰办公</p>
-                    </div>
-                    <div className="item qrCode">
-                        <div className="imgs">
-                            二维码
-                        </div>
-                        <p className="text">下载：凤凰办公</p>
-                    </div>
-                </div>
-                <div className="footer">
-                    © 2019 北京凤凰世纪科技有限公司  |  京ICP备16024828号
-                </div>
+                {/*<div className="bottom_wrap">*/}
+                {/*    <div className="item">*/}
+                {/*        <p className="title">联系我们</p>*/}
+                {/*        <p className="text">010-87897479</p>*/}
+                {/*        <p className="text">lzy@phxinfo.com.cn</p>*/}
+                {/*        <p className="text">北京市海淀区花园路5号2F  北京凤凰世纪科技有限公司</p>*/}
+                {/*    </div>*/}
+                {/*    <div className="item">*/}
+                {/*        <p className="title">快速通道</p>*/}
+                {/*        <p className="text">首页</p>*/}
+                {/*    </div>*/}
+                {/*    <div className="item">*/}
+                {/*        <p className="title">产品</p>*/}
+                {/*        <p className="text">人力资源系统</p>*/}
+                {/*        <p className="text">医院绩效管理系统</p>*/}
+                {/*        <p className="text">档案管理系统</p>*/}
+                {/*        <p className="text">合同管理系统</p>*/}
+                {/*    </div>*/}
+                {/*    <div className="item">*/}
+                {/*        <p className="title">关于我们</p>*/}
+                {/*        <p className="text">公司简介</p>*/}
+                {/*        <p className="text">新闻动态</p>*/}
+                {/*        <p className="text">人才招聘</p>*/}
+                {/*        <p className="text">联系我们</p>*/}
+                {/*    </div>*/}
+                {/*    <div className="item">*/}
+                {/*        <p className="title">相关链接</p>*/}
+                {/*        <p className="text">体验凤凰办公</p>*/}
+                {/*    </div>*/}
+                {/*    <div className="item qrCode">*/}
+                {/*        <div className="imgs">*/}
+                {/*            二维码*/}
+                {/*        </div>*/}
+                {/*        <p className="text">下载：凤凰办公</p>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+                {/*<div className="footer">*/}
+                {/*    © 2019 北京凤凰世纪科技有限公司  |  京ICP备16024828号*/}
+                {/*</div>*/}
             </div>
         )
     }
