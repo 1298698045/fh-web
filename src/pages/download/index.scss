@@ -1,0 +1,65 @@
+.wrap{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  .banner{
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-top: 82px;
+    .bagImg{
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+    .textWrap{
+      width: 20%;
+      position: absolute;
+      top: 110px;
+      left: 120px;
+      h1{
+        font-weight: bold;
+        color: #fff;
+        font-size: 50px;
+      }
+      h3{
+        font-weight: bold;
+        color: #fff;
+        font-size: 30px;
+      }
+      .row{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 100px;
+        .box{
+          width: 155px;
+          height: 45px;
+          border-radius: 8px;
+          background: #333333;
+          color: #fff;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          i{
+            font-size: 30px;
+          }
+        }
+        .box:last-child{
+          background-color: rgba(0, 0, 0, 1);
+        }
+      }
+    }
+    .recommentImg{
+      //width: 413px;
+      //height: 542px;
+      width: 22%;
+      position: absolute;
+      top: 60px;
+      right: 180px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

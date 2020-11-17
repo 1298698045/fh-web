@@ -10,6 +10,8 @@ import CustomerCase from './pages/customerCase/CustomerCase'
 import './App.css';
 import {Layout} from './layout/Layout'
 import Solution from "./pages/solution/Solution";
+import Download from "./pages/download/Download";
+import AboutWe from "./pages/aboutWe/AboutWe";
 
 function App() {
   return (
@@ -28,6 +30,16 @@ function App() {
             <Route path={'/Solution'}>
                 <Layout>
                     <Solution />
+                </Layout>
+            </Route>
+            <Route path={'/Download'}>
+                <Layout>
+                    <Download />
+                </Layout>
+            </Route>
+            <Route path={'/AboutWe'}>
+                <Layout>
+                    <AboutWe />
                 </Layout>
             </Route>
         </Switch>

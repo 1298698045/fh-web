@@ -1,0 +1,33 @@
+.journalism{
+  //background: #f8f8f8;
+  background: #fff;
+  display: flex;
+  padding: 40px 0;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+  .rBox{
+    flex: 1;
+    margin-left: 50px;
+    .title{
+      font-size: 20px;
+      color: #474e5f;
+      font-weight: bold;
+    }
+    .cont{
+      font-size: 16px;
+      color: #626775;
+      margin: 40px 0;
+    }
+    .bottom{
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #999999;
+    }
+  }
+}
+.pagination{
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}

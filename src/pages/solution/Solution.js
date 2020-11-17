@@ -3,6 +3,13 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less';
 import {Carousel,Divider,Pagination  } from "antd";
 import {IconStyle} from "../../static/iconfont/iconfont";
 import './index.scss';
+import backUrl from '../../images/532.svg';
+var sectionStyle = {
+    width: "100%",
+    height: "auto",
+// makesure here is String确保这里是一个字符串，以下是es6写法
+    backgroundImage: `url(${backUrl})`
+};
 const contentStyle = {
     height: '470px',
     color: '#fff',
@@ -108,6 +115,9 @@ const Solution = () =>{
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div className="svgWrap" style={sectionStyle}>
+                        
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 // import { HashRouter,Link ,Route } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
-import '../css/home.scss'
+import '../css/header.scss'
 const LayoutHeader = () => {
     const history = useHistory();
     let list =[
@@ -33,12 +33,12 @@ const LayoutHeader = () => {
         },
         {
             name:"下载APP",
-            path:'/Home',
+            path:'/Download',
             arr:[]
         },
         {
             name:"联系我们",
-            path:'/Home',
+            path:'/AboutWe',
             arr:[]
         }
     ];

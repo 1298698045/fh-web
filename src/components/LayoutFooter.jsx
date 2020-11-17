@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 // import { HashRouter,Link ,Route } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import '../css/home.scss';
+import '../css/footer.scss';
 
 const LayoutFooter = () => {
     return (

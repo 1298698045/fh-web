@@ -1,0 +1,48 @@
+.wrap{
+  .bottom_wrap{
+    //padding: 50px 120px;
+    padding: 50px 0;
+    background: #fff;
+    display: flex;
+    justify-content:space-around;
+    .item{
+      .title{
+        font-size: 20px;
+        color: #474e5f;
+        font-weight: bold;
+      }
+      .text:hover{
+        color: #b31e23;
+      }
+      .text{
+        font-size: 15px;
+        color: #626775;
+        font-weight: bold;
+        margin-top: 10px;
+        cursor:pointer;
+      }
+    }
+    .qrCode{
+      text-align: center;
+      .imgs{
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+        text-align: center;
+        background: #f5f5f5;
+        font-size: 14px;
+        color: #505050;
+      }
+      .text{
+        color: #626775;
+      }
+    }
+  }
+  .footer{
+    background: #f0f0f0;
+    font-size: 12px;
+    color: #8d8f93;
+    padding: 20px 0;
+    text-align: center;
+  }
+}
