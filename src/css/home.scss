@@ -248,7 +248,8 @@ li{
         background: #fff;
         position: relative;
         .posBox{
-          position: absolute;
+          //position: absolute;
+          position: fixed;
           right: 0;
           bottom: 100px;
           .box{

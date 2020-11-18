@@ -24,6 +24,22 @@ const Solution = () =>{
     const handlePhone = () => {
 
     }
+    const [data,setData] = useState([1,2,3,4,5,6]);
+    const todoList = data.map((item,index)=>{
+        return (
+            <div className={'box'}>
+                <div className="radius">
+                    <img src={require('../../images/icon.png')} alt=""/>
+                </div>
+                <div className="list">
+                    <p className="name">一体化</p>
+                    <p>· 涵盖科室的全面管理</p>
+                    <p>· 跨部门级全面应用</p>
+                    <p>· 前后胎数据一体化</p>
+                </div>
+            </div>
+        )
+    })
     return (
         <div className='wrap'>
             <div className="center">
@@ -117,7 +133,24 @@ const Solution = () =>{
                         </div>
                     </div>
                     <div className="svgWrap" style={sectionStyle}>
-                        
+                        <div className={'dividerWrap'}>
+                            <div className="divider">
+                                <div className={'l'}>
+                                    <span className={'line'}></span>
+                                    <span className={'dian'}></span>
+                                </div>
+                                <div className={'title'}>
+                                    方案特点
+                                </div>
+                                <div className={'r'}>
+                                    <span className={'dian'}></span>
+                                    <span className={'line'}></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="cont_wrap">
+                            {todoList}
+                        </div>
                     </div>
                 </div>
             </div>

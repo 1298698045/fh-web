@@ -70,4 +70,40 @@
       }
     }
   }
+  .popup{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    position: fixed;
+    top: 83px;
+    left: 0;
+    z-index: 999;
+    cursor: pointer;
+    .box-wrap{
+      padding: 30px 180px;
+      display: flex;
+      .column{
+        width: 150px;
+        h3{
+          font-size: 16px;
+          color: #b31e23;
+          font-weight: bold;
+        }
+        .block{
+          margin-top: 21px;
+          font-size: 15px;
+          color: #626775;
+          p:first-child{
+            margin: 0;
+          }
+          p:hover{
+            color: #b31e23;
+          }
+          p{
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+  }
 }

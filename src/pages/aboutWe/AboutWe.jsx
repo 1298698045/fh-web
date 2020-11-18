@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import './index.scss';
 import Journalism from '../../components/Journalism';
 import Recruit from '../../components/Recruit';
+import WeMy from '../../components/WeMy';
 const AboutWe = () => {
     const [idx,setIdx] = useState(0);
     const [data,setData] = useState(['公司简介','新闻动态','人才招聘','联系我们']);
@@ -15,6 +16,7 @@ const AboutWe = () => {
     let JournalismC;
     let company;
     let recruit;
+    let wemy;
     if(idx==0){
         company = (
              <div>
@@ -76,6 +78,8 @@ const AboutWe = () => {
         JournalismC = (<Journalism/>);
     }else if(idx==2){
         recruit = (<Recruit/>)
+    }else if(idx==3){
+        wemy = (<WeMy/>)
     }
     return (
         <div className="wrap">
@@ -100,6 +104,7 @@ const AboutWe = () => {
                     {company}
                     {JournalismC}
                     {recruit}
+                    {wemy}
                 </div>
             </div>
         </div>

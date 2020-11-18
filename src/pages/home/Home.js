@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less';
 import '../../css/home.scss';
-import { Carousel } from 'antd';
+import { Carousel , BackTop} from 'antd';
 import { HashRouter,Link ,Route } from 'react-router-dom';
 import Detail from './Detail'
 import { createBrowserHistory, createHashHistory } from 'history';
@@ -348,10 +348,14 @@ class Home extends Component{
                                     <IconStyle/>
                                     <i className="iconfont">&#xe600;</i>
                                 </div>
-                                <div className="box" onClick={this.handleTopping}>
-                                    <IconStyle/>
-                                    <i className="iconfont">&#xe63b;</i>
-                                </div>
+                                <BackTop style={{position:'static'}}>
+                                    {/*<div className="box" onClick={this.handleTopping}>*/}
+                                    <div className="box">
+                                        <IconStyle/>
+                                        <i className="iconfont">&#xe63b;</i>
+                                    </div>
+                                </BackTop>
+
                             </div>
                             <div className="title max">医院运营管理整体解决方案</div>
                             <div className="title min">随时随地利用碎片化时间，轻松办公</div>
