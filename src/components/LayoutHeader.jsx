@@ -3,7 +3,9 @@ import React,{useState,useEffect} from "react";
 import { useHistory } from 'react-router-dom';
 
 import '../css/header.scss'
+import {IconStyle} from "../static/iconfont/iconfont";
 const LayoutHeader = () => {
+    const [idx,setIdx] = useState(0);
     const [isShow,setIsShow] = useState(false);
     const history = useHistory();
     let list =[
@@ -44,14 +46,17 @@ const LayoutHeader = () => {
         }
     ];
     const [tabList,setTabList] = useState(list)
-    const handleRouter = (item) =>{
+    const handleRouter = (item,index) =>{
+        setIdx(index)
         // console.log(this.history,item,'history');
         setIsShow(false);
         console.log('history', item);
         history.push(item.path)
+        window.scrollTo(0, 0)
     }
     const handleRegister = () => {
         console.log('registry')
+        history.push('/Register')
     }
     const handleMouse = (index) =>{
         // console.log(index,'werer')
@@ -63,9 +68,22 @@ const LayoutHeader = () => {
         setIsShow(false);
     }
     const str = tabList.map((item,index)=>{
+        let icon;
+        if(index==1){
+            icon = (
+                <span style={{marginLeft:'5px'}}>
+                    <IconStyle/>
+                    <i className="iconfont">&#xe60c;</i>
+                </span>
+
+            )
+        }
         return(
             // <Link to={`${item.path}`}>
-                <li key={index} onMouseEnter={()=>handleMouse(index)} onClick={()=>handleRouter(item)}>{item.name}</li>
+                <li className={idx==index?'active':''} key={index} onMouseEnter={()=>handleMouse(index)} onClick={()=>handleRouter(item,index)}>
+                    {item.name}
+                    {icon}
+                </li>
             // </Link>
         )
     })

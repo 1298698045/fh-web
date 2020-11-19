@@ -11,6 +11,11 @@ import http from '../../utils/request';
 import {IconStyle} from '../../static/iconfont/iconfont';
 import store from '../../store'
 import CustomerCase from "../customerCase/CustomerCase";
+
+
+import Swiper from 'swiper/dist/js/swiper.js'
+import 'swiper/dist/css/swiper.min.css'
+
 const history = createBrowserHistory() // history模式
 // history.push('/')
 var sectionStyle = {
@@ -26,12 +31,20 @@ const fotStyle = {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover"
 }
+// const contentStyle = {
+//     height: '470px',
+//     color: '#fff',
+//     lineHeight: '470px',
+//     textAlign: 'center',
+//     background: '#364d79',
+//     autoplay:false
+//
+// };
 const contentStyle = {
-    height: '470px',
+    height: '570px',
     color: '#fff',
-    lineHeight: '470px',
     textAlign: 'center',
-    background: '#364d79',
+    background: '#fff',
     autoplay:false
 
 };
@@ -131,6 +144,18 @@ class Home extends Component{
         this.refs.welcome.next();
     }
     componentDidMount(){
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: true,
+            diration: 1000,
+            loop: true,
+            pagination : {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
         // return new Promise((resolve, reject) => {
             http("get",'/rest?method=message.statics.getlist&SessionKey=207a11c0-12e3-4f7e-8033-f61b6883ffd8').then(res => {
                 console.log (res);
@@ -279,41 +304,92 @@ class Home extends Component{
                 {/*</div>*/}
                 <div className="center">
                     <div className="banner">
-                        <Carousel ref="welcome">
-                            <div className={'rotation'}>
-                                <h3 style={contentStyle}>
-                                    <img src={require('../../images/banner_1.png')} alt=""/>
-                                </h3>
-                            </div>
-                            <div>
-                                <h3 style={contentStyle}>2</h3>
-                            </div>
-                            <div>
-                                <h3 style={contentStyle}>3</h3>
-                            </div>
-                            <div>
-                                <h3 style={contentStyle}>4</h3>
-                            </div>
-                        </Carousel>
-                        <div className="posBox">
-                            <div className="row" onClick={this.handlePhone}>
-                                <div className="icon">
-                                    <IconStyle/>
-                                    <i className="iconfont">&#xe627;</i>
+                        {/*<Carousel ref="welcome">*/}
+                        {/*    <div className={'rotation'}>*/}
+                        {/*        <h3 style={contentStyle}>*/}
+                        {/*            <img src={require('../../images/banner_1.png')} alt=""/>*/}
+                        {/*        </h3>*/}
+                        {/*    </div>*/}
+                        {/*    <div>*/}
+                        {/*        <h3 style={contentStyle}>2</h3>*/}
+                        {/*    </div>*/}
+                        {/*    <div>*/}
+                        {/*        <h3 style={contentStyle}>3</h3>*/}
+                        {/*    </div>*/}
+                        {/*    <div>*/}
+                        {/*        <h3 style={contentStyle}>4</h3>*/}
+                        {/*    </div>*/}
+                        {/*</Carousel>*/}
+                        {/*<Swiper*/}
+                        {/*    style={contentStyle}*/}
+                        {/*    spaceBetween={50}*/}
+                        {/*    navigation*/}
+                        {/*    initialSlide={0} // 初始化显示哪一个*/}
+                        {/*    loop={true} // 是否循环*/}
+                        {/*    autoplay={true}*/}
+                        {/*    pagination={{ clickable: true }}*/}
+                        {/*    onSwiper={(swiper) => console.log(swiper)}*/}
+                        {/*    onSlideChange={(e) => console.log('slide change',e)}*/}
+                        {/*>*/}
+                        {/*    <SwiperSlide style={{width:'100%'}}>*/}
+                        {/*        <img src={require('../../images/banner_1.png')} alt=""/>*/}
+                        {/*    </SwiperSlide>*/}
+                        {/*    <SwiperSlide style={{width:'100%'}}>*/}
+                        {/*        <img src={require('../../images/banner_1.png')} alt=""/>*/}
+                        {/*    </SwiperSlide>*/}
+                        {/*    <SwiperSlide style={{width:'100%'}}>*/}
+                        {/*        <img src={require('../../images/banner_1.png')} alt=""/>*/}
+                        {/*    </SwiperSlide>*/}
+                        {/*</Swiper>*/}
+                        <div className="swiper-container" style={contentStyle}>
+                            <div className="swiper-wrapper">
+                                <div className="swiper-slide">
+                                    <img src={require('../../images/banner_1.png')} alt=""/>*/}
                                 </div>
-                                <div className="phone">
-                                    010-87897479
+                                <div className="swiper-slide">
+                                    <img src={require('../../images/banner_1.png')} alt=""/>*/}
+                                </div>
+                                <div className="swiper-slide">
+                                    <img src={require('../../images/banner_1.png')} alt=""/>*/}
                                 </div>
                             </div>
-                            <div className="qrCode">
-                                <IconStyle/>
-                                <i className="iconfont">&#xe600;</i>
+                            <div className='swiper-pagination'></div>
+                            <div className="swiper-button-prev"></div>
+                            {/*左箭头。如果放置在swiper-container外面，需要自定义样式。*/}
+                            <div className="swiper-button-next"></div>
+                            {/*右箭头。如果放置在swiper-container外面，需要自定义样式。*/}
+                        </div>
+                        <div className="copywriting">
+                            <h1>凤凰办公</h1>
+                            <h3>OA办公自动化平台</h3>
+                            <p className={'text'}>专注医院管理信息化，医院管理信息化解决方案，专注医院管理信息化，医院管理信息化解决方案。</p>
+                            <div className="btn-wrap">
+                                <p>试用申请</p>
+                                <p>下载APP</p>
                             </div>
                         </div>
+                        {/*<div className="posBox">*/}
+                        {/*    <div className="row" onClick={this.handlePhone}>*/}
+                        {/*        <div className="icon">*/}
+                        {/*            <IconStyle/>*/}
+                        {/*            <i className="iconfont">&#xe627;</i>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="phone">*/}
+                        {/*            010-87897479*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*    <div className="qrCode">*/}
+                        {/*        <IconStyle/>*/}
+                        {/*        <i className="iconfont">&#xe600;</i>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </div>
                     <div className="tips">
                         <p>最新动态 <span>【2019-07-19】北京安定医院临床心理中心成立暨临床心理病房正式开区</span> </p>
-                        <p>更多</p>
+                        <p>更多
+                            <IconStyle/>
+                            <i className="iconfont">&#xe62a;</i>
+                        </p>
                     </div>
                     <div className="contents">
                         <div className="box_wrap">
@@ -340,21 +416,31 @@ class Home extends Component{
                         </div>
                         <div className="box_wrap module_wrap">
                             <div className="posBox">
-                                <div className="box" onClick={this.handlePhone}>
-                                    <IconStyle/>
-                                    <i className="iconfont">&#xe627;</i>
+                                <div className="boxActive">
+                                    <div className={'text'}>
+                                        010-87897479
+                                    </div>
+                                    <div className="box" onClick={this.handlePhone}>
+                                        <IconStyle/>
+                                        <i className="iconfont">&#xe627;</i>
+                                    </div>
                                 </div>
-                                <div className="box">
-                                    <IconStyle/>
-                                    <i className="iconfont">&#xe600;</i>
-                                </div>
-                                <BackTop style={{position:'static'}}>
-                                    {/*<div className="box" onClick={this.handleTopping}>*/}
+                                <div className="boxActive">
                                     <div className="box">
                                         <IconStyle/>
-                                        <i className="iconfont">&#xe63b;</i>
+                                        <i className="iconfont">&#xe600;</i>
                                     </div>
-                                </BackTop>
+                                </div>
+                                <div className="boxActive">
+                                    <BackTop style={{position:'static',width:'50px',height:'50px'}}>
+                                        {/*<div className="box" onClick={this.handleTopping}>*/}
+                                        <div className="box">
+                                            <IconStyle/>
+                                            <i className="iconfont">&#xe63b;</i>
+                                        </div>
+                                    </BackTop>
+                                </div>
+
 
                             </div>
                             <div className="title max">医院运营管理整体解决方案</div>

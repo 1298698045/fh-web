@@ -2,6 +2,7 @@
 import React,{useState,useEffect} from "react";
 import { Pagination } from 'antd';
 import  '../css/journalism.scss';
+import {IconStyle} from '../static/iconfont1/iconfont'
 const Journalism = () => {
     const [listData,setListData] = useState([1,2,3])
     const list = listData.map((item,index)=>{
@@ -19,7 +20,12 @@ const Journalism = () => {
                         通过云和移动的技术助推医疗信息化改革，释放核心医疗资源，提升医生工作效率，解决患者看病难的问题。
                     </p>
                     <div className="bottom">
-                        <p>2019年7月09日</p><p>6201</p>
+                        <p>2019年7月09日</p>
+                        <p>
+                            <IconStyle />
+                            <i className="iconfont" style={{marginRight:'10px'}}>&#xe836;</i>
+                            6201
+                        </p>
                     </div>
                 </div>
             </div>

@@ -39,6 +39,9 @@
             color: #333333;
             cursor: pointer;
           }
+          li.active{
+            color: #b31e23;
+          }
           li:hover{
             color: #b31e23;
           }
@@ -77,7 +80,7 @@
     position: fixed;
     top: 83px;
     left: 0;
-    z-index: 999;
+    z-index: 9999;
     cursor: pointer;
     .box-wrap{
       padding: 30px 180px;

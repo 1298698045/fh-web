@@ -12,6 +12,7 @@ import {Layout} from './layout/Layout'
 // import Solution from "./pages/solution/Solution";
 // import Download from "./pages/download/Download";
 // import AboutWe from "./pages/aboutWe/AboutWe";
+import Register from "./pages/register/Register";
 import routeList from './utils/router';
 function App() {
     const arr = routeList.map((item,index)=>{
@@ -59,6 +60,9 @@ function App() {
           {/*          <Home />*/}
           {/*      </Layout>*/}
           {/*  </Route>*/}
+          <Route path={'/Register'}>
+              <Register/>
+          </Route>
         </Switch>
       </Router>
 

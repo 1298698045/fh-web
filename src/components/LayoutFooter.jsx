@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 // import { HashRouter,Link ,Route } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import '../css/footer.scss';
+import {IconStyle} from "../static/iconfont1/iconfont";
 
 const LayoutFooter = () => {
     return (
@@ -9,9 +10,18 @@ const LayoutFooter = () => {
             <div className="bottom_wrap">
                 <div className="item">
                     <p className="title">联系我们</p>
-                    <p className="text">010-87897479</p>
-                    <p className="text">lzy@phxinfo.com.cn</p>
-                    <p className="text">北京市海淀区花园路5号2F  北京凤凰世纪科技有限公司</p>
+                    <p className="text">
+                        <IconStyle/>
+                        <i className="iconfont" style={{marginRight:'10px'}}>&#xe61b;</i>
+                        010-87897479</p>
+                    <p className="text">
+                        <IconStyle/>
+                        <i className="iconfont" style={{marginRight:'10px'}}>&#xe62e;</i>
+                        lzy@phxinfo.com.cn</p>
+                    <p className="text">
+                        <IconStyle/>
+                        <i className="iconfont" style={{marginRight:'10px'}}>&#xe61f;</i>
+                        北京市海淀区花园路5号2F  北京凤凰世纪科技有限公司</p>
                 </div>
                 <div className="item">
                     <p className="title">快速通道</p>
