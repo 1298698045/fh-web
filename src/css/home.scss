@@ -97,9 +97,38 @@ li{
       .swiper-container{
         .swiper-button-prev{
           left: 10%;
+          width: 29px;
+          height: 60px;
+          background: rgba(0,0,0,.2);
+          display: flex;
+          justify-content: center;
+          i{
+            display: block;
+            line-height: 60px;
+            font-size: 30px;
+          }
         }
         .swiper-button-next{
           right: 10%;
+          width: 29px;
+          height: 60px;
+          background: rgba(0,0,0,.2);
+          display: flex;
+          justify-content: center;
+          i{
+            display: block;
+            line-height: 60px;
+            font-size: 30px;
+          }
+        }
+      }
+      .swiper-pagination{
+        .swiper-pagination-bullet{
+          width: 56px;
+          height: 3px;
+          border-radius: 0;
+          background: #999999;
+          cursor:pointer;
         }
       }
       .copywriting{
@@ -311,6 +340,7 @@ li{
             width: 180px;
             transition:all 1s ease;
             margin: 0;
+            border-left: 1px solid #fff;
             //display: block;
           }
           .boxActive{
@@ -338,7 +368,6 @@ li{
               line-height: 50px;
               text-align: center;
               padding: 0 20px;
-              border-left: 1px solid #fff;
               box-sizing: border-box;
               background: #b31e23;
               color: #fff;

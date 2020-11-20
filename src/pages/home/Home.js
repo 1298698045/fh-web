@@ -150,6 +150,8 @@ class Home extends Component{
             loop: true,
             pagination : {
                 el: '.swiper-pagination',
+                clickable: true,
+                clickableClass : 'my-pagination-clickable',
             },
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -353,10 +355,18 @@ class Home extends Component{
                                     <img src={require('../../images/banner_1.png')} alt=""/>*/}
                                 </div>
                             </div>
-                            <div className='swiper-pagination'></div>
-                            <div className="swiper-button-prev"></div>
+                            <div className='swiper-pagination'>
+
+                            </div>
+                            <div className="swiper-button-prev">
+                                <IconStyle/>
+                                <i className="iconfont">&#xe629;</i>
+                            </div>
                             {/*左箭头。如果放置在swiper-container外面，需要自定义样式。*/}
-                            <div className="swiper-button-next"></div>
+                            <div className="swiper-button-next">
+                                <IconStyle/>
+                                <i className="iconfont">&#xe62a;</i>
+                            </div>
                             {/*右箭头。如果放置在swiper-container外面，需要自定义样式。*/}
                         </div>
                         <div className="copywriting">
@@ -415,34 +425,34 @@ class Home extends Component{
                             </div>
                         </div>
                         <div className="box_wrap module_wrap">
-                            <div className="posBox">
-                                <div className="boxActive">
-                                    <div className={'text'}>
-                                        010-87897479
-                                    </div>
-                                    <div className="box" onClick={this.handlePhone}>
-                                        <IconStyle/>
-                                        <i className="iconfont">&#xe627;</i>
-                                    </div>
-                                </div>
-                                <div className="boxActive">
-                                    <div className="box">
-                                        <IconStyle/>
-                                        <i className="iconfont">&#xe600;</i>
-                                    </div>
-                                </div>
-                                <div className="boxActive">
-                                    <BackTop style={{position:'static',width:'50px',height:'50px'}}>
-                                        {/*<div className="box" onClick={this.handleTopping}>*/}
-                                        <div className="box">
-                                            <IconStyle/>
-                                            <i className="iconfont">&#xe63b;</i>
-                                        </div>
-                                    </BackTop>
-                                </div>
+                            {/*<div className="posBox">*/}
+                            {/*    <div className="boxActive">*/}
+                            {/*        <div className={'text'}>*/}
+                            {/*            010-87897479*/}
+                            {/*        </div>*/}
+                            {/*        <div className="box" onClick={this.handlePhone}>*/}
+                            {/*            <IconStyle/>*/}
+                            {/*            <i className="iconfont">&#xe627;</i>*/}
+                            {/*        </div>*/}
+                            {/*    </div>*/}
+                            {/*    <div className="boxActive">*/}
+                            {/*        <div className="box">*/}
+                            {/*            <IconStyle/>*/}
+                            {/*            <i className="iconfont">&#xe600;</i>*/}
+                            {/*        </div>*/}
+                            {/*    </div>*/}
+                            {/*    <div className="boxActive">*/}
+                            {/*        <BackTop style={{position:'static',width:'50px',height:'50px'}}>*/}
+                            {/*            /!*<div className="box" onClick={this.handleTopping}>*!/*/}
+                            {/*            <div className="box">*/}
+                            {/*                <IconStyle/>*/}
+                            {/*                <i className="iconfont">&#xe63b;</i>*/}
+                            {/*            </div>*/}
+                            {/*        </BackTop>*/}
+                            {/*    </div>*/}
 
 
-                            </div>
+                            {/*</div>*/}
                             <div className="title max">医院运营管理整体解决方案</div>
                             <div className="title min">随时随地利用碎片化时间，轻松办公</div>
                             <div className="module">
