@@ -1,0 +1,78 @@
+html{
+  overflow-y: hidden;
+}
+.homer_wrap{
+  margin-top: 60px;
+  .center{
+    .swiper-container{
+      .swiper-slide{
+        overflow: hidden;
+      }
+    }
+
+    .swiper-container-child{
+      .swiper-slide-child{
+          position: relative;
+          .boxCont{
+            width: 1440px;
+            position: absolute;
+            top:142px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            z-index: 9999;
+            text-align: left;
+            .cont{
+              .title{
+                font-size: 40px;
+                font-weight: bold;
+              }
+              .animate__bounceInDown.active{
+                --animate-duration: 2s;
+              }
+              .box{
+                margin-top: 20px;
+                font-size: 20px;
+                color: #fff;
+              }
+              .btn{
+                width: 120px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                background: #b31e23;
+                font-size: 16px;
+                color: #fff;
+                border-radius: 4px;
+                margin-top: 46px;
+                cursor: pointer;
+              }
+            }
+            .imgs{
+              width: 660px;
+              height: 403px;
+              overflow: hidden;
+              img{
+                width: 100%;
+                height: 100%;
+                vertical-align: middle;
+              }
+            }
+          }
+
+      }
+      .swiper-pagination{
+        .swiper-pagination-bullet{
+          width: 56px;
+          height: 3px;
+          border-radius: 0;
+          background: #999999;
+          cursor:pointer;
+        }
+      }
+    }
+
+  }
+}

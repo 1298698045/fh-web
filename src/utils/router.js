@@ -1,4 +1,5 @@
 import Home from '../pages/home/Home';
+import HomePage from '../pages/home/HomePage'
 import Solution from "../pages/solution/Solution";
 import Download from "../pages/download/Download";
 import AboutWe from "../pages/aboutWe/AboutWe";
@@ -26,7 +27,7 @@ const routeList = [
     },
     {
         path:'/',
-        name:Home
+        name:HomePage
     }
 ]
 export default routeList;

@@ -32,8 +32,8 @@ const Download = () => {
                                 &#xe63d;
                             </i>
                             <div>
-                                <p>APP Store</p>
-                                <p>下载</p>
+                                <p><a href="https://apps.apple.com/cn/app/%E5%87%A4%E5%87%B0%E5%8A%9E%E5%85%AC/id1148909193">APP Store</a></p>
+                                <p><a href="https://apps.apple.com/cn/app/%E5%87%A4%E5%87%B0%E5%8A%9E%E5%85%AC/id1148909193">下载</a></p>
                             </div>
                         </div>
                     </div>

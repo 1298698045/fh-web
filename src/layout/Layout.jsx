@@ -8,7 +8,7 @@ export const Layout = (props) => {
     return (<div className={"wrap"}>
         <LayoutHeader />
         {props.children}
-        <LayoutFooter/>
+        {/*<LayoutFooter/>*/}
         <Aside/>
         </div>);
 }

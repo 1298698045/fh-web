@@ -139,8 +139,13 @@ const LayoutHeader = () => {
                         </ul>
                     </div>
                     <div className={'r'}>
-                        <p className={'login'}>登录</p>
-                        <p className={'register'} onClick={handleRegister}>注册</p>
+                        <div className={'imgs'}>
+                            <img style={{width:'38px',height:'38px'}} src={require('../images/890.png')} alt=""/>
+                        </div>
+                        <div className={'textBox'}>
+                            <p className={'text'}>热线电话</p>
+                            <p className={'phone'}>010-87897479</p>
+                        </div>
                     </div>
                 </div>
             </div>

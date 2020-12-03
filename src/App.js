@@ -19,7 +19,7 @@ function App() {
         console.log(item,'routeList')
         const Name = item.name;
         return (
-            <Route path={item.path}>
+            <Route path={item.path} key={index}>
                 <Layout>
                     < Name />
                 </Layout>
