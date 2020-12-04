@@ -127,24 +127,26 @@ const LayoutHeader = () => {
     return (
         <>
             <div className="header_wrap">
-                <div className="header">
-                    <div className={'l'}>
-                        <p>
-                            <img src={require('../images/banner.png')} alt=""/>
-                        </p>
-                    </div>
-                    <div className={'c'}>
-                        <ul>
-                            {str}
-                        </ul>
-                    </div>
-                    <div className={'r'}>
-                        <div className={'imgs'}>
-                            <img style={{width:'38px',height:'38px'}} src={require('../images/890.png')} alt=""/>
+                <div className={'container'}>
+                    <div className="header">
+                        <div className={'l'}>
+                            <p>
+                                <img src={require('../images/banner.png')} alt=""/>
+                            </p>
                         </div>
-                        <div className={'textBox'}>
-                            <p className={'text'}>热线电话</p>
-                            <p className={'phone'}>010-87897479</p>
+                        <div className={'c'}>
+                            <ul>
+                                {str}
+                            </ul>
+                        </div>
+                        <div className={'r'}>
+                            <div className={'imgs'}>
+                                <img style={{width:'38px',height:'38px'}} src={require('../images/890.png')} alt=""/>
+                            </div>
+                            <div className={'textBox'}>
+                                <p className={'text'}>热线电话</p>
+                                <p className={'phone'}>010-87897479</p>
+                            </div>
                         </div>
                     </div>
                 </div>
