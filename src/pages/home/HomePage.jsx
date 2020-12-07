@@ -9,7 +9,7 @@ import "animate.css";
 import backUrl from "../../images/bj.png";
 import { Carousel , BackTop} from 'antd';
 // import styled from 'styled-components'
-
+const windowWidth = window.innerWidth;
 const contentStyle = {
     height: '100%',
     color: '#fff',
@@ -146,7 +146,7 @@ const HomePage = () => {
     );
     const contThree = (
         <div className="boxContent">
-            <div className="head_title">
+                <div className="head_title">
                 <h1 className='title'>满足更多的办公场景</h1>
                 <p className='text'>基础OA + 专业业务管理系统</p>
             </div>
@@ -231,6 +231,14 @@ const HomePage = () => {
     const getPrev = () =>{
         bannerRef.current.slick.slickPrev();
     };
+
+    let arr;
+    console.log(windowWidth,'windowWidth')
+    if(windowWidth<1920){
+        arr = [1,2,3,4,5]
+    }else {
+        arr = [0,1,2,3,4,5,6,7,8,9]
+    }
     const bannerList = ()=> {
         let arr = [{item:[1,2,3]},{item:[4,5,6]},{item:[7,8,9]}];
         return  arr.map((item,index)=>{
@@ -268,7 +276,7 @@ const HomePage = () => {
             )
         })
     }
-    const plate = [1,2,3,4,4,5,6,7,8,9].map((item,index)=>{
+    const plate = arr.map((item,index)=>{
         return (
             <div className="plate">
                 <p>
@@ -279,7 +287,7 @@ const HomePage = () => {
     })
     const contFive = (
         <div className="boxContent">
-            <div className="head_title" style={{paddingBottom:'60px',marginTop:'50px'}}>
+            <div className="head_title" style={{paddingBottom:'2%',marginTop:'2%'}}>
                 <h1 className='title'>客户案例</h1>
                 <p className='text'>凤凰办公的产品，全方位为您提供服务</p>
             </div>
