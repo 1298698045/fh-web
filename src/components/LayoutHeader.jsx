@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 // import { HashRouter,Link ,Route } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import '../css/header.scss'
 import {IconStyle} from "../static/iconfont/iconfont";
@@ -8,16 +8,23 @@ const LayoutHeader = () => {
     const [idx,setIdx] = useState(0);
     const [isShow,setIsShow] = useState(false);
     const history = useHistory();
+    const location = useLocation();
+    console.log(location,'location')
     let list =[
         {
             name:"首页",
-            path:'/Home',
+            path:'/HomePage',
             arr:[]
         },
         {
             name:"产品",
             path:'/Home',
-            arr:[]
+            arr:[
+                {
+                    name:'人力资源系统',
+                    path:'/HrSystem'
+                }
+            ]
         },
         {
             name:"解决方案",
@@ -31,7 +38,7 @@ const LayoutHeader = () => {
         },
         {
             name:"服务中心",
-            path:'/Home',
+            path:'/Home1',
             arr:[]
         },
         {
@@ -47,12 +54,18 @@ const LayoutHeader = () => {
     ];
     const [tabList,setTabList] = useState(list)
     const handleRouter = (item,index) =>{
+        console.log(item,index,'debugger')
         setIdx(index)
         // console.log(this.history,item,'history');
         setIsShow(false);
         console.log('history', item);
         history.push(item.path)
         window.scrollTo(0, 0)
+    }
+    const getClickHr = () => {
+        history.push('/HrSystem')
+        setIdx(1)
+        console.log(idx,'idx')
     }
     const handleRegister = () => {
         console.log('registry')
@@ -67,6 +80,18 @@ const LayoutHeader = () => {
     const handleMouseLeave = () => {
         setIsShow(false);
     }
+    useEffect(()=>{
+        const {pathname} = location;
+        console.log(pathname,'---')
+        if(pathname=='/HrSystem'){
+            setIdx(1)
+        }
+        tabList.find((item,index)=> {
+            if(item.path === pathname) {
+                setIdx(index);
+            }
+        })
+    }, [])
     const str = tabList.map((item,index)=>{
         let icon;
         if(index==1){
@@ -96,6 +121,7 @@ const LayoutHeader = () => {
                         <h3>组织在线</h3>
                         <div className="block">
                             <p>通讯录</p><p>应用</p>
+                            <p onClick={getClickHr}>人力资源</p>
                         </div>
                     </div>
                     <div className="column">

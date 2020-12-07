@@ -27,7 +27,7 @@ const Solution = () =>{
     const [data,setData] = useState([1,2,3,4,5,6]);
     const todoList = data.map((item,index)=>{
         return (
-            <div className={'box'}>
+            <div className={'box'} key={index}>
                 <div className="radius">
                     <img src={require('../../images/icon.png')} alt=""/>
                 </div>
@@ -42,8 +42,8 @@ const Solution = () =>{
     })
     return (
         <div className='wrap'>
-            <div className="center">
-                <div className="banner">
+            <div className="center" style={{marginTop:'60px'}}>
+                <div className="banners">
                     <Carousel ref={welcome}>
                         <div className={'rotation'}>
                             <h3 style={contentStyle}>

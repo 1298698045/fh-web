@@ -8,7 +8,7 @@ const AboutWe = () => {
     const [idx,setIdx] = useState(0);
     const [data,setData] = useState(['公司简介','新闻动态','人才招聘','联系我们']);
     const tabs = data.map((item,index)=>{
-        return <p className={idx==index?'active':''} onClick={()=>handleTab(index)}>{item}</p>
+        return <p className={idx==index?'active':''} onClick={()=>handleTab(index)} key={index}>{item}</p>
     })
     const handleTab = (index) => {
         setIdx(index)

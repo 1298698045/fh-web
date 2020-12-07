@@ -264,7 +264,7 @@ class Home extends Component{
         let plate;
         plate = this.state.plateList.map((item,index)=>{
             return (
-                <div className="plate">
+                <div className="plate" key={index}>
                     <p>
                         <img src={require('../../images/113.png')} alt=""/>
                     </p>

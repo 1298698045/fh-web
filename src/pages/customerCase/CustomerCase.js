@@ -18,7 +18,7 @@ const CustomerCase = () =>{
     const [list,setList] = useState([1,2,3,4,5,6,7,8,9]);
     const renderList = list.map((item,index)=>{
         return (
-            <div className="box">
+            <div className="box" key={index}>
                 <p className="img">
                     <img src={require('../../images/r.png')} alt=""/>
                 </p>
@@ -42,8 +42,8 @@ const CustomerCase = () =>{
     const welcome = useRef(null)
     return (
         <div className="wrap">
-            <div className="center">
-                <div className="banner">
+            <div className="center" style={{marginTop:'60px'}}>
+                <div className="banners">
                     {/*<Carousel ref="welcome">               */}
                     <Carousel ref={welcome}>
                         <div className={'rotation'}>

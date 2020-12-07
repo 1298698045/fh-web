@@ -7,7 +7,7 @@ import {
 import logo from './logo.svg';
 import Home from './pages/home/Home'
 // import CustomerCase from './pages/customerCase/CustomerCase'
-// import './App.css';
+import './App.css';
 import {Layout} from './layout/Layout'
 // import Solution from "./pages/solution/Solution";
 // import Download from "./pages/download/Download";

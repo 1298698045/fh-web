@@ -412,6 +412,30 @@ html{
                       border-bottom: 8px solid #fff;
                       left: 8px;
                     }
+                    .qr-img-one::before{
+                      content:'';
+                      position: absolute;
+                      top: -15px;
+                      width: 0;
+                      height: 0;
+                      border-top: 0;
+                      border: 7px solid transparent;
+                      border-bottom: 8px solid #fff;
+                      left: 0;
+                      right: 0;
+                      margin: auto;
+                    }
+                    .qr-img-two::before{
+                      content:'';
+                      position: absolute;
+                      top: -15px;
+                      width: 0;
+                      height: 0;
+                      border-top: 0;
+                      border: 7px solid transparent;
+                      border-bottom: 8px solid #fff;
+                      right: 8px;
+                    }
                   }
                 }
               }

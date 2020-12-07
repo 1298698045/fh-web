@@ -37,6 +37,7 @@ const HomePage = () => {
     const [index,setIndex] = useState(0);
     const [list,setList] = useState([1,2,3,4,5,6,7,8,9])
     const bannerRef = useRef();
+    const [numbers,setNumbers] = useState(0);
     console.log(bannerRef,'bannerRef')
     useEffect(() => {
         var mySwiper = new Swiper('.swiper-container', {
@@ -154,7 +155,7 @@ const HomePage = () => {
                 {
                     list.map((item,index)=>{
                         return (
-                            <div className="box">
+                            <div className="box" key={index}>
                                 <div className="icon">
                                     <img src={require('../../images/16.png')} alt=""/>
                                 </div>
@@ -278,7 +279,7 @@ const HomePage = () => {
     }
     const plate = arr.map((item,index)=>{
         return (
-            <div className="plate">
+            <div className="plate" key={index}>
                 <p>
                     <img src={require('../../images/113.png')} alt=""/>
                 </p>
@@ -313,6 +314,9 @@ const HomePage = () => {
             </div>
         </div>
     );
+    const getSwitch = (index) =>{
+        setNumbers(index);
+    }
     const contSix = (
         <div className={'contSix'}>
             <div className="apply">
@@ -366,18 +370,18 @@ const HomePage = () => {
                         </div>
                         <div className="qrCode_wrap">
                             <div className="row">
-                                <p className="imgs">
+                                <p className="imgs" onClick={()=>{getSwitch(0)}}>
                                     <img src={require('../../images/574.png')} alt=""/>
                                 </p>
-                                <p className="imgs">
+                                <p className="imgs" onClick={()=>{getSwitch(1)}}>
                                     <img src={require('../../images/574.png')} alt=""/>
                                 </p>
-                                <p className="imgs">
+                                <p className="imgs" onClick={()=>{getSwitch(2)}}>
                                     <img src={require('../../images/574.png')} alt=""/>
                                 </p>
                             </div>
                             <div className="qrCode">
-                                <div className="qr-img"></div>
+                                <div className={numbers==0?'qr-img':numbers==1?'qr-img-one':'qr-img-two'}></div>
                             </div>
                         </div>
                     </div>
