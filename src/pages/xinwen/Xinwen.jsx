@@ -5,7 +5,7 @@ import {IconStyle} from "../../static/iconfont/iconfont";
 import './index.scss'
 import imgOne from '../../images/913.png';
 import backUrl from "../../images/bj.png";
-import NewFooter from '../../components/NewFooter';
+import NewFooter from "../../components/NewFooter";
 const contentStyle = {
     height: '470px',
     color: '#fff',
@@ -65,7 +65,7 @@ const CustomerCase = () =>{
                                     <span className={'dian'}></span>
                                 </div>
                                 <div className={'title'}>
-                                    客户案例
+                                    新闻
                                 </div>
                                 <div className={'r'}>
                                     <span className={'dian'}></span>

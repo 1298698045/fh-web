@@ -5,10 +5,17 @@ import Download from "../pages/download/Download";
 import AboutWe from "../pages/aboutWe/AboutWe";
 import CustomerCase from '../pages/customerCase/CustomerCase'
 import HrSystem from "../pages/hrSystem/HrSystem";
+import WorkOA from "../pages/workOA/WorkOA";
+import Xinwen from "../pages/xinwen/Xinwen";
+import NewAboutWe from "../pages/newAboutWe/NewAboutWe";
 const routeList = [
     {
         path:'/Home',
         name:Home
+    },
+    {
+      path: '/Xinwen',
+      name: Xinwen
     },
     {
         path: '/CustomerCase',
@@ -27,8 +34,16 @@ const routeList = [
         name:AboutWe
     },
     {
+        path:'/NewAboutWe',
+        name:NewAboutWe
+    },
+    {
         path:'/HrSystem',
         name:HrSystem
+    },
+    {
+        path:'/WorkOA',
+        name:WorkOA
     },
     {
         path:'/',

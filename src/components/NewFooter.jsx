@@ -1,17 +1,118 @@
 import React,{useEffect,useState,useRef} from "react";
 import {IconStyle} from "../static/iconfont/iconfont";
 import '../css/newFooter.scss';
+import { Modal, Button ,Form, Input,Row, Col, } from 'antd';
+const styleBtn = {
+    background: '#f6f6f9',
+    fontSize: '14px',
+    color: '#626775'
+}
+const formStyle = {
+    marginTop:'10px'
+}
+const SubmitBtn = {
+    background: '#b31e23',
+    border: 'none'
+}
 const NewFooter = () => {
     const [numbers,setNumbers] = useState(0);
+    const [isModalVisible,setIsModalVisible] = useState(false);
+    const [index,setIndex] = useState(0);
     const getSwitch = (index) =>{
         setNumbers(index);
     }
+    const getApply = () => {
+          setIsModalVisible(true)
+    };
+    const formItemLayout = {
+        labelCol: { span: 6 },
+        wrapperCol: { span: 14 },
+    };
+    const showModal = (
+        <Modal width={440} closable={false} footer={null} visible={isModalVisible} onCancel={(e)=>{setIsModalVisible(false)}}>
+            <div className="tabs">
+                <p className={index==0?'active':''} onClick={()=>{setIndex(0)}}>试用申请咨询</p>
+                <p className={index==1?'active':''} onClick={()=>{setIndex(1)}}>在线咨询</p>
+            </div>
+            {index==0&&
+            <div className="modalContent">
+                <div className="desc">完善以下信息您可以免费体验我们的产品功能，我们的顾问会在 1个工作日内与您取得联系</div>
+                <Form {...formItemLayout} style={formStyle}>
+                    <Form.Item
+                        label="单位名称"
+                        name="username"
+                        rules={[{ required: true, message: 'Please input your username!' }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item
+                        label="姓名"
+                        name="username"
+                        rules={[{ required: true, message: 'Please input your username!' }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item
+                        label="手机号"
+                        name="username"
+                        rules={[{ required: true, message: 'Please input your username!' }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item label="短信验证"
+                               name="captcha"
+                               rules={[{ required: true, message: 'Please input your username!' }]}
+                    >
+                        <Row gutter={8}>
+                            <Col span={12}>
+                                <Input />
+                                {/*<Form.Item*/}
+                                {/*    name="captcha"*/}
+                                {/*    noStyle*/}
+                                {/*    rules={[{ required: true, message: 'Please input the captcha you got!' }]}*/}
+                                {/*>*/}
+                                {/*    <Input />*/}
+                                {/*</Form.Item>*/}
+                            </Col>
+                            <Col span={12}>
+                                <Button style={styleBtn}>获取验证码</Button>
+                            </Col>
+                        </Row>
+                    </Form.Item>
+                    <Form.Item
+                        label="邮箱"
+                        name="username"
+                        rules={[{ required: false, message: 'Please input your username!' }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item style={{
+                        display:'flex',
+                        justifyContent:"center"
+                    }}>
+                        <Button type="primary" style={SubmitBtn} block onClick={()=>{setIsModalVisible(false)}}>
+                            提交申请
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </div>
+            }
+            {index==1&&
+                <div className={'qrCode'}>
+                    <div className="code">
+
+                    </div>
+                    <div className="text">用微信扫描二维码，即可获取您的专属顾问</div>
+                </div>
+            }
+        </Modal>
+    )
     return (
         <>
             <div className={'contSix'}>
                 <div className="apply">
                     专业咨询顾问，为您提供1对1专属服务
-                    <p className={'btn'}>试用申请</p>
+                    <p className={'btn'} onClick={getApply}>试用申请</p>
                 </div>
                 <div className="footerBar">
                     <div className="box-wrap">
@@ -83,6 +184,7 @@ const NewFooter = () => {
                     <p>京公网安备11030102010604</p>
                 </div>
             </div>
+            {showModal}
         </>
     )
 }

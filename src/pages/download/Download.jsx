@@ -3,7 +3,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less';
 import {Carousel,Divider,Pagination  } from "antd";
 import {IconStyle} from "../../static/iconfont1/iconfont";
 import './index.scss';
-
+import NewFooter from "../../components/NewFooter";
 const Download = () => {
     return (
         <div className="wrap">
@@ -39,6 +39,7 @@ const Download = () => {
                     </div>
                 </div>
             </div>
+            <NewFooter/>
         </div>
     )
 }

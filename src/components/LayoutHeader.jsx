@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from "react";
 // import { HashRouter,Link ,Route } from 'react-router-dom';
 import { useHistory, useLocation } from 'react-router-dom';
-
+import { Menu, Dropdown, Button } from 'antd';
 import '../css/header.scss'
 import {IconStyle} from "../static/iconfont/iconfont";
+
 const LayoutHeader = () => {
     const [idx,setIdx] = useState(0);
     const [isShow,setIsShow] = useState(false);
@@ -32,6 +33,10 @@ const LayoutHeader = () => {
             arr:[]
         },
         {
+            name:"新闻",
+            path:"/Xinwen"
+        },
+        {
             name:"客户案例",
             path:'/CustomerCase',
             arr:[]
@@ -46,10 +51,14 @@ const LayoutHeader = () => {
             path:'/Download',
             arr:[]
         },
+        // {
+        //     name:"联系我们",
+        //     path:'/AboutWe',
+        //     arr:[]
+        // },
         {
-            name:"联系我们",
-            path:'/AboutWe',
-            arr:[]
+            name:"关于我们",
+            path:'/NewAboutWe'
         }
     ];
     const [tabList,setTabList] = useState(list)
@@ -67,6 +76,10 @@ const LayoutHeader = () => {
         setIdx(1)
         console.log(idx,'idx')
     }
+    const getClickOA = () =>{
+        history.push('/WorkOA')
+        setIdx(1)
+    }
     const handleRegister = () => {
         console.log('registry')
         history.push('/Register')
@@ -74,7 +87,7 @@ const LayoutHeader = () => {
     const handleMouse = (index) =>{
         // console.log(index,'werer')
         if(index==1){
-            setIsShow(true);
+            // setIsShow(true);
         }
     };
     const handleMouseLeave = () => {
@@ -83,7 +96,7 @@ const LayoutHeader = () => {
     useEffect(()=>{
         const {pathname} = location;
         console.log(pathname,'---')
-        if(pathname=='/HrSystem'){
+        if(pathname=='/HrSystem'||pathname=='/WorkOA'){
             setIdx(1)
         }
         tabList.find((item,index)=> {
@@ -92,6 +105,38 @@ const LayoutHeader = () => {
             }
         })
     }, [])
+    const menu = (
+        <Menu>
+            <Menu.Item>
+                <span className={'spans'} onClick={getClickOA}>
+                    协同办公（OA）
+                </span>
+            </Menu.Item>
+            <Menu.Item>
+                <span className={'spans'} onClick={getClickHr}>
+                    人力资源管理系统
+                </span>
+            </Menu.Item>
+            <Menu.Item>
+                <span className={'spans'}>
+                    电子票据管理平台
+                </span>
+            </Menu.Item>
+            <Menu.Item>
+                <span className={'spans'}>
+                    移动 (OA)
+                </span>
+            </Menu.Item>
+            <Menu.Item>
+                <span className={'spans'}>
+                    智能报销管理系统
+                </span>
+            </Menu.Item>
+            <Menu.Item>
+                <span className={'spans'}>合同管理系统</span>
+            </Menu.Item>
+        </Menu>
+    );
     const str = tabList.map((item,index)=>{
         let icon;
         if(index==1){
@@ -104,11 +149,25 @@ const LayoutHeader = () => {
             )
         }
         return(
+            <>
+                {index==1&&
+                <Dropdown overlay={menu} placement="bottomLeft" arrow>
+                    <li className={idx==index?'active':''} key={index} onMouseEnter={()=>handleMouse(index)} onClick={()=>handleRouter(item,index)}>
+                        {item.name}
+                        {icon}
+                    </li>
+                </Dropdown>
+                }
+                {
+                    index!=1&&
+                    <li className={idx==index?'active':''} key={index} onMouseEnter={()=>handleMouse(index)} onClick={()=>handleRouter(item,index)}>
+                        {item.name}
+                        {icon}
+                    </li>
+                }
+            </>
             // <Link to={`${item.path}`}>
-                <li className={idx==index?'active':''} key={index} onMouseEnter={()=>handleMouse(index)} onClick={()=>handleRouter(item,index)}>
-                    {item.name}
-                    {icon}
-                </li>
+
             // </Link>
         )
     })
@@ -120,7 +179,8 @@ const LayoutHeader = () => {
                     <div className="column">
                         <h3>组织在线</h3>
                         <div className="block">
-                            <p>通讯录</p><p>应用</p>
+                            <p>通讯录</p>
+                            <p onClick={getClickOA}>移动（OA）</p>
                             <p onClick={getClickHr}>人力资源</p>
                         </div>
                     </div>
