@@ -91,20 +91,28 @@ const HomePage = () => {
                     <div className="boxCont">
                         <div className="cont">
                             {/*<p className="title animate__animated animate__bounceInDown animate__delay-1s">医院协同办公平台解决方案</p>*/}
-                            {index==0&&<p className={'title animate__animated animate__bounceInDown animate__delay-0s'}>医院协同办公平台解决方案</p>}
+                            {index==0&&<p className={'title animate__animated animate__fadeInUp animate__delay-0s'}>医院协同办公平台解决方案</p>}
                             {index==1&&<p className={'title'}>医院协同办公平台解决方案</p>}
                             {/*<p className={index==1?'title animate__animated animate__bounceInDown animate__delay-1s':'title'}>医院协同办公平台解决方案</p>*/}
 
-                            <div className={'box animate__animated animate__lightSpeedInLeft'}>
-                                <p>专做医院协同办公系统的提供商</p>
-                                <p>北京中关村的国家级高新技术企业、双软认证企业“三专团队”</p>
-                                <p>专业医院解决方案、专注于医院管理、专家级资询团</p>
+                            {index==0&&
+                                <div className={'box animate__animated animate__fadeInUp'}>
+                                    <p>专做医院协同办公系统的提供商</p>
+                                    <p>北京中关村的国家级高新技术企业、双软认证企业“三专团队”</p>
+                                    <p>专业医院解决方案、专注于医院管理、专家级资询团</p>
+                                </div>
+                            }
+                            {
+                                index==0&&<p className="btn animate__animated animate__fadeInUp">试用申请</p>
+                            }
+
+                        </div>
+                        {
+                            index==0&&<div className="imgs animate__animated animate__fadeInRightBig">
+                                <img src={require('../../images/814.png')} alt=""/>
                             </div>
-                            <p className="btn animate__animated animate__backInUp">试用申请</p>
-                        </div>
-                        <div className="imgs">
-                            <img src={require('../../images/814.png')} alt=""/>
-                        </div>
+                        }
+
                     </div>
                 </div>
                 <div className="swiper-slide">
@@ -139,18 +147,27 @@ const HomePage = () => {
                         <p>彻底告别纸张办公，让组织的整个运营流程完全电子化！</p>
                     </div>
                 </div>
-                <div className="rightBox">
-                    {/*<img src={require('../../images/815.png')} alt=""/>*/}
-                </div>
+                {
+                    index==1&&
+                    <div className="rightBox animate__animated animate__fadeInRightBig">
+                        {/*<img src={require('../../images/815.png')} alt=""/>*/}
+                    </div>
+                }
+
             </div>
         </div>
     );
     const contThree = (
         <div className="boxContent">
                 <div className="head_title">
-                <h1 className='title'>满足更多的办公场景</h1>
-                <p className='text'>基础OA + 专业业务管理系统</p>
-            </div>
+                    {
+                        index==2&&<h1 className='title  animate__animated animate__fadeInUp'>满足更多的办公场景</h1>
+                    }
+                    {
+                        index==2&&<p className='text  animate__animated animate__fadeInUp'>基础OA + 专业业务管理系统</p>
+                    }
+
+                </div>
             <div className="box_block">
                 {
                     list.map((item,index)=>{
@@ -173,8 +190,13 @@ const HomePage = () => {
     const contFour = (
         <div className="boxContent">
             <div className="head_title head_title_color">
-                <h1 className='title'>提供更全面的专家级服务支持</h1>
-                <p className='text'>从运营理念到实操技能，为客户提供包括远程协助、智能客服、现场服务等多元立体化的一对一学习运营和顾问服务，全面解决平台运营难题</p>
+                {
+                    index==3&&<h1 className='title  animate__animated animate__fadeInUp'>提供更全面的专家级服务支持</h1>
+                }
+                {
+                    index==3&&<p className='text  animate__animated animate__fadeInUp'>从运营理念到实操技能，为客户提供包括远程协助、智能客服、现场服务等多元立体化的一对一学习运营和顾问服务，全面解决平台运营难题</p>
+                }
+
             </div>
             <div className="cont_Box">
                 <ul>
@@ -289,8 +311,12 @@ const HomePage = () => {
     const contFive = (
         <div className="boxContent">
             <div className="head_title" style={{paddingBottom:'2%',marginTop:'2%'}}>
-                <h1 className='title'>客户案例</h1>
-                <p className='text'>凤凰办公的产品，全方位为您提供服务</p>
+                {
+                    index==4&&<h1 className='title  animate__animated animate__fadeInUp'>客户案例</h1>
+                }
+                {
+                    index==4&&<p className='text  animate__animated animate__fadeInUp'>凤凰办公的产品，全方位为您提供服务</p>
+                }
             </div>
             <div className="banner_box">
                 <div className="leftIcon" onClick={getPrev}>

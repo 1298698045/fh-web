@@ -86,15 +86,18 @@ const NewFooter = () => {
                     >
                         <Input />
                     </Form.Item>
-                    <Form.Item style={{
-                        display:'flex',
-                        justifyContent:"center"
-                    }}>
-                        <Button type="primary" style={SubmitBtn} block onClick={()=>{setIsModalVisible(false)}}>
-                            提交申请
-                        </Button>
-                    </Form.Item>
+                    {/*<Form.Item style={{*/}
+                    {/*    display:'flex',*/}
+                    {/*    justifyContent:"center"*/}
+                    {/*}}>*/}
+                    {/*    <Button type="primary" style={SubmitBtn} block onClick={()=>{setIsModalVisible(false)}}>*/}
+                    {/*        提交申请*/}
+                    {/*    </Button>*/}
+                    {/*</Form.Item>*/}
                 </Form>
+                <Button type="primary" style={SubmitBtn} block onClick={()=>{setIsModalVisible(false)}}>
+                    提交申请
+                </Button>
             </div>
             }
             {index==1&&
