@@ -27,11 +27,11 @@ const LayoutHeader = () => {
                 }
             ]
         },
-        {
-            name:"解决方案",
-            path:'/Solution',
-            arr:[]
-        },
+        // {
+        //     name:"解决方案",
+        //     path:'/Solution',
+        //     arr:[]
+        // },
         {
             name:"新闻",
             path:"/Xinwen"
@@ -41,16 +41,16 @@ const LayoutHeader = () => {
             path:'/CustomerCase',
             arr:[]
         },
-        {
-            name:"服务中心",
-            path:'/Home1',
-            arr:[]
-        },
-        {
-            name:"下载APP",
-            path:'/Download',
-            arr:[]
-        },
+        // {
+        //     name:"服务中心",
+        //     path:'/Home1',
+        //     arr:[]
+        // },
+        // {
+        //     name:"下载APP",
+        //     path:'/Download',
+        //     arr:[]
+        // },
         // {
         //     name:"联系我们",
         //     path:'/AboutWe',

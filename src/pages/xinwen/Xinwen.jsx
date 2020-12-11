@@ -27,23 +27,17 @@ const CustomerCase = () =>{
     const [list,setList] = useState([1,2,3,4,5,6,7,8,9]);
     const renderList = list.map((item,index)=>{
         return (
-            <div className="box" key={index}>
+            <div className="box_box" key={index}>
                 <p className="img">
                     <img src={require('../../images/103.png')} alt=""/>
                 </p>
-                <div className="caseCont">
-                    <div className="imgs">
-                        <img src={require('../../images/104.png')} alt=""/>
+                <div className="cont_wrap">
+                    <div className="desc">
+                        喜报！北京协和医院电子票据管理平台正式上线，安全合规
                     </div>
-                    <p className={'text textRow'}>医药医疗：山西省长治市人民医院</p>
-                    <p className={'title_'}>移动办公快速解决农户燃眉之需</p>
-                    <div className="divs">
-                        <p className="text show">通过云和移动的技术助推医疗信息化改革，释放核心医疗资源，提升医生工作效率，解决患者看病难的问题。</p>
-                        <div className="signRed">
-                            <p>1000人以上</p><p>提升沟通效率、高效组织会议</p>
-                        </div>
+                    <div className="row">
+                        <p>签约动态 | 北京协和医院</p><p>2020-11-24</p>
                     </div>
-
                 </div>
             </div>
         )

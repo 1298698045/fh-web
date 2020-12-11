@@ -21,15 +21,26 @@
     clear: both;
     position: relative;
     .qrCode{
-      width: 100px;
-      height: 100px;
+      width: 120px;
       background: #fff;
       position: absolute;
       bottom: 0;
-      left: -102px;
+      left: -123px;
       display: none;
       border-radius: 8px;
       box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.2);
+      padding: 10px 0;
+      .box_position{
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        background: #333333;
+      }
+      .box_text{
+        text-align: center;
+        font-size: 14px;
+        margin-top: 5px;
+      }
     }
     .box{
       width: 50px;

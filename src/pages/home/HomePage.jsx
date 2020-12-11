@@ -132,17 +132,26 @@ const HomePage = () => {
             <div className="boxFlex">
                 <div className="leftBox">
                     <div className="box">
-                        <h1 className="name">智能化</h1>
+                        {
+                            index==1&&<h1 className="name animate__animated animate__zoomInDown">智能化</h1>
+                        }
+
                         <p>OA通过智能语音来交互，消除软件界面；</p>
                         <p>让组织每位成员拥有一位7*24小时的智能办公助理!</p>
                     </div>
                     <div className="box">
-                        <h1 className="name">平台化</h1>
+                        {
+                            index==1&&<h1 className="name animate__animated animate__zoomInDown">平台化</h1>
+                        }
+                        {/*<h1 className="name">平台化</h1>*/}
                         <p>OA平台与其他异构系统集成构建统一工作平台，</p>
                         <p>7大引擎满足组织灵活变化需求，实现按需应变！</p>
                     </div>
                     <div className="box">
-                        <h1 className="name">全程电子化</h1>
+                        {
+                            index==1&&<h1 className="name animate__animated animate__zoomInDown">全程电子化</h1>
+                        }
+                        {/*<h1 className="name">全程电子化</h1>*/}
                         <p>电子印章、电子签名、电子合同、电子存证，</p>
                         <p>彻底告别纸张办公，让组织的整个运营流程完全电子化！</p>
                     </div>
@@ -169,10 +178,10 @@ const HomePage = () => {
 
                 </div>
             <div className="box_block">
-                {
+                {index==2&&
                     list.map((item,index)=>{
                         return (
-                            <div className="box" key={index}>
+                            <div className="box animate__animated animate__fadeInUp" key={index}>
                                 <div className="icon">
                                     <img src={require('../../images/16.png')} alt=""/>
                                 </div>
@@ -199,52 +208,56 @@ const HomePage = () => {
 
             </div>
             <div className="cont_Box">
-                <ul>
-                    <li className="lis">
-                        <div className="imgTop">
-                            <img src={require('../../images/r.png')} alt=""/>
-                        </div>
-                        <div className="cont_text">
-                            <div className="title">360度服务体验</div>
-                            <div className="text">
-                                通过邮件、电话等方式监控设备运行状况，及时掌控设施缺陷及安全问题。
+                {
+                    index==3&&
+                    <ul>
+                        <li className="lis animate__animated animate__fadeInUp">
+                            <div className="imgTop">
+                                <img src={require('../../images/r.png')} alt=""/>
                             </div>
-                        </div>
-                    </li>
-                    <li className="lis">
-                        <div className="imgTop">
-                            <img src={require('../../images/82.png')} alt=""/>
-                        </div>
-                        <div className="cont_text">
-                            <div className="title">专业的技术团队</div>
-                            <div className="text">
-                                由多位资深IT及移动化经验的技术人员组成的专业服务团队。
+                            <div className="cont_text">
+                                <div className="title">360度服务体验</div>
+                                <div className="text">
+                                    通过邮件、电话等方式监控设备运行状况，及时掌控设施缺陷及安全问题。
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li className="lis">
-                        <div className="imgTop">
-                            <img src={require('../../images/83.png')} alt=""/>
-                        </div>
-                        <div className="cont_text">
-                            <div className="title">完善的培训机制</div>
-                            <div className="text">
-                                我们免费给您提供解决方案，系统功能更新、技术专题的讲解与培训。
+                        </li>
+                        <li className="lis animate__animated animate__fadeInUp">
+                            <div className="imgTop">
+                                <img src={require('../../images/82.png')} alt=""/>
                             </div>
-                        </div>
-                    </li>
-                    <li className="lis">
-                        <div className="imgTop">
-                            <img src={require('../../images/84.png')} alt=""/>
-                        </div>
-                        <div className="cont_text">
-                            <div className="title">定制化的解决方案</div>
-                            <div className="text">
-                                为企业提供移动化、平台化、云端化、定制化的生态系统整体解决方案。
+                            <div className="cont_text">
+                                <div className="title">专业的技术团队</div>
+                                <div className="text">
+                                    由多位资深IT及移动化经验的技术人员组成的专业服务团队。
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
+                        </li>
+                        <li className="lis animate__animated animate__fadeInUp">
+                            <div className="imgTop">
+                                <img src={require('../../images/83.png')} alt=""/>
+                            </div>
+                            <div className="cont_text">
+                                <div className="title">完善的培训机制</div>
+                                <div className="text">
+                                    我们免费给您提供解决方案，系统功能更新、技术专题的讲解与培训。
+                                </div>
+                            </div>
+                        </li>
+                        <li className="lis animate__animated animate__fadeInUp">
+                            <div className="imgTop">
+                                <img src={require('../../images/84.png')} alt=""/>
+                            </div>
+                            <div className="cont_text">
+                                <div className="title">定制化的解决方案</div>
+                                <div className="text">
+                                    为企业提供移动化、平台化、云端化、定制化的生态系统整体解决方案。
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                }
+
             </div>
         </div>
     );

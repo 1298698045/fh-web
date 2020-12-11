@@ -32,17 +32,22 @@ const HrSystem = () =>{
     useEffect(()=>{
         console.log("scroll", scroll);
         const { left, top } = scroll;
-        if(top<800) {
-            setIndex(0);
-        }else if(top<1400) {
-            setIndex(1)
-        }else if(top<2100) {
-            setIndex(2)
-        } else if(top<2820){
-            setIndex(3)
-        }else if(top<3500){
-            setIndex(4)
-        }
+        // if(top<800) {
+        //     setIndex(0);
+        // }else if(top<1400) {
+        //     setIndex(1)
+        // }else if(top<2100) {
+        //     setIndex(2)
+        // } else if(top<2820){
+        //     setIndex(3)
+        // }else if(top<3500){
+        //     setIndex(4)
+        // }
+        let index = indexInfo.findIndex((item,index)=>{
+            return top <= document.getElementById(item.id).offsetTop;
+        });
+        console.log(index,'index')
+        setIndex(index)
         // classList = []
     },[scroll])
     const handleClick = (e, link) => {
@@ -53,7 +58,7 @@ const HrSystem = () =>{
         console.log(index);
         setIndex(index);
         indexInfo.map((item)=>{
-            let top = document.getElementById(item.id).offsetTop;
+            let top = document.getElementById(item.id).offsetTop-140;
             console.log(top);
             if(item.index===index) {
                 window.scrollTo({top: top})

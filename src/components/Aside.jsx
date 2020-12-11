@@ -27,7 +27,10 @@ const Aside = () => {
 
                 </div>
                 <div className="qrCode">
-
+                    <div className="box_position"></div>
+                    <div className="box_text">苹果客户端</div>
+                    <div className="box_position"></div>
+                    <div className="box_text">安卓客户端</div>
                 </div>
             </div>
             <div className="boxActive">

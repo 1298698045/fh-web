@@ -72,25 +72,21 @@
           flex-wrap: wrap;
           justify-content: space-between;
           padding: 30px 0;
-          .box:hover .img,{
-            position: absolute;
-            z-index: -1;
-            width: 0;
-            //display: none;
+          .box_box:hover{
+            //box-shadow: 0px 4px 16px 0px rgba(8, 30, 80, 0);
+            box-shadow: 0px 2px 34px 0px rgba(21, 54, 83, 0.1);
+            transition: all 1ms ease-in;
           }
-          .box:hover .caseCont .divs{
-            display: block;
-          }
-          .box{
+          .box_box{
             //width: 29%;
             width: 350px;
             margin: 50px;
-            height: 315px;
+            //height: 315px;
             background: #fff;
             //margin-right: 76px;
             margin-top: 50px;
             border: 1px solid #dbdbdb;
-            box-shadow: 0px 2px 34px 0px rgba(21, 54, 83, 0.1);
+            //box-shadow: 0px 2px 34px 0px rgba(21, 54, 83, 0.1);
             .img{
               width: 100%;
               height: 165px;
@@ -99,49 +95,18 @@
                 height: 100%;
               }
             }
-            .caseCont{
-              padding: 17px;
-              .imgs{
-                width: 152px;
-                height: 36px;
-                img{
-                  width: 100%;
-                  height: 100%;
-                }
+            .cont_wrap{
+              padding: 16px;
+              .desc{
+                font-size: 16px;
+                color: #2f3342;
+                padding-bottom: 26px;
               }
-              .textRow{
-                padding: 17px 0;
-              }
-              .text{
+              .row{
+                display: flex;
+                justify-content: space-between;
                 font-size: 14px;
                 color: #626775;
-                font-weight: bold;
-              }
-
-              .title_{
-                font-size: 20px;
-                font-weight: bold;
-                color: #474e5f;
-              }
-              .divs{
-                display: none;
-                .show{
-                  padding: 20px 0;
-                  border-bottom: 1px solid #dbdbdb;
-                }
-                .text{
-                  font-size: 14px;
-                  color: #626775;
-                  font-weight: bold;
-                }
-                .signRed{
-                  display: flex;
-                  justify-content: space-between;
-                  color: #b31e23;
-                  font-size: 16px;
-                  font-weight: bold;
-                  padding: 17px 0;
-                }
               }
             }
           }
