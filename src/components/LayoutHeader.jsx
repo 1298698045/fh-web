@@ -14,12 +14,12 @@ const LayoutHeader = () => {
     let list =[
         {
             name:"首页",
-            path:'/HomePage',
+            path:'/Home',
             arr:[]
         },
         {
             name:"产品",
-            path:'/Home',
+            path:'/Product',
             arr:[
                 {
                     name:'人力资源系统',
@@ -225,15 +225,15 @@ const LayoutHeader = () => {
                                 {str}
                             </ul>
                         </div>
-                        <div className={'r'}>
-                            <div className={'imgs'}>
-                                <img style={{width:'38px',height:'38px'}} src={require('../images/890.png')} alt=""/>
-                            </div>
-                            <div className={'textBox'}>
-                                <p className={'text'}>热线电话</p>
-                                <p className={'phone'}>010-87897479</p>
-                            </div>
-                        </div>
+                        {/*<div className={'r'}>*/}
+                        {/*    <div className={'imgs'}>*/}
+                        {/*        <img style={{width:'38px',height:'38px'}} src={require('../images/890.png')} alt=""/>*/}
+                        {/*    </div>*/}
+                        {/*    <div className={'textBox'}>*/}
+                        {/*        <p className={'text'}>热线电话</p>*/}
+                        {/*        <p className={'phone'}>010-87897479</p>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>

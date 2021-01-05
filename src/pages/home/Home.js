@@ -4,6 +4,7 @@ import '../../css/home.scss';
 import { Carousel , BackTop} from 'antd';
 import { HashRouter,Link ,Route } from 'react-router-dom';
 import Detail from './Detail'
+import NewFooter from "../../components/NewFooter";
 import { createBrowserHistory, createHashHistory } from 'history';
 import backUrl from '../../images/bj.png';
 import fotUrl from '../../images/fot.png';
@@ -55,6 +56,12 @@ const swiperStyle = {
     lineHeight: "315px",
     background: "#fff",
     autoplay: false
+}
+const serviceBack = {
+    height:496,
+    backgroundImage: `url(${require('../../images/1529.jpg')})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover"
 }
 class Home extends Component{
     constructor(props) {
@@ -112,7 +119,8 @@ class Home extends Component{
                     hover:false
                 }],
             show:false,
-            plateList:[1,2,3,4,5,6,7,8,9,10,11,12,13,15,15,16,17,18,19,20,21]
+            plateList:[1,2,3,4,5,6,7,8,9,10,11,12,13,15,15,16,17,18,19,20,21],
+            index:0
         }
         this.handleRegister = this.handleRegister.bind(this);
         this.handleMouseOver = this.handleMouseOver.bind(this);
@@ -120,6 +128,7 @@ class Home extends Component{
         this.handleTopping = this.handleTopping.bind(this);
         this.handlePhone = this.handlePhone.bind(this);
         this.handleRouter = this.handleRouter.bind(this);
+        // this.handleTab = this.handleTab.bind(this);
     }
     handleRouter(){
 
@@ -142,6 +151,11 @@ class Home extends Component{
         // history.push('Detail')
         // window.location.href="/Detail";
         this.refs.welcome.next();
+    }
+    handleTab(idx){
+        this.setState({
+            index:idx
+        })
     }
     componentDidMount(){
         var mySwiper = new Swiper('.swiper-container', {
@@ -346,13 +360,13 @@ class Home extends Component{
                         <div className="swiper-container" style={contentStyle}>
                             <div className="swiper-wrapper">
                                 <div className="swiper-slide">
-                                    <img src={require('../../images/banner_1.png')} alt=""/>*/}
+                                    <img src={require('../../images/1513.jpg')} alt=""/>*/}
                                 </div>
                                 <div className="swiper-slide">
-                                    <img src={require('../../images/banner_1.png')} alt=""/>*/}
+                                    <img src={require('../../images/1513.jpg')} alt=""/>*/}
                                 </div>
                                 <div className="swiper-slide">
-                                    <img src={require('../../images/banner_1.png')} alt=""/>*/}
+                                    <img src={require('../../images/1513.jpg')} alt=""/>*/}
                                 </div>
                             </div>
                             <div className='swiper-pagination'>
@@ -369,15 +383,17 @@ class Home extends Component{
                             </div>
                             {/*右箭头。如果放置在swiper-container外面，需要自定义样式。*/}
                         </div>
-                        <div className="copywriting">
-                            <h1>凤凰办公</h1>
-                            <h3>OA办公自动化平台</h3>
-                            <p className={'text'}>专注医院管理信息化，医院管理信息化解决方案，专注医院管理信息化，医院管理信息化解决方案。</p>
-                            <div className="btn-wrap">
-                                <p>试用申请</p>
-                                <p>下载APP</p>
-                            </div>
-                        </div>
+
+                        {/*<div className="copywriting">*/}
+                        {/*    <h1>凤凰办公</h1>*/}
+                        {/*    <h3>OA办公自动化平台</h3>*/}
+                        {/*    <p className={'text'}>专注医院管理信息化，医院管理信息化解决方案，专注医院管理信息化，医院管理信息化解决方案。</p>*/}
+                        {/*    <div className="btn-wrap">*/}
+                        {/*        <p>试用申请</p>*/}
+                        {/*        <p>下载APP</p>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
+
                         {/*<div className="posBox">*/}
                         {/*    <div className="row" onClick={this.handlePhone}>*/}
                         {/*        <div className="icon">*/}
@@ -394,37 +410,119 @@ class Home extends Component{
                         {/*    </div>*/}
                         {/*</div>*/}
                     </div>
-                    <div className="tips">
-                        <p>最新动态 <span>【2019-07-19】北京安定医院临床心理中心成立暨临床心理病房正式开区</span> </p>
-                        <p>更多
-                            <IconStyle/>
-                            <i className="iconfont">&#xe62a;</i>
-                        </p>
-                    </div>
-                    <div className="contents">
-                        <div className="box_wrap">
-                            <div className="title max">医院运营管理整体解决方案</div>
-                            <div className="title min">随时随地利用碎片化时间，轻松办公</div>
-                            <div className="cont_wrap">
-                                <div className={'left item'}>
-                                    {
-                                        this.todoList()
-                                    }
 
-                                </div>
-                                <div className={'cen item'}>
-                                    <div className="img_box">
-                                        <img src={require('../../images/photo.png')} alt=""/>
+                    <div className="home_content">
+                        <div className="tab_wrap">
+                            <div className="tabs">
+                                <p className={this.state.index==0?'tab active':'tab'} onClick={this.handleTab.bind(this,0)}>签约新闻</p>
+                                <p className={this.state.index==1?'tab active':'tab'} onClick={this.handleTab.bind(this,1)}>验收新闻</p>
+                                <p className={this.state.index==2?'tab active':'tab'} onClick={this.handleTab.bind(this,2)}>媒体报道</p>
+                                <p className={this.state.index==3?'tab active':'tab'} onClick={this.handleTab.bind(this,3)}>成功案例</p>
+                            </div>
+                            <ul className="uls">
+                                {
+                                    [1,2,3,4,5,6,7,8,9,8].map(item=>{
+                                        return (
+                                            <li>
+                                                <span className="dian"></span>
+                                                华宇万户携手文化和旅游部全国共文化发展中心打造协同...
+                                            </li>
+                                        )
+                                    })
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="service_wrap">
+                        <h3 className="service_title">
+                            我们的服务
+                        </h3>
+                        <p className="service_desc">凤凰世纪 | 医院行业合作伙伴</p>
+                        <div className="back" style={serviceBack}>
+                            <div className="cont_text">
+                                <div className="name">认证独立软件开发商</div>
+                                <div className="text_width">
+                                    <div className="cont">
+                                        作为钉钉的服务商，为医院行业用户提供钉钉软件产品的部署、培训、实施服务；借助我们团队在医院行业21年经验和自主研发的产品，帮助医院行业用户全面提升管理效率。
                                     </div>
-                                </div>
-                                <div className={'left item'}>
-                                    {
-                                        this.todoList()
-                                    }
+                                    <div className="cont">
+                                        <p>
+                                            1. 软件产品免费的标准部署、培训、实施服务。
+                                        </p>
+                                        <p>
+                                            2. 软件产品的VIP实施服务。
+                                        </p>
+                                        <p>
+                                            3. 医院用户科室信息化的建设需求。
+                                        </p>
+                                        <p>
+                                            4. 医院用户在内控管理方面及其它个性定制方面的需求。
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="box_wrap module_wrap">
+                    </div>
+                    <div className="home_content">
+                        <div className="product_Wrap">
+                            <h3 className="row_title">
+                                我们的产品
+                            </h3>
+                            <p className="row_desc">基础OA + 专业业务管理系统</p>
+                            <div className="row_box_wrap">
+                                {
+                                    [1,2,3,4,5,6].map((item,index)=>{
+                                        return (
+                                            <div className="child_box" key={index}>
+                                                <div className="radius"></div>
+                                                <div className="right_cont">
+                                                    <p className="title">人力资源管理系统</p>
+                                                    <p className="text">
+                                                        为强化医院院办事务日常管理，帮助医院实现现代医院管理制度，优化工作流程，规范工作行为，提高运行效率的管理系统。有效的控制和预防风险。
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {/*<div className="tips">*/}
+                    {/*    <p>最新动态 <span>【2019-07-19】北京安定医院临床心理中心成立暨临床心理病房正式开区</span> </p>*/}
+                    {/*    <p>更多*/}
+                    {/*        <IconStyle/>*/}
+                    {/*        <i className="iconfont">&#xe62a;</i>*/}
+                    {/*    </p>*/}
+                    {/*</div>*/}
+                    <div className="contents">
+                        {/*<div className="box_wrap">*/}
+                        {/*    <div className="title max">医院运营管理整体解决方案</div>*/}
+                        {/*    <div className="title min">随时随地利用碎片化时间，轻松办公</div>*/}
+                        {/*    <div className="cont_wrap">*/}
+                        {/*        <div className={'left item'}>*/}
+                        {/*            {*/}
+                        {/*                this.todoList()*/}
+                        {/*            }*/}
+
+                        {/*        </div>*/}
+                        {/*        <div className={'cen item'}>*/}
+                        {/*            <div className="img_box">*/}
+                        {/*                <img src={require('../../images/photo.png')} alt=""/>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*        <div className={'left item'}>*/}
+                        {/*            {*/}
+                        {/*                this.todoList()*/}
+                        {/*            }*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
+                        {/*<div className="box_wrap module_wrap">*/}
                             {/*<div className="posBox">*/}
                             {/*    <div className="boxActive">*/}
                             {/*        <div className={'text'}>*/}
@@ -453,159 +551,159 @@ class Home extends Component{
 
 
                             {/*</div>*/}
-                            <div className="title max">医院运营管理整体解决方案</div>
-                            <div className="title min">随时随地利用碎片化时间，轻松办公</div>
-                            <div className="module">
-                                <div className="box">
-                                    <div>
-                                        <div className="boxRadius">
-                                            <img src={require('../../images/d.png')} alt=""/>
-                                        </div>
-                                        <p className="name">组织架构</p>
-                                    </div>
-                                </div>
-                                <div className="box">
-                                    <div>
-                                        <div className="boxRadius">
-                                            <img src={require('../../images/d.png')} alt=""/>
-                                        </div>
-                                        <p className="name">组织架构</p>
-                                    </div>
-                                </div>
-                                <div className="box">
-                                    <div>
-                                        <div className="boxRadius">
-                                            <img src={require('../../images/d.png')} alt=""/>
-                                        </div>
-                                        <p className="name">组织架构</p>
-                                    </div>
-                                </div>
-                                <div className="box">
-                                    <div>
-                                        <div className="boxRadius">
-                                            <img src={require('../../images/d.png')} alt=""/>
-                                        </div>
-                                        <p className="name">组织架构</p>
-                                    </div>
-                                </div>
-                                <div className="box">
-                                    <div>
-                                        <div className="boxRadius">
-                                            <img src={require('../../images/d.png')} alt=""/>
-                                        </div>
-                                        <p className="name">组织架构</p>
-                                    </div>
-                                </div>
-                                <div className="box">
-                                    <div>
-                                        <div className="boxRadius">
-                                            <img src={require('../../images/d.png')} alt=""/>
-                                        </div>
-                                        <p className="name">组织架构</p>
-                                    </div>
-                                </div>
-                                <div className="box">
-                                    <div>
-                                        <div className="boxRadius">
-                                            <img src={require('../../images/d.png')} alt=""/>
-                                        </div>
-                                        <p className="name">组织架构</p>
-                                    </div>
-                                </div>
-                                <div className="box">
-                                    <div>
-                                        <div className="boxRadius">
-                                            <img src={require('../../images/d.png')} alt=""/>
-                                        </div>
-                                        <p className="name">组织架构</p>
-                                    </div>
-                                </div>
-                                <div className="box">
-                                    <div>
-                                        <div className="boxRadius">
-                                            <img src={require('../../images/d.png')} alt=""/>
-                                        </div>
-                                        <p className="name">组织架构</p>
-                                    </div>
-                                </div>
-                                <div className="box">
-                                    <div>
-                                        <div className="boxRadius">
-                                            <img src={require('../../images/d.png')} alt=""/>
-                                        </div>
-                                        <p className="name">组织架构</p>
-                                    </div>
-                                </div>
-                                <div className="box">
-                                    <div>
-                                        <div className="boxRadius">
-                                            <img src={require('../../images/d.png')} alt=""/>
-                                        </div>
-                                        <p className="name">组织架构</p>
-                                    </div>
-                                </div>
-                                <div className="box">
-                                    <div>
-                                        <div className="boxRadius">
-                                            <img src={require('../../images/d.png')} alt=""/>
-                                        </div>
-                                        <p className="name">组织架构</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="box_wrap back_wrap" style={sectionStyle}>
-                            <div className="title max">提供更全面的专家级服务支持</div>
-                            <div className="title min">从运营理念到实操技能，为客户提供包括远程协助、智能客服、现场服务等多元立体化的一对一学习运营和顾问服务，全面解决平台运营难题</div>
-                            <div className="contBox">
-                                <ul>
-                                    <li className="lis">
-                                        <div className="imgTop">
-                                            <img src={require('../../images/r.png')} alt=""/>
-                                        </div>
-                                        <div className="cont_text">
-                                            <div className="title">360度服务体验</div>
-                                            <div className="text">
-                                                通过邮件、电话等方式监控设备运行状况，及时掌控设施缺陷及安全问题。
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="lis">
-                                        <div className="imgTop">
-                                            <img src={require('../../images/82.png')} alt=""/>
-                                        </div>
-                                        <div className="cont_text">
-                                            <div className="title">专业的技术团队</div>
-                                            <div className="text">
-                                                由多位资深IT及移动化经验的技术人员组成的专业服务团队。
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="lis">
-                                        <div className="imgTop">
-                                            <img src={require('../../images/83.png')} alt=""/>
-                                        </div>
-                                        <div className="cont_text">
-                                            <div className="title">完善的培训机制</div>
-                                            <div className="text">
-                                                我们免费给您提供解决方案，系统功能更新、技术专题的讲解与培训。
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="lis">
-                                        <div className="imgTop">
-                                            <img src={require('../../images/84.png')} alt=""/>
-                                        </div>
-                                        <div className="cont_text">
-                                            <div className="title">定制化的解决方案</div>
-                                            <div className="text">
-                                                为企业提供移动化、平台化、云端化、定制化的生态系统整体解决方案。
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        {/*    <div className="title max">医院运营管理整体解决方案</div>*/}
+                        {/*    <div className="title min">随时随地利用碎片化时间，轻松办公</div>*/}
+                        {/*    <div className="module">*/}
+                        {/*        <div className="box">*/}
+                        {/*            <div>*/}
+                        {/*                <div className="boxRadius">*/}
+                        {/*                    <img src={require('../../images/d.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <p className="name">组织架构</p>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="box">*/}
+                        {/*            <div>*/}
+                        {/*                <div className="boxRadius">*/}
+                        {/*                    <img src={require('../../images/d.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <p className="name">组织架构</p>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="box">*/}
+                        {/*            <div>*/}
+                        {/*                <div className="boxRadius">*/}
+                        {/*                    <img src={require('../../images/d.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <p className="name">组织架构</p>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="box">*/}
+                        {/*            <div>*/}
+                        {/*                <div className="boxRadius">*/}
+                        {/*                    <img src={require('../../images/d.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <p className="name">组织架构</p>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="box">*/}
+                        {/*            <div>*/}
+                        {/*                <div className="boxRadius">*/}
+                        {/*                    <img src={require('../../images/d.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <p className="name">组织架构</p>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="box">*/}
+                        {/*            <div>*/}
+                        {/*                <div className="boxRadius">*/}
+                        {/*                    <img src={require('../../images/d.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <p className="name">组织架构</p>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="box">*/}
+                        {/*            <div>*/}
+                        {/*                <div className="boxRadius">*/}
+                        {/*                    <img src={require('../../images/d.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <p className="name">组织架构</p>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="box">*/}
+                        {/*            <div>*/}
+                        {/*                <div className="boxRadius">*/}
+                        {/*                    <img src={require('../../images/d.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <p className="name">组织架构</p>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="box">*/}
+                        {/*            <div>*/}
+                        {/*                <div className="boxRadius">*/}
+                        {/*                    <img src={require('../../images/d.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <p className="name">组织架构</p>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="box">*/}
+                        {/*            <div>*/}
+                        {/*                <div className="boxRadius">*/}
+                        {/*                    <img src={require('../../images/d.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <p className="name">组织架构</p>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="box">*/}
+                        {/*            <div>*/}
+                        {/*                <div className="boxRadius">*/}
+                        {/*                    <img src={require('../../images/d.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <p className="name">组织架构</p>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="box">*/}
+                        {/*            <div>*/}
+                        {/*                <div className="boxRadius">*/}
+                        {/*                    <img src={require('../../images/d.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <p className="name">组织架构</p>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
+                        {/*<div className="box_wrap back_wrap" style={sectionStyle}>*/}
+                        {/*    <div className="title max">提供更全面的专家级服务支持</div>*/}
+                        {/*    <div className="title min">从运营理念到实操技能，为客户提供包括远程协助、智能客服、现场服务等多元立体化的一对一学习运营和顾问服务，全面解决平台运营难题</div>*/}
+                        {/*    <div className="contBox">*/}
+                        {/*        <ul>*/}
+                        {/*            <li className="lis">*/}
+                        {/*                <div className="imgTop">*/}
+                        {/*                    <img src={require('../../images/r.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <div className="cont_text">*/}
+                        {/*                    <div className="title">360度服务体验</div>*/}
+                        {/*                    <div className="text">*/}
+                        {/*                        通过邮件、电话等方式监控设备运行状况，及时掌控设施缺陷及安全问题。*/}
+                        {/*                    </div>*/}
+                        {/*                </div>*/}
+                        {/*            </li>*/}
+                        {/*            <li className="lis">*/}
+                        {/*                <div className="imgTop">*/}
+                        {/*                    <img src={require('../../images/82.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <div className="cont_text">*/}
+                        {/*                    <div className="title">专业的技术团队</div>*/}
+                        {/*                    <div className="text">*/}
+                        {/*                        由多位资深IT及移动化经验的技术人员组成的专业服务团队。*/}
+                        {/*                    </div>*/}
+                        {/*                </div>*/}
+                        {/*            </li>*/}
+                        {/*            <li className="lis">*/}
+                        {/*                <div className="imgTop">*/}
+                        {/*                    <img src={require('../../images/83.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <div className="cont_text">*/}
+                        {/*                    <div className="title">完善的培训机制</div>*/}
+                        {/*                    <div className="text">*/}
+                        {/*                        我们免费给您提供解决方案，系统功能更新、技术专题的讲解与培训。*/}
+                        {/*                    </div>*/}
+                        {/*                </div>*/}
+                        {/*            </li>*/}
+                        {/*            <li className="lis">*/}
+                        {/*                <div className="imgTop">*/}
+                        {/*                    <img src={require('../../images/84.png')} alt=""/>*/}
+                        {/*                </div>*/}
+                        {/*                <div className="cont_text">*/}
+                        {/*                    <div className="title">定制化的解决方案</div>*/}
+                        {/*                    <div className="text">*/}
+                        {/*                        为企业提供移动化、平台化、云端化、定制化的生态系统整体解决方案。*/}
+                        {/*                    </div>*/}
+                        {/*                </div>*/}
+                        {/*            </li>*/}
+                        {/*        </ul>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                         <div className="box_wrap ban_wrap">
                             <div className="title max">客户案例</div>
                             <div className="title min">凤凰办公的产品，全方位为您提供服务</div>
@@ -641,10 +739,6 @@ class Home extends Component{
                                 </div>
                             </div>
                         </div>
-                        <div style={fotStyle}>
-
-                        </div>
-
                     </div>
                 </div>
                 {/*<div className="bottom_wrap">*/}
@@ -686,6 +780,7 @@ class Home extends Component{
                 {/*<div className="footer">*/}
                 {/*    © 2019 北京凤凰世纪科技有限公司  |  京ICP备16024828号*/}
                 {/*</div>*/}
+                <NewFooter/>
             </div>
         )
     }

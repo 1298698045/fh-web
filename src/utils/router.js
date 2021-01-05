@@ -8,10 +8,15 @@ import HrSystem from "../pages/hrSystem/HrSystem";
 import WorkOA from "../pages/workOA/WorkOA";
 import Xinwen from "../pages/xinwen/Xinwen";
 import NewAboutWe from "../pages/newAboutWe/NewAboutWe";
+import Product from "../pages/product/Product";
 const routeList = [
     {
         path:'/Home',
         name:Home
+    },
+    {
+        path:'/Product',
+        name:Product
     },
     {
       path: '/Xinwen',
@@ -47,7 +52,7 @@ const routeList = [
     },
     {
         path:'/',
-        name:HomePage
+        name:Home
     }
 
 ]
