@@ -119,7 +119,7 @@ class Home extends Component{
                     hover:false
                 }],
             show:false,
-            plateList:[1,2,3,4,5,6,7,8,9,10,11,12,13,15,15,16,17,18,19,20,21],
+            plateList:[1,2,3,4,5,6,7,8,9,10,1,2],
             index:0
         }
         this.handleRegister = this.handleRegister.bind(this);
@@ -252,7 +252,7 @@ class Home extends Component{
                                                 <div className="signRed">
                                                     <p>1000人以上</p><p>提升沟通效率、高效组织会议{v}</p>
                                                 </div>
-                                                <p>{v}</p>
+                                                {/*<p>{v}</p>*/}
                                             </div>
 
                                         </div>
@@ -280,7 +280,7 @@ class Home extends Component{
             return (
                 <div className="plate" key={index}>
                     <p>
-                        <img src={require('../../images/113.png')} alt=""/>
+                        <img src={require('../../images/766.png')} alt=""/>
                     </p>
                 </div>
             )
@@ -490,7 +490,32 @@ class Home extends Component{
                             </div>
                         </div>
                     </div>
+                    <div className="service_wrap">
+                        <h3 className="service_title">
+                            我们的优势
+                        </h3>
+                        <p className="service_desc">智能 · 互动 · 移动</p>
+                        <div className="back" style={serviceBack}>
+                            <div className="advantage">
+                                {
+                                    [1,2,3,4,5].map((item,index)=>{
+                                        return (
+                                            <div className="boxs" key={index}>
+                                                <div className="imgs">
 
+                                                </div>
+                                                <div className="cont_copywriting">
+                                                    <p className="title">产品优势</p>
+                                                    <p>功能专业具备医院行业特色，融入现代管理思想，满足内控需求。</p>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
+
+                            </div>
+                        </div>
+                    </div>
 
                     {/*<div className="tips">*/}
                     {/*    <p>最新动态 <span>【2019-07-19】北京安定医院临床心理中心成立暨临床心理病房正式开区</span> </p>*/}
@@ -705,7 +730,7 @@ class Home extends Component{
                         {/*    </div>*/}
                         {/*</div>*/}
                         <div className="box_wrap ban_wrap">
-                            <div className="title max">客户案例</div>
+                            <div className="title max">成功案例</div>
                             <div className="title min">凤凰办公的产品，全方位为您提供服务</div>
                             <div className="banner_box">
                                 <div className="icon_left" onClick={this.getPrev.bind(this)}>
@@ -714,29 +739,21 @@ class Home extends Component{
                                 </div>
                                 <div className="banner">
                                     <Carousel ref="welcome" dots={false}>
-                                        {/*<div style={swiperStyle}>*/}
-                                            {/*<div className="cont">*/}
-                                                {/*<div className="box">*/}
-                                                    {/*<p className="img">*/}
-                                                        {/*<img src={require('../../images/icon.png')} alt=""/>*/}
-                                                    {/*</p>*/}
-                                                    {/*<p>医药医疗：山西省长治市人民医院</p>*/}
-                                                    {/*<p>移动办公快速解决农户燃眉之需</p>*/}
-                                                {/*</div>*/}
-                                                {/*<div className="box"></div>*/}
-                                                {/*<div className="box"></div>*/}
-                                            {/*</div>*/}
-                                        {/*</div>*/}
                                         {this.bannerList()}
                                     </Carousel>
-                                    <div className="advertPlate">
-                                        {plate}
-                                    </div>
                                 </div>
                                 <div className="icon_right" onClick={this.getNext.bind(this)}>
                                     <IconStyle/>
                                     <i className="iconfont">&#xe62a;</i>
                                 </div>
+                            </div>
+                            <div className="advertPlate">
+                                {plate}
+                            </div>
+                            <div className="more">
+                                更多客户案例
+                                <IconStyle/>
+                                <i className="iconfont">&#xe62a;</i>
                             </div>
                         </div>
                     </div>
