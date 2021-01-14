@@ -249,7 +249,7 @@
           //  box-shadow: 0px 4px 16px 0px rgba(8, 30, 80, 0.1);
           //  border: 1px solid #eeeeee;
           //}
-          .item:hover{
+          .hover{
             flex: 3;
             height: 100%;
             padding-top: 44px;
@@ -257,7 +257,7 @@
             box-shadow: 0px 4px 16px 0px rgba(8, 30, 80, 0.1);
             border: 1px solid #eeeeee;
           }
-          .item:hover .desc{
+          .item .descHover{
             display: block;
             animation: move 1s;
             animation-delay: 0.2s;

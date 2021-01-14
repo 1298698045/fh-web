@@ -6,6 +6,7 @@ import './index.scss'
 import imgOne from '../../images/913.png';
 import backUrl from "../../images/bj.png";
 import NewFooter from '../../components/NewFooter';
+import http from "../../utils/request";
 const contentStyle = {
     height: '470px',
     color: '#fff',
@@ -24,7 +25,32 @@ const CustomerCase = () =>{
     const handlePhone = ()=> {
         window.location.href = "tel://10086";
     }
-    const [list,setList] = useState([1,2,3,4,5,6,7,8,9]);
+    const [ItemId,setItemId] = useState('76B773D6-7DF3-445C-9F83-5D870A34FD81');
+    const [PageIndex,setPageIndex] = useState(1);
+    const [PageSize,setPageSize] = useState(9);
+    const [total,setTotal] = useState(10);
+    const [list,setList] = useState([]);
+    useEffect(()=>{
+        getQuery();
+    },[])
+    const changePage = async (e) =>{
+        setPageIndex(e);
+        await getQuery(e);
+    }
+    const getQuery = (e=1) =>{
+        return new Promise((resolve,reject)=>{
+            let url = '/api/Contentbase/GetContentbases?ItemId='+ItemId+'&PageIndex=' + e + '&PageSize=' + PageSize;
+            http("get",url).then(res => {
+                setList(res.rows);
+                setTotal(res.total);
+                resolve(res);
+            },error => {
+                console.log("网络异常~",error);
+                // reject(error)
+            })
+        })
+
+    }
     const renderList = list.map((item,index)=>{
         return (
             <div className="box" key={index}>
@@ -36,7 +62,7 @@ const CustomerCase = () =>{
                         <img src={require('../../images/104.png')} alt=""/>
                     </div>
                     <p className={'text textRow'}>医药医疗：山西省长治市人民医院</p>
-                    <p className={'title_'}>移动办公快速解决农户燃眉之需</p>
+                    <p className={'title_'}>{item.Title}</p>
                     <div className="divs">
                         <p className="text show">通过云和移动的技术助推医疗信息化改革，释放核心医疗资源，提升医生工作效率，解决患者看病难的问题。</p>
                         <div className="signRed">
@@ -78,7 +104,7 @@ const CustomerCase = () =>{
                             {renderList}
                         </div>
                         <div style={{display:'flex',justifyContent:'center'}}>
-                            <Pagination defaultCurrent={1} total={100} />
+                            <Pagination defaultCurrent={PageIndex} current={PageIndex} pageSize={PageSize} total={total} onChange={changePage} />
                         </div>
                     </div>
                 </div>

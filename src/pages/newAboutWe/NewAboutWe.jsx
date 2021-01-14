@@ -1,6 +1,5 @@
 import React,{useState,useEffect,useRef} from "react";
 import styles from './index.module.scss';
-import './index.scss';
 import imgOne from '../../images/913.png';
 import NewFooter from "../../components/NewFooter";
 import {Anchor} from "antd";

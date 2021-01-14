@@ -119,8 +119,10 @@ class Home extends Component{
                     hover:false
                 }],
             show:false,
-            plateList:[1,2,3,4,5,6,7,8,9,10,1,2],
-            index:0
+            plateList:[1,2,3,4,5,6,7,8,9,10],
+            index:0,
+            ItemId:'8CE6E996-1BF1-48BF-BF45-AB8DBA5559E7',
+            listData:[]
         }
         this.handleRegister = this.handleRegister.bind(this);
         this.handleMouseOver = this.handleMouseOver.bind(this);
@@ -152,10 +154,13 @@ class Home extends Component{
         // window.location.href="/Detail";
         this.refs.welcome.next();
     }
-    handleTab(idx){
+   async handleTab({idx,id}){
+        const w = await
         this.setState({
-            index:idx
+            index:idx,
+            ItemId:id
         })
+        this.getQuery();
     }
     componentDidMount(){
         var mySwiper = new Swiper('.swiper-container', {
@@ -173,13 +178,26 @@ class Home extends Component{
             },
         });
         // return new Promise((resolve, reject) => {
-            http("get",'/rest?method=message.statics.getlist&SessionKey=207a11c0-12e3-4f7e-8033-f61b6883ffd8').then(res => {
-                console.log (res);
-            },error => {
-                console.log("网络异常~",error);
-                // reject(error)
-            })
+        //     http("get",'/api/Contentbase/GetContentbases?ItemId=20A506E7-1CF9-418C-9EE8-0F632F8A8857&PageIndex=1&PageSize=10').then(res => {
+        //         console.log (res);
+        //     },error => {
+        //         console.log("网络异常~",error);
+        //         // reject(error)
+        //     })
         // })
+        this.getQuery();
+    }
+    getQuery(){
+        let url = '/api/Contentbase/GetContentbases?ItemId='+this.state.ItemId+'&PageIndex=' + 1 + '&PageSize=' + 10;
+        http("get",url).then(res => {
+            console.log (res);
+            this.setState({
+                listData:res.rows
+            })
+        },error => {
+            console.log("网络异常~",error);
+            // reject(error)
+        })
     }
     getNext(){
         this.refs.welcome.next();
@@ -360,13 +378,13 @@ class Home extends Component{
                         <div className="swiper-container" style={contentStyle}>
                             <div className="swiper-wrapper">
                                 <div className="swiper-slide">
-                                    <img src={require('../../images/1513.jpg')} alt=""/>*/}
+                                    <img style={{height: '100%'}} src={require('../../images/1513.jpg')} alt=""/>*/}
                                 </div>
                                 <div className="swiper-slide">
-                                    <img src={require('../../images/1513.jpg')} alt=""/>*/}
+                                    <img style={{height: '100%'}} src={require('../../images/1513.jpg')} alt=""/>*/}
                                 </div>
                                 <div className="swiper-slide">
-                                    <img src={require('../../images/1513.jpg')} alt=""/>*/}
+                                    <img style={{height: '100%'}} src={require('../../images/1513.jpg')} alt=""/>*/}
                                 </div>
                             </div>
                             <div className='swiper-pagination'>
@@ -414,18 +432,31 @@ class Home extends Component{
                     <div className="home_content">
                         <div className="tab_wrap">
                             <div className="tabs">
-                                <p className={this.state.index==0?'tab active':'tab'} onClick={this.handleTab.bind(this,0)}>签约新闻</p>
-                                <p className={this.state.index==1?'tab active':'tab'} onClick={this.handleTab.bind(this,1)}>验收新闻</p>
-                                <p className={this.state.index==2?'tab active':'tab'} onClick={this.handleTab.bind(this,2)}>媒体报道</p>
-                                <p className={this.state.index==3?'tab active':'tab'} onClick={this.handleTab.bind(this,3)}>成功案例</p>
+                                <p className={this.state.index==0?'tab active':'tab'} onClick={this.handleTab.bind(this, {
+                                    idx:0,
+                                    id:'8CE6E996-1BF1-48BF-BF45-AB8DBA5559E7'
+                                })}>签约新闻</p>
+                                <p className={this.state.index==1?'tab active':'tab'} onClick={this.handleTab.bind(this,
+                                    {
+                                        idx:1,
+                                        id:'00BE0324-CDDA-457C-988C-9F564BCE041C'
+                                    })}>验收新闻</p>
+                                <p className={this.state.index==2?'tab active':'tab'} onClick={this.handleTab.bind(this,{
+                                    idx:2,
+                                    id:'0DD1F56C-C329-41C6-BDB2-B021A36C4A7A'
+                                })}>媒体报道</p>
+                                <p className={this.state.index==3?'tab active':'tab'} onClick={this.handleTab.bind(this,{
+                                    idx:3,
+                                    id:'76EE7EB1-0943-4182-87BC-87D3ADF8B9AB'
+                                })}>成功案例</p>
                             </div>
                             <ul className="uls">
                                 {
-                                    [1,2,3,4,5,6,7,8,9,8].map(item=>{
+                                    this.state.listData.map((item,index)=>{
                                         return (
-                                            <li>
+                                            <li key={index}>
                                                 <span className="dian"></span>
-                                                华宇万户携手文化和旅游部全国共文化发展中心打造协同...
+                                                {item.Title}
                                             </li>
                                         )
                                     })

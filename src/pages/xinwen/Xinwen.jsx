@@ -6,6 +6,7 @@ import './index.scss'
 import imgOne from '../../images/913.png';
 import backUrl from "../../images/bj.png";
 import NewFooter from "../../components/NewFooter";
+import http from "../../utils/request";
 const contentStyle = {
     height: '470px',
     color: '#fff',
@@ -24,7 +25,32 @@ const CustomerCase = () =>{
     const handlePhone = ()=> {
         window.location.href = "tel://10086";
     }
-    const [list,setList] = useState([1,2,3,4,5,6,7,8,9]);
+    const [ItemId,setItemId] = useState('20A506E7-1CF9-418C-9EE8-0F632F8A8857');
+    const [PageIndex,setPageIndex] = useState(1);
+    const [PageSize,setPageSize] = useState(9);
+    const [total,setTotal] = useState(10);
+    const [list,setList] = useState([]);
+    useEffect(()=>{
+        getQuery();
+    },[])
+    const changePage = async (e) =>{
+        setPageIndex(e);
+        await getQuery(e);
+    }
+    const getQuery = (e=1) =>{
+        return new Promise((resolve,reject)=>{
+            let url = '/api/Contentbase/GetContentbases?ItemId='+ItemId+'&PageIndex=' + e + '&PageSize=' + PageSize;
+            http("get",url).then(res => {
+                setList(res.rows);
+                setTotal(res.total);
+                resolve(res);
+            },error => {
+                console.log("网络异常~",error);
+                // reject(error)
+            })
+        })
+
+    }
     const renderList = list.map((item,index)=>{
         return (
             <div className="box_box" key={index}>
@@ -33,7 +59,7 @@ const CustomerCase = () =>{
                 </p>
                 <div className="cont_wrap">
                     <div className="desc">
-                        喜报！北京协和医院电子票据管理平台正式上线，安全合规
+                        {item.Title}
                     </div>
                     <div className="row">
                         <p>签约动态 | 北京协和医院</p><p>2020-11-24</p>
@@ -72,7 +98,7 @@ const CustomerCase = () =>{
                             {renderList}
                         </div>
                         <div style={{display:'flex',justifyContent:'center'}}>
-                            <Pagination defaultCurrent={1} total={100} />
+                            <Pagination defaultCurrent={PageIndex} current={PageIndex} pageSize={PageSize} total={total} onChange={changePage} />
                         </div>
                     </div>
                 </div>

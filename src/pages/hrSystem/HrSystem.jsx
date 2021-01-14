@@ -3,7 +3,8 @@ import { Anchor } from 'antd';
 import styles from './index.module.scss';
 import { useScroll } from 'ahooks';
 import {IconStyle} from "../../static/iconfont/iconfont";
-import NewFooter from '../../components/NewFooter'
+import classnames from 'classnames';
+import NewFooter from '../../components/NewFooter';
 console.log(styles,'style')
 const { Link } = Anchor;
 
@@ -14,7 +15,40 @@ const defaultIndexInfo = [
     {index:3, top: 2820, id: 'gn'},
     {index:4, top: 3500 ,id: 'kh'},
 ]
-
+const productList = [
+    {
+        name:"人事管理",
+        text:"16个人事管理功能应用，建立医护人员技术档案，信息化管理医护人员招聘，灵活的医院排班考勤方式"
+    },
+    {
+        name:"门户",
+        text:"整合信息资源，集中展现，方便用户查看\n" +
+            "1、办公人员在权限范围内对门户的模块进行修改或个性化自定义布局\n"
+    },
+    {
+        name:"会议管理",
+        text:"支持会议申请、审批、通知与会人员、会议签到、会议纪要，归档等整个会议进程的管理"
+    },
+    {
+        name:"文件管理",
+        text:"管理全院文档，方便知识累积、分享、利用。\n" +
+            "1、\t按科室、部门、项目自定义文档目录\n" +
+            "2、\t分级权限管理\n" +
+            "3、\t支持在线查阅\n" +
+            "4、\t多维度的文件搜索功能\n"
+    },
+    {
+        name:"流程审批",
+        text:"实现院内所有业务流程的集中管控，规范审批过程\n" +
+            "1、\t支持流程跟踪，监控\n" +
+            "2、\t支持流程催办\n" +
+            "3、\t支持附件上传下载"
+    },
+    {
+        name:"公文管理",
+        text:"全面实现公文数字化办理，覆盖发文、收文、归档、分发等全周期的管理"
+    }
+]
 const HrSystem = () =>{
     const listHeight= useRef();
     const [index,setIndex] = useState(0)
@@ -22,6 +56,7 @@ const HrSystem = () =>{
     const scroll = useScroll();
 
     const [indexInfo, setIndexInfo] = useState(defaultIndexInfo)
+    const [defaultIdx,setDefaultIdx] = useState(0);
     useEffect(() => {
         setTargetOffset(window.innerHeight / 2);
         const handleScroll = (e) => {
@@ -215,48 +250,63 @@ const HrSystem = () =>{
                             <h3 className={styles.title}>产品功能</h3>
                             <p className={styles.text}>最专业的医院OA系统</p>
                             <div className={styles.flex}>
-                                <div className={styles.item}>
-                                    <img src={require('../../images/1037.png')} alt=""/>
-                                    <h6 className={styles.title}>人员管理</h6>
-                                    <p className={styles.desc}>
-                                        智能识别客户所在行业和特定行业惯常条款，为客户推荐贴合场景的合同模板
-                                    </p>
-                                </div>
-                                <div className={styles.item}>
-                                    <img src={require('../../images/1037.png')} alt=""/>
-                                    <h6 className={styles.title}>流程管理</h6>
-                                    <p className={styles.desc}>
-                                        智能识别客户所在行业和特定行业惯常条款，为客户推荐贴合场景的合同模板
-                                    </p>
-                                </div>
-                                <div className={styles.item}>
-                                    <img src={require('../../images/1037.png')} alt=""/>
-                                    <h6 className={styles.title}>内容管理</h6>
-                                    <p className={styles.desc}>
-                                        智能识别客户所在行业和特定行业惯常条款，为客户推荐贴合场景的合同模板
-                                    </p>
-                                </div>
-                                <div className={styles.item}>
-                                    <img src={require('../../images/1037.png')} alt=""/>
-                                    <h6 className={styles.title}>考勤系统</h6>
-                                    <p className={styles.desc}>
-                                        智能识别客户所在行业和特定行业惯常条款，为客户推荐贴合场景的合同模板
-                                    </p>
-                                </div>
-                                <div className={styles.item}>
-                                    <img src={require('../../images/1037.png')} alt=""/>
-                                    <h6 className={styles.title}>通讯系统</h6>
-                                    <p className={styles.desc}>
-                                        智能识别客户所在行业和特定行业惯常条款，为客户推荐贴合场景的合同模板
-                                    </p>
-                                </div>
-                                <div className={styles.item}>
-                                    <img src={require('../../images/1037.png')} alt=""/>
-                                    <h6 className={styles.title}>会议系统</h6>
-                                    <p className={styles.desc}>
-                                        智能识别客户所在行业和特定行业惯常条款，为客户推荐贴合场景的合同模板
-                                    </p>
-                                </div>
+                                {
+                                    productList.map((item,index)=>{
+                                        return (
+                                            <div key={index} className={defaultIdx==index?classnames(styles.hover,styles.item):styles.item} onMouseOver={()=>setDefaultIdx(index)
+                                            }
+                                                 onMouseOut={()=>setDefaultIdx(index)}>
+                                                <img src={require('../../images/1037.png')} alt=""/>
+                                                <h6 className={styles.title}>{item.name}</h6>
+                                                <p className={defaultIdx==index?classnames(styles.descHover,styles.desc):styles.desc}>
+                                                    {item.text}
+                                                </p>
+                                            </div>
+                                        )
+                                    })
+                                }
+                                {/*<div className={styles.item}>*/}
+                                {/*    <img src={require('../../images/1037.png')} alt=""/>*/}
+                                {/*    <h6 className={styles.title}>人员管理</h6>*/}
+                                {/*    <p className={styles.desc}>*/}
+                                {/*        智能识别客户所在行业和特定行业惯常条款，为客户推荐贴合场景的合同模板*/}
+                                {/*    </p>*/}
+                                {/*</div>*/}
+                                {/*<div className={styles.item}>*/}
+                                {/*    <img src={require('../../images/1037.png')} alt=""/>*/}
+                                {/*    <h6 className={styles.title}>流程管理</h6>*/}
+                                {/*    <p className={styles.desc}>*/}
+                                {/*        智能识别客户所在行业和特定行业惯常条款，为客户推荐贴合场景的合同模板*/}
+                                {/*    </p>*/}
+                                {/*</div>*/}
+                                {/*<div className={styles.item}>*/}
+                                {/*    <img src={require('../../images/1037.png')} alt=""/>*/}
+                                {/*    <h6 className={styles.title}>内容管理</h6>*/}
+                                {/*    <p className={styles.desc}>*/}
+                                {/*        智能识别客户所在行业和特定行业惯常条款，为客户推荐贴合场景的合同模板*/}
+                                {/*    </p>*/}
+                                {/*</div>*/}
+                                {/*<div className={styles.item}>*/}
+                                {/*    <img src={require('../../images/1037.png')} alt=""/>*/}
+                                {/*    <h6 className={styles.title}>考勤系统</h6>*/}
+                                {/*    <p className={styles.desc}>*/}
+                                {/*        智能识别客户所在行业和特定行业惯常条款，为客户推荐贴合场景的合同模板*/}
+                                {/*    </p>*/}
+                                {/*</div>*/}
+                                {/*<div className={styles.item}>*/}
+                                {/*    <img src={require('../../images/1037.png')} alt=""/>*/}
+                                {/*    <h6 className={styles.title}>通讯系统</h6>*/}
+                                {/*    <p className={styles.desc}>*/}
+                                {/*        智能识别客户所在行业和特定行业惯常条款，为客户推荐贴合场景的合同模板*/}
+                                {/*    </p>*/}
+                                {/*</div>*/}
+                                {/*<div className={styles.item}>*/}
+                                {/*    <img src={require('../../images/1037.png')} alt=""/>*/}
+                                {/*    <h6 className={styles.title}>会议系统</h6>*/}
+                                {/*    <p className={styles.desc}>*/}
+                                {/*        智能识别客户所在行业和特定行业惯常条款，为客户推荐贴合场景的合同模板*/}
+                                {/*    </p>*/}
+                                {/*</div>*/}
                             </div>
                         </div>
                         <div className={styles.normal} id="kh">
