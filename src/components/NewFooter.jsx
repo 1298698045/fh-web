@@ -2,6 +2,7 @@ import React,{useEffect,useState,useRef} from "react";
 import {IconStyle} from "../static/iconfont/iconfont";
 import '../css/newFooter.scss';
 import { Modal, Button ,Form, Input,Row, Col, } from 'antd';
+import { useHistory, useLocation } from 'react-router-dom';
 const styleBtn = {
     background: '#f6f6f9',
     fontSize: '14px',
@@ -18,6 +19,11 @@ const NewFooter = () => {
     const [numbers,setNumbers] = useState(0);
     const [isModalVisible,setIsModalVisible] = useState(false);
     const [index,setIndex] = useState(0);
+    const history = useHistory();
+    const location = useLocation();
+    const getRouter = (str) =>{
+        history.push(str);
+    }
     const getSwitch = (index) =>{
         setNumbers(index);
     }
@@ -28,6 +34,9 @@ const NewFooter = () => {
         labelCol: { span: 6 },
         wrapperCol: { span: 14 },
     };
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
     const showModal = (
         <Modal width={440} closable={false} footer={null} visible={isModalVisible} onCancel={(e)=>{setIsModalVisible(false)}}>
             <div className="tabs">
@@ -122,27 +131,27 @@ const NewFooter = () => {
                         <div className="lBox">
                             <div className="column">
                                 <p className="title">快速入口</p>
-                                <p className="text">首页</p>
-                                <p className="text">试用申请</p>
-                                <p className="text">新闻中心</p>
-                                <p className="text">客户案例</p>
+                                <p className="text" onClick={()=>{getRouter('/Home')}}>首页</p>
+                                <p className="text" onClick={getApply}>试用申请</p>
+                                <p className="text" onClick={()=>{getRouter('/Xinwen')}}>新闻中心</p>
+                                <p className="text" onClick={()=>{getRouter('/CustomerCase')}}>客户案例</p>
                             </div>
                             <div className="column">
                                 <p className="title">产品中心</p>
-                                <p className="text">协同办公系统（OA）</p>
-                                <p className="text">人力资源管理系统</p>
-                                <p className="text">电子票据管理平台</p>
-                                <p className="text">智能报销管理系统</p>
-                                <p className="text">合同管理系统</p>
-                                <p className="text">固定资产管理系统</p>
+                                <p className="text" onClick={()=>{getRouter('/WorkOA')}}>协同办公系统（OA）</p>
+                                <p className="text" onClick={()=>{getRouter('/HrSystem')}}>人力资源管理系统</p>
+                                <p className="text" onClick={()=>{getRouter('/ElectronSystem')}}>电子票据管理平台</p>
+                                <p className="text" onClick={()=>{getRouter('/Intelligence')}}>智能报销管理系统</p>
+                                <p className="text" onClick={()=>{getRouter('/ContractAdmin')}}>合同管理系统</p>
+                                <p className="text" onClick={()=>{getRouter('/WorkOA')}}>固定资产管理系统</p>
                             </div>
                             <div className="column">
                                 <p className="title">移动（OA）</p>
-                                <p className="text">需求分析</p>
-                                <p className="text">产品价值</p>
-                                <p className="text">应用优势</p>
-                                <p className="text">产品功能</p>
-                                <p className="text">下载关注</p>
+                                <p className="text" onClick={()=>{getRouter('/ContractAdmin')}}>需求分析</p>
+                                <p className="text" onClick={()=>{getRouter('/ContractAdmin')}}>产品价值</p>
+                                <p className="text" onClick={()=>{getRouter('/ContractAdmin')}}>应用优势</p>
+                                <p className="text" onClick={()=>{getRouter('/ContractAdmin')}}>产品功能</p>
+                                <p className="text" onClick={()=>{getRouter('/ContractAdmin')}}>下载关注</p>
                             </div>
                             <div className="column">
                                 <p className="title">关于我们</p>
@@ -165,17 +174,31 @@ const NewFooter = () => {
                             <div className="qrCode_wrap">
                                 <div className="row">
                                     <p className="imgs" onClick={()=>{getSwitch(0)}}>
-                                        <img src={require('../images/574.png')} alt=""/>
+                                        <img src={require('../images/icon_ios.png')} alt=""/>
                                     </p>
                                     <p className="imgs" onClick={()=>{getSwitch(1)}}>
-                                        <img src={require('../images/574.png')} alt=""/>
+                                        <img src={require('../images/icon_android.png')} alt=""/>
                                     </p>
                                     <p className="imgs" onClick={()=>{getSwitch(2)}}>
-                                        <img src={require('../images/574.png')} alt=""/>
+                                        <img src={require('../images/icon_weimob.png')} alt=""/>
                                     </p>
                                 </div>
                                 <div className="qrCode">
                                     <div className={numbers==0?'qr-img':numbers==1?'qr-img-one':'qr-img-two'}></div>
+                                    <div className="imgs">
+                                        {
+                                            numbers==0&&
+                                            <img src={require('../images/apple_link.png')} alt=""/>
+                                        }
+                                        {
+                                            numbers==1&&
+                                            <img src={require('../images/android.png')} alt=""/>
+                                        }
+                                        {
+                                            numbers==2&&
+                                            <img src={require('../images/wechat.jpg')} alt=""/>
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>

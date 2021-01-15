@@ -121,18 +121,51 @@ const NewAboutWe = () => {
                         <div className={styles.shadow} id={'js'}>
                             <h3 className={styles.title}>技术资质</h3>
                             <div className={styles.imgs_wrap}>
-                                <div className={styles.img_box}></div>
-                                <div className={styles.img_box}></div>
-                                <div className={styles.img_box}></div>
-                                <div className={styles.img_box}></div>
-                                <div className={styles.img_box}></div>
-                                <div className={styles.img_box}></div>
-                                <div className={styles.img_box_h}></div>
-                                <div className={styles.img_box_h}></div>
-                                <div className={styles.img_box_h}></div>
-                                <div className={styles.img_box_h}></div>
-                                <div className={styles.img_box_h}></div>
-                                <div className={styles.img_box_h}></div>
+                                <div className={styles.img_box}>
+                                    <img className={styles.img} src={require('../../images/ERC_1.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box}>
+                                    <img className={styles.img} src={require('../../images/ERC_2.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box}>
+                                    <img className={styles.img} src={require('../../images/ERC_3.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box}>
+                                    <img className={styles.img} src={require('../../images/ERC_4.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box}>
+                                    <img className={styles.img} src={require('../../images/ERC_5.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box}>
+                                    <img className={styles.img} src={require('../../images/ERC_6.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box_h}>
+                                    <img className={styles.img} src={require('../../images/ERC_7.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box_h}>
+                                    <img className={styles.img} src={require('../../images/ERC_8.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box_h}>
+                                    <img className={styles.img} src={require('../../images/ERC_9.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box_h}>
+                                    <img className={styles.img} src={require('../../images/ERC_10.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box_h}>
+                                    <img className={styles.img} src={require('../../images/ERC_11.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box_h}>
+                                    <img className={styles.img} src={require('../../images/ERC_12.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box_h}>
+                                    <img className={styles.img} src={require('../../images/ERC_13.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box_h}>
+                                    <img className={styles.img} src={require('../../images/ERC_14.png')} alt=""/>
+                                </div>
+                                <div className={styles.img_box_h} style={{border:'none'}}>
+
+                                </div>
                             </div>
                         </div>
                         <div className={styles.recruit} id={'rc'}>

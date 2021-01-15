@@ -17,7 +17,7 @@ import Register from "./pages/register/Register";
 import routeList from './utils/router';
 function App() {
     const arr = routeList.map((item,index)=>{
-        console.log(item,'routeList')
+        // console.log(item,'routeList')
         const Name = item.name;
         return (
             <Route path={item.path} key={index}>

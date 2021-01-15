@@ -35,6 +35,11 @@
         height: 100px;
         margin: 0 auto;
         background: #333333;
+        img{
+          width: 100%;
+          height: 100%;
+          vertical-align: middle;
+        }
       }
       .box_text{
         text-align: center;

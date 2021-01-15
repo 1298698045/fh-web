@@ -4,7 +4,7 @@
 import axios from "axios";
 
 axios.defaults.timeout = 100000;
-// axios.defaults.baseURL = "http://192.168.1.200:9099";
+// axios.defaults.baseURL = "http://192.168.1.200:9099/";
 axios.defaults.baseURL = "";
 
 /**

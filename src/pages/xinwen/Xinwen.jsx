@@ -7,6 +7,7 @@ import imgOne from '../../images/913.png';
 import backUrl from "../../images/bj.png";
 import NewFooter from "../../components/NewFooter";
 import http from "../../utils/request";
+import { useHistory, useLocation } from 'react-router-dom';
 const contentStyle = {
     height: '470px',
     color: '#fff',
@@ -25,6 +26,7 @@ const CustomerCase = () =>{
     const handlePhone = ()=> {
         window.location.href = "tel://10086";
     }
+    const history = useHistory();
     const [ItemId,setItemId] = useState('20A506E7-1CF9-418C-9EE8-0F632F8A8857');
     const [PageIndex,setPageIndex] = useState(1);
     const [PageSize,setPageSize] = useState(9);
@@ -51,9 +53,19 @@ const CustomerCase = () =>{
         })
 
     }
+    const getDetail = (item) =>{
+        console.log(item,'查看详情')
+        window.localStorage.setItem("id", item.ContentId);
+        history.push({
+            pathname:"/Detail",
+            state:{
+                id:item.ContentId
+            }
+        })
+    }
     const renderList = list.map((item,index)=>{
         return (
-            <div className="box_box" key={index}>
+            <div className="box_box" key={index} onClick={()=>{getDetail(item)}}>
                 <p className="img">
                     <img src={require('../../images/103.png')} alt=""/>
                 </p>

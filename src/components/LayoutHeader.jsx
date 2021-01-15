@@ -10,7 +10,7 @@ const LayoutHeader = () => {
     const [isShow,setIsShow] = useState(false);
     const history = useHistory();
     const location = useLocation();
-    console.log(location,'location')
+    // console.log(location,'location')
     let list =[
         {
             name:"首页",
@@ -18,7 +18,7 @@ const LayoutHeader = () => {
             arr:[]
         },
         {
-            name:"产品",
+            name:"产品中心",
             path:'/Product',
             arr:[
                 {
@@ -33,7 +33,7 @@ const LayoutHeader = () => {
         //     arr:[]
         // },
         {
-            name:"新闻",
+            name:"新闻中心",
             path:"/Xinwen"
         },
         {
@@ -80,6 +80,15 @@ const LayoutHeader = () => {
         history.push('/WorkOA')
         setIdx(1)
     }
+    const getRouter = (str,idx) =>{
+        console.log(str,idx)
+        history.push(str);
+        setIdx(idx);
+    }
+    const getRouterFour = (str,idx) => {
+        history.push(str)
+        setIdx(4)
+    }
     const handleRegister = () => {
         console.log('registry')
         history.push('/Register')
@@ -95,9 +104,15 @@ const LayoutHeader = () => {
     }
     useEffect(()=>{
         const {pathname} = location;
-        console.log(pathname,'---')
-        if(pathname=='/HrSystem'||pathname=='/WorkOA'){
+        if(pathname=='/HrSystem'||pathname=='/WorkOA'||pathname=='/ElectronSystem'||pathname=='/MoveSystem'||pathname=='/Intelligence'||'/ContractAdmin'){
             setIdx(1)
+        }
+        if(pathname=='/Technology'||pathname=='/Contact'||pathname=='/Talent'){
+            console.log(pathname,'----')
+            setIdx(4)
+        }
+        if(pathname=='/Detail'){
+            setIdx(2)
         }
         tabList.find((item,index)=> {
             if(item.path === pathname) {
@@ -118,22 +133,41 @@ const LayoutHeader = () => {
                 </span>
             </Menu.Item>
             <Menu.Item>
-                <span className={'spans'}>
+                <span className={'spans'} onClick={()=>{getRouter('/ElectronSystem',1)}}>
                     电子票据管理平台
                 </span>
             </Menu.Item>
             <Menu.Item>
-                <span className={'spans'}>
+                <span className={'spans'} onClick={()=>{getRouter('/MoveSystem',1)}}>
                     移动 (OA)
                 </span>
             </Menu.Item>
             <Menu.Item>
-                <span className={'spans'}>
+                <span className={'spans'} onClick={()=>{getRouter('Intelligence',1)}}>
                     智能报销管理系统
                 </span>
             </Menu.Item>
             <Menu.Item>
-                <span className={'spans'}>合同管理系统</span>
+                <span className={'spans'} onClick={()=>{getRouter('ContractAdmin',1)}}>合同管理系统</span>
+            </Menu.Item>
+        </Menu>
+    );
+    const menuFour = (
+        <Menu>
+            <Menu.Item>
+                <span className={'spans'} onClick={()=>{getRouterFour('/Technology',4)}}>
+                    技术资质
+                </span>
+            </Menu.Item>
+            <Menu.Item>
+                <span className={'spans'} onClick={()=>{getRouterFour('/Contact',4)}}>
+                    联系我们
+                </span>
+            </Menu.Item>
+            <Menu.Item>
+                <span className={'spans'} onClick={()=>{getRouterFour('/Talent',4)}}>
+                    人才招聘
+                </span>
             </Menu.Item>
         </Menu>
     );
@@ -154,12 +188,20 @@ const LayoutHeader = () => {
                 <Dropdown overlay={menu} placement="bottomLeft" arrow>
                     <li className={idx==index?'active':''} key={index} onMouseEnter={()=>handleMouse(index)} onClick={()=>handleRouter(item,index)}>
                         {item.name}
-                        {icon}
+                        {/*{icon}*/}
+                    </li>
+                </Dropdown>
+                }
+                {index==4&&
+                <Dropdown overlay={menuFour} placement="bottomLeft" arrow>
+                    <li className={idx==index?'active':''} key={index} onMouseEnter={()=>handleMouse(index)} onClick={()=>handleRouter(item,index)}>
+                        {item.name}
+                        {/*{icon}*/}
                     </li>
                 </Dropdown>
                 }
                 {
-                    index!=1&&
+                    index!=1&&index!=4&&
                     <li className={idx==index?'active':''} key={index} onMouseEnter={()=>handleMouse(index)} onClick={()=>handleRouter(item,index)}>
                         {item.name}
                         {icon}

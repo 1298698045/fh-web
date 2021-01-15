@@ -63,6 +63,7 @@ const serviceBack = {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover"
 }
+let pubList = [];
 class Home extends Component{
     constructor(props) {
         super(props);
@@ -122,7 +123,8 @@ class Home extends Component{
             plateList:[1,2,3,4,5,6,7,8,9,10],
             index:0,
             ItemId:'8CE6E996-1BF1-48BF-BF45-AB8DBA5559E7',
-            listData:[]
+            listData:[],
+            bannerList:[]
         }
         this.handleRegister = this.handleRegister.bind(this);
         this.handleMouseOver = this.handleMouseOver.bind(this);
@@ -186,6 +188,7 @@ class Home extends Component{
         //     })
         // })
         this.getQuery();
+        this.successCase();
     }
     getQuery(){
         let url = '/api/Contentbase/GetContentbases?ItemId='+this.state.ItemId+'&PageIndex=' + 1 + '&PageSize=' + 10;
@@ -193,6 +196,21 @@ class Home extends Component{
             console.log (res);
             this.setState({
                 listData:res.rows
+            })
+        },error => {
+            console.log("网络异常~",error);
+            // reject(error)
+        })
+    }
+    successCase(){
+        let url = '/api/Contentbase/GetContentbases?ItemId='+'76EE7EB1-0943-4182-87BC-87D3ADF8B9AB'+'&PageIndex=' + 1 + '&PageSize=' + 9;
+        http("get",url).then(res => {
+            var result = [];
+            for(var i=0;i < res.rows.length;i+=3){
+                result.push({list:res.rows.slice(i, i + 3)});
+            }
+            this.setState({
+                bannerList:result
             })
         },error => {
             console.log("网络异常~",error);
@@ -247,13 +265,15 @@ class Home extends Component{
         })
     }
     bannerList(){
-        let arr = [{item:[1,2,3]},{item:[4,5,6]},{item:[7,8,9]}];
-        return  arr.map((item,index)=>{
+        // let arr = [{item:[1,2,3]},{item:[4,5,6]},{item:[7,8,9]}];
+        let arr = this.state.bannerList;
+        console.log(arr,'000')
+        return arr.map((item,index)=>{
             return (
                 <div style={swiperStyle} key={index}>
                     <div className="cont">
                         {
-                            item.item.map((v,idx)=>{
+                            item.list.map((v,idx)=>{
                                 return (
                                     <div className="box" key={idx}>
                                         <p className="img">
@@ -264,11 +284,11 @@ class Home extends Component{
                                                 <img src={require('../../images/104.png')} alt=""/>
                                             </div>
                                             <p className={'text textRow'}>医药医疗：山西省长治市人民医院</p>
-                                            <p className={'title_'}>移动办公快速解决农户燃眉之需</p>
+                                            <p className={'title_'}>{v.Title}</p>
                                             <div className="divs">
                                                 <p className="text show">通过云和移动的技术助推医疗信息化改革，释放核心医疗资源，提升医生工作效率，解决患者看病难的问题。</p>
                                                 <div className="signRed">
-                                                    <p>1000人以上</p><p>提升沟通效率、高效组织会议{v}</p>
+                                                    {/*<p>1000人以上</p><p>提升沟通效率、高效组织会议</p>*/}
                                                 </div>
                                                 {/*<p>{v}</p>*/}
                                             </div>
