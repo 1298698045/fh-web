@@ -1,8 +1,9 @@
 import React,{useEffect,useState,useRef} from "react";
 import {IconStyle} from "../static/iconfont/iconfont";
 import '../css/newFooter.scss';
-import { Modal, Button ,Form, Input,Row, Col, } from 'antd';
+import { Modal, Button ,Form, Input,Row, Col,message } from 'antd';
 import { useHistory, useLocation } from 'react-router-dom';
+import http from "../utils/request";
 const styleBtn = {
     background: '#f6f6f9',
     fontSize: '14px',
@@ -21,6 +22,7 @@ const NewFooter = () => {
     const [index,setIndex] = useState(0);
     const history = useHistory();
     const location = useLocation();
+    const [form] = Form.useForm();
     const getRouter = (str) =>{
         history.push(str);
     }
@@ -37,6 +39,23 @@ const NewFooter = () => {
     useEffect(()=>{
         window.scrollTo(0,0)
     },[])
+    const onFinish = (values) => {
+        console.log('Success:',values);
+        let url = '/api/Contentbase/PostContactBase';
+        http("post",url,{
+            ...values
+        }).then(res => {
+            message.success(res.msg,2);
+            form.resetFields();
+            setIsModalVisible(false);
+        },error => {
+            console.log("网络异常~",error);
+        })
+
+    };
+    const onFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
+    };
     const showModal = (
         <Modal width={440} closable={false} footer={null} visible={isModalVisible} onCancel={(e)=>{setIsModalVisible(false)}}>
             <div className="tabs">
@@ -46,67 +65,68 @@ const NewFooter = () => {
             {index==0&&
             <div className="modalContent">
                 <div className="desc">完善以下信息您可以免费体验我们的产品功能，我们的顾问会在 1个工作日内与您取得联系</div>
-                <Form {...formItemLayout} style={formStyle}>
+                <Form {...formItemLayout} form={form} style={formStyle} onFinish={onFinish}
+                      onFinishFailed={onFinishFailed} >
                     <Form.Item
                         label="单位名称"
-                        name="username"
-                        rules={[{ required: true, message: 'Please input your username!' }]}
+                        name="Department"
+                        rules={[{ required: true, message: '请输入单位名称!' }]}
                     >
                         <Input />
                     </Form.Item>
                     <Form.Item
                         label="姓名"
-                        name="username"
-                        rules={[{ required: true, message: 'Please input your username!' }]}
+                        name="FullName"
+                        rules={[{ required: true, message: '请输入姓名!' }]}
                     >
                         <Input />
                     </Form.Item>
                     <Form.Item
                         label="手机号"
-                        name="username"
-                        rules={[{ required: true, message: 'Please input your username!' }]}
+                        name="MobilePhone"
+                        rules={[{ required: true, message: '请输入手机号!' }]}
                     >
                         <Input />
                     </Form.Item>
-                    <Form.Item label="短信验证"
-                               name="captcha"
-                               rules={[{ required: true, message: 'Please input your username!' }]}
-                    >
-                        <Row gutter={8}>
-                            <Col span={12}>
-                                <Input />
-                                {/*<Form.Item*/}
-                                {/*    name="captcha"*/}
-                                {/*    noStyle*/}
-                                {/*    rules={[{ required: true, message: 'Please input the captcha you got!' }]}*/}
-                                {/*>*/}
-                                {/*    <Input />*/}
-                                {/*</Form.Item>*/}
-                            </Col>
-                            <Col span={12}>
-                                <Button style={styleBtn}>获取验证码</Button>
-                            </Col>
-                        </Row>
-                    </Form.Item>
+                    {/*<Form.Item label="短信验证"*/}
+                    {/*           name="captcha"*/}
+                    {/*           rules={[{ required: true, message: 'Please input your username!' }]}*/}
+                    {/*>*/}
+                    {/*    <Row gutter={8}>*/}
+                    {/*        <Col span={12}>*/}
+                    {/*            <Input />*/}
+                    {/*            /!*<Form.Item*!/*/}
+                    {/*            /!*    name="captcha"*!/*/}
+                    {/*            /!*    noStyle*!/*/}
+                    {/*            /!*    rules={[{ required: true, message: 'Please input the captcha you got!' }]}*!/*/}
+                    {/*            /!*>*!/*/}
+                    {/*            /!*    <Input />*!/*/}
+                    {/*            /!*</Form.Item>*!/*/}
+                    {/*        </Col>*/}
+                    {/*        <Col span={12}>*/}
+                    {/*            <Button style={styleBtn}>获取验证码</Button>*/}
+                    {/*        </Col>*/}
+                    {/*    </Row>*/}
+                    {/*</Form.Item>*/}
                     <Form.Item
                         label="邮箱"
-                        name="username"
-                        rules={[{ required: false, message: 'Please input your username!' }]}
+                        name="EMailAddress1"
+                        rules={[{ required: true, message: '请输入邮箱!' }]}
                     >
                         <Input />
                     </Form.Item>
-                    {/*<Form.Item style={{*/}
-                    {/*    display:'flex',*/}
-                    {/*    justifyContent:"center"*/}
-                    {/*}}>*/}
-                    {/*    <Button type="primary" style={SubmitBtn} block onClick={()=>{setIsModalVisible(false)}}>*/}
-                    {/*        提交申请*/}
-                    {/*    </Button>*/}
-                    {/*</Form.Item>*/}
+                    <Form.Item style={{
+                        display:'flex',
+                        justifyContent:"center"
+                    }}>
+                        <Button type="primary" style={SubmitBtn}  htmlType="submit" block>
+                            提交申请
+                        </Button>
+                    </Form.Item>
                 </Form>
-                <Button type="primary" style={SubmitBtn} block onClick={()=>{setIsModalVisible(false)}}>
-                    提交申请
-                </Button>
+                {/*<Button type="primary" style={SubmitBtn}  block onClick={()=>{setIsModalVisible(false)}}>*/}
+                {/*    提交申请*/}
+                {/*</Button>*/}
             </div>
             }
             {index==1&&

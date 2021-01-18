@@ -114,6 +114,9 @@ const LayoutHeader = () => {
         if(pathname=='/Detail'){
             setIdx(2)
         }
+        if(pathname=='/'){
+            setIdx(0)
+        }
         tabList.find((item,index)=> {
             if(item.path === pathname) {
                 setIdx(index);
