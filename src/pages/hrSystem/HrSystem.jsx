@@ -5,9 +5,16 @@ import { useScroll } from 'ahooks';
 import {IconStyle} from "../../static/iconfont/iconfont";
 import classnames from 'classnames';
 import NewFooter from '../../components/NewFooter';
+import imgOne from "../../images/1538.png";
 console.log(styles,'style')
 const { Link } = Anchor;
-
+const back = {
+    width:'100%',
+    height: '434px',
+    backgroundImage: `url(${imgOne})`,
+    backgroundRepeat:'no-repeat',
+    backgroundSize: 'cover'
+};
 const defaultIndexInfo = [
     {index:0, top: 800,  id: 'xq'},
     {index:1, top: 1400 ,id: 'fa'},
@@ -103,22 +110,10 @@ const HrSystem = () =>{
     return (
         <>
             <div className={styles.hr_wrap}>
-                <div className={styles.banner_wrap}>
-                    <div className={styles.banner}>
-                        <div className={styles.text_wrap}>
-                            <h1 className={styles.name}>人力资源管理系统</h1>
-                            <div className={styles.cont}>
-                                伴随着行业的快速增长，在企业提供人力资源服务的过程中，产生了
-                                大量人员相关的信息数据需求，基于人性化管理的人力资源平台，提
-                                升人员信息集中化、部门间数据协作化，实现统一规划、统一建设、统
-                                一投入、统一运营的人力资源电子流程化。解决系统间数据不联通的问题。
-                            </div>
-                            <div className={styles.btn}>试用申请</div>
-                        </div>
-                        <div className={styles.img_wrap}>
-                            <img src={require('../../images/1010.png')} alt=""/>
-                        </div>
-                    </div>
+                <div className={styles.banners} style={back}>
+                    <h3 className={styles.title}>凤凰世纪人力资源系统,</h3>
+                    <h3 className={styles.title}>让人事管理更简单高效</h3>
+                    <p className={styles.text}>信息提升效率，数据洞见未来 </p>
                 </div>
                 <div className={styles.center}>
                     <Anchor targetOffset={targetOffset} onClick={handleClick} style={{zIndex:9999}}>

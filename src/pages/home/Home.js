@@ -133,6 +133,8 @@ class Home extends Component{
         this.handlePhone = this.handlePhone.bind(this);
         this.handleRouter = this.handleRouter.bind(this);
         // this.handleTab = this.handleTab.bind(this);
+        this.handleMouseTab = this.handleMouseTab.bind(this);
+        this.handleOutTab = this.handleOutTab.bind(this);
     }
     handleRouter(){
 
@@ -164,6 +166,9 @@ class Home extends Component{
         })
         this.getQuery();
     }
+    handleDetail(id){
+        window.localStorage.setItem("id", id);
+    }
     componentDidMount(){
         var mySwiper = new Swiper('.swiper-container', {
             autoplay: true,
@@ -189,6 +194,19 @@ class Home extends Component{
         // })
         this.getQuery();
         this.successCase();
+    }
+    async handleMouseTab(e,{idx,id}){
+        const w = await
+        this.setState({
+            index:idx,
+            ItemId:id
+        })
+        this.getQuery();
+    }
+    handleOutTab(e,{idx,id}){
+        this.setState({
+            index:idx
+        })
     }
     getQuery(){
         let url = '/api/Contentbase/GetContentbases?ItemId='+this.state.ItemId+'&PageIndex=' + 1 + '&PageSize=' + 10;
@@ -452,32 +470,33 @@ class Home extends Component{
                     <div className="home_content">
                         <div className="tab_wrap">
                             <div className="tabs">
-                                <p className={this.state.index==0?'tab active':'tab'} onClick={this.handleTab.bind(this, {
-                                    idx:0,
-                                    id:'8CE6E996-1BF1-48BF-BF45-AB8DBA5559E7'
-                                })}>签约新闻</p>
-                                <p className={this.state.index==1?'tab active':'tab'} onClick={this.handleTab.bind(this,
-                                    {
-                                        idx:1,
-                                        id:'00BE0324-CDDA-457C-988C-9F564BCE041C'
-                                    })}>验收新闻</p>
-                                <p className={this.state.index==2?'tab active':'tab'} onClick={this.handleTab.bind(this,{
-                                    idx:2,
-                                    id:'0DD1F56C-C329-41C6-BDB2-B021A36C4A7A'
-                                })}>媒体报道</p>
-                                <p className={this.state.index==3?'tab active':'tab'} onClick={this.handleTab.bind(this,{
-                                    idx:3,
-                                    id:'76EE7EB1-0943-4182-87BC-87D3ADF8B9AB'
-                                })}>成功案例</p>
+                                <p className={this.state.index==0?'tab active':'tab'} onMouseOver={(e)=>{this.handleMouseTab(e,{idx:0,
+                                    id:'8CE6E996-1BF1-48BF-BF45-AB8DBA5559E7'})}}
+                     onMouseOut={(e)=>{this.handleOutTab(e,{idx:0,
+                        id:'8CE6E996-1BF1-48BF-BF45-AB8DBA5559E7'})}}>签约新闻</p>
+                                <p className={this.state.index==1?'tab active':'tab'}  onMouseOver={(e)=>{this.handleMouseTab(e,{idx:1,
+                                    id:'00BE0324-CDDA-457C-988C-9F564BCE041C'})}}
+                     onMouseOut={(e)=>{this.handleOutTab(e,{idx:1,
+                        id:'00BE0324-CDDA-457C-988C-9F564BCE041C'})}}>验收新闻</p>
+                                <p className={this.state.index==2?'tab active':'tab'}   onMouseOver={(e)=>{this.handleMouseTab(e,{idx:2,
+                                    id:'0DD1F56C-C329-41C6-BDB2-B021A36C4A7A'})}}
+                     onMouseOut={(e)=>{this.handleOutTab(e,{idx:2,
+                        id:'0DD1F56C-C329-41C6-BDB2-B021A36C4A7A'})}}>媒体报道</p>
+                                <p className={this.state.index==3?'tab active':'tab'}  onMouseOver={(e)=>{this.handleMouseTab(e,{idx:3,
+                                    id:'76EE7EB1-0943-4182-87BC-87D3ADF8B9AB'})}}
+                     onMouseOut={(e)=>{this.handleOutTab(e,{idx:3,
+                        id:'76EE7EB1-0943-4182-87BC-87D3ADF8B9AB'})}}>成功案例</p>
                             </div>
                             <ul className="uls">
                                 {
                                     this.state.listData.map((item,index)=>{
                                         return (
-                                            <li key={index}>
-                                                <span className="dian"></span>
-                                                {item.Title}
-                                            </li>
+                                            <Link to={`${'/Detail'}`} style={{width:"50%"}}>
+                                                <li key={index} onClick={this.handleDetail.bind(this,item.ContentId)} >
+                                                    <span className="dian"></span>
+                                                    {item.Title}
+                                                </li>
+                                            </Link>
                                         )
                                     })
                                 }
