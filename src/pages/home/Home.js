@@ -564,7 +564,7 @@ class Home extends Component{
                         <h3 className="service_title">
                             我们的优势
                         </h3>
-                        <p className="service_desc">智能 · 互动 · 移动</p>
+                        <p className="service_desc">智能 <span></span> 互动 <span></span> 移动</p>
                         <div className="back" style={serviceBack}>
                             <div className="advantage">
                                 {

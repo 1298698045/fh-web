@@ -5,12 +5,13 @@ import { useScroll } from 'ahooks';
 import {IconStyle} from "../../static/iconfont/iconfont";
 import classnames from 'classnames';
 import NewFooter from '../../components/NewFooter'
+import './index.scss';
 console.log(styles,'style')
 const { Link } = Anchor;
 
 const defaultIndexInfo = [
     {index:0, top: 800,  id: 'xq'},
-    {index:1, top: 1400 ,id: 'fa'},
+    {index:1, top: 1320 ,id: 'fa'},
     {index:2, top: 2100 ,id: 'yy'},
     {index:3, top: 2820, id: 'gn'},
     {index:4, top: 3500 ,id: 'kh'},
@@ -69,7 +70,7 @@ const WorkOA = () => {
         const { left, top } = scroll;
         // if(top<800) {
         //     setIndex(0);
-        // }else if(top<1400) {
+        // }else if(top<1320) {
         //     setIndex(1)
         // }else if(top<2100) {
         //     setIndex(2)
@@ -247,16 +248,16 @@ const WorkOA = () => {
                         <div className={styles.normal} id="gn">
                             <h3 className={styles.title}>产品功能</h3>
                             <p className={styles.text}>最专业的医院OA系统</p>
-                            <div className={styles.flex}>
+                            <div className={'flex'}>
                                 {
                                     productList.map((item,index)=>{
                                         return (
-                                            <div key={index} className={defaultIdx==index?classnames(styles.hover,styles.item):styles.item} onMouseOver={()=>setDefaultIdx(index)
+                                            <div key={index} className={defaultIdx==index?classnames('hover','item'):'item'} onMouseOver={()=>setDefaultIdx(index)
                                             }
                                                  onMouseOut={()=>setDefaultIdx(index)}>
                                                 <img src={require('../../images/1037.png')} alt=""/>
-                                                <h6 className={styles.title}>{item.name}</h6>
-                                                <p className={defaultIdx==index?classnames(styles.descHover,styles.desc):styles.desc}>
+                                                <h6 className={'title'}>{item.name}</h6>
+                                                <p className={defaultIdx==index?classnames('descHover','desc'):'desc'}>
                                                     {item.text}
                                                 </p>
                                             </div>

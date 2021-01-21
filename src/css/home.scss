@@ -17,12 +17,12 @@ li{
   }
   .home_content,.contents .box_wrap{
     width: 100%;
-    min-width: 1400px;
+    min-width: 1320px;
     padding: 0 40px;
   }
   .service_wrap .back .cont_text{
     width: 100%;
-    min-width: 1400px;
+    min-width: 1320px;
     padding: 0 40px;
   }
 }
@@ -170,7 +170,7 @@ li{
       }
     }
     .home_content{
-      width: 1400px;
+      width: 1320px;
       margin: auto;
       .tab_wrap{
         .tabs{
@@ -231,11 +231,22 @@ li{
         font-size: 18px;
         color: #626775;
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span{
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          display: inline-block;
+          background: #626775;
+          margin: 0 5px;
+        }
       }
       .back{
         padding-top: 73px;
         .cont_text{
-          width: 1400px;
+          width: 1320px;
           margin: 0 auto;
           .name{
             font-size: 20px;
@@ -254,7 +265,7 @@ li{
           }
         }
         .advantage{
-          width: 1400px;
+          width: 1320px;
           margin: 0 auto;
           display: flex;
           justify-content: space-between;
@@ -287,7 +298,7 @@ li{
       }
     }
     .product_Wrap{
-      //width: 1400px;
+      //width: 1320px;
       margin: 62px auto;
       h3{
         margin: 0;
@@ -355,7 +366,7 @@ li{
     .contents{
       width: 100%;
       .box_wrap{
-        width: 1400px;
+        width: 1320px;
         margin: 0 auto;
         .title{
           text-align: center;

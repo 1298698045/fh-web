@@ -13,7 +13,7 @@ const back = {
 };
 const defaultIndexInfo = [
     {index:0, top: 800,  id: 'gs'},
-    {index:1, top: 1400 ,id: 'js'},
+    {index:1, top: 1320 ,id: 'js'},
     {index:2, top: 2100 ,id: 'rc'},
     {index:3, top: 2820, id: 'lx'},
 ]

@@ -226,7 +226,13 @@ const NewFooter = () => {
 
                 </div>
                 <div className="textUrl">
-                    <p>Copyright © 2020 北京凤凰世纪科技有限公司版权所有  |  京ICP备16024828号</p>
+                    <a href="https://beian.miit.gov.cn">
+                        <img src={require('../images/country.jpg')} alt=""/>
+                        <span style={{marginLeft:'10px'}}>
+                            Copyright © 2020 北京凤凰世纪科技有限公司版权所有  |  京ICP备16024828号
+                        </span>
+                    </a>
+                    {/* <p>Copyright © 2020 北京凤凰世纪科技有限公司版权所有  |  京ICP备16024828号</p> */}
                     <p>京公网安备11030102010604</p>
                 </div>
             </div>
