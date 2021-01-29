@@ -175,10 +175,10 @@ const NewFooter = () => {
                             </div>
                             <div className="column">
                                 <p className="title">关于我们</p>
-                                <p className="text">公司介绍</p>
-                                <p className="text">技术资质</p>
-                                <p className="text">加入我们</p>
-                                <p className="text">联系我们</p>
+                                <p className="text" onClick={()=>{getRouter('/NewAboutWe')}}>公司介绍</p>
+                                <p className="text" onClick={()=>{getRouter('/Technology')}}>技术资质</p>
+                                <p className="text" onClick={()=>{getRouter('/Talent')}}>人才招聘</p>
+                                <p className="text" onClick={()=>{getRouter('/Contact')}}>联系我们</p>
                             </div>
                         </div>
                         <div className="rBox">

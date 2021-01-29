@@ -16,9 +16,16 @@ const back = {
     backgroundSize: 'cover'
 };
 const defaultIndexInfo = [
-    {index:0, top: 800,  id: 'xq'},
-    {index:1, top: 2100 ,id: 'yy'},
-    {index:2, top: 3500 ,id: 'kh'},
+    {index:0, top: 800,  id: 'zz'},
+    {index:1, top: 800,  id: 'sp'},
+    {index:2, top: 800,  id: 'kq'},
+    {index:3, top: 800,  id: 'pb'},
+    {index:4, top: 800,  id: 'bxfl'},
+    {index:5, top: 800,  id: 'xz'},
+    {index:6, top: 800,  id: 'kp'},
+    {index:7, top: 800,  id: 'zp'},
+    {index:8, top: 800,  id: 'rydp'},
+    {index:9, top: 800,  id: 'kfhl'}
 ]
 const productList = [
     {
@@ -129,69 +136,148 @@ const HrSystem = () =>{
                                 {/*<Link href={window.location.hash+"#components-anchor-demo-basic"}>*/}
                                 {/*    <p className={index==0?styles.active:styles.tab}>需求分析</p>*/}
                                 {/*</Link>*/}
-                                <p className={index==0?styles.active:styles.tab} onClick={()=>getTab(0)}>员工</p>
+                                {
+                                    productList.map((item,idx)=>{
+                                        return (
+                                            <p className={index==idx?styles.active:styles.tab} onClick={()=>getTab(idx)}>{item.name}</p>
+                                        )
+                                    })
+                                }
+                                {/* <p className={index==0?styles.active:styles.tab} onClick={()=>getTab(0)}>员工</p>
                                 <p className={index==1?styles.active:styles.tab} onClick={()=>getTab(1)}>产品功能</p>
-                                <p className={index==2?styles.active:styles.tab} onClick={()=>getTab(2)}>客户案例</p>
-                                {/*<p className={index==3?styles.active:styles.tab} onClick={()=>getTab(3)}>功能模块</p>*/}
-                                {/*<p className={index==4?styles.active:styles.tab} onClick={()=>getTab(4)}>客户案例</p>*/}
+                                <p className={index==2?styles.active:styles.tab} onClick={()=>getTab(2)}>客户案例</p> */}
                             </div>
                         </div>
                     </Anchor>
                     <div className={styles.container}>
-                        <div className={styles.normal} id="xq">
+                        <div className={styles.normal} id="zz">
                             <div className={styles.content}>
                                 <div className={styles.lImg}>
                                     <img src={require('../../images/1716.png')} alt=""/>
                                 </div>
                                 <div className={styles.rBox}>
-                                    <h1>员工</h1>
+                                    <h1>组织</h1>
                                     <p className={styles.desc}>
-                                    360度全景人员资料管理，从入职到离退，记录员工成长轨迹员工信息全面归档，打造高效信息平台重要事项准时提醒，有效规避劳动风险人事报表随时取用，实时掌握人员异动。
+                                    灵活配置管理权限，⽀持复杂组织架构。灵活设置多级部⻔，快速搭建架构体系直观查看组织架构图，⽀持⼀键导出强大的权限定义，多维度精细设置编制直观查看，成本控制⼼中有数。
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.shadow} id="yy">
-                            <h3 className={styles.title}>产品功能</h3>
-                            <div className={styles.yingyong}>
-                                <div className={styles.product}>
-                                    {
-                                        productList.map((item,index)=>{
-                                            return (
-                                                <div className={styles.item_box}>
-                                                    <div className={styles.imgs}>
-                                                        <img className={styles.img} src={require('../../images/1037.png')} alt=""/>
-                                                    </div>
-                                                    <div className={styles.rText}>
-                                                        <p className={styles.name}>{item.name}</p>
-                                                        <p className={styles.desc}>
-                                                            {item.desc}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                    
+                        <div className={styles.reverse}  id="sp">
+                            <div className={styles.content}>
+                                <div className={styles.rBox}>
+                                    <h1>审批</h1>
+                                    <p className={styles.desc}>
+                                    简明⾼效随时处理设置不同审批流程，满⾜不同业务场景审批数据结果⾃动关联各模块审批结果存档备忘，随时搜索审批详情移动端审批⼊⼝，随时随地⾼效处理。
+                                    </p>
+                                </div>
+                                <div className={styles.lImg}>
+                                    <img src={require('../../images/1716.png')} alt=""/>
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.normal} id="kh">
-                            <h3 className={styles.title}>客户案例</h3>
+                        <div className={styles.normal} id="kq">
                             <div className={styles.content}>
-                                {
-                                    [1,2,3,4,5,6,7,8,9,10,11,12].map((item,index)=>{
-                                        return (
-                                            <div className={styles.al_item}>
-                                                <img src={require('../../images/766.png')} alt=""/>
-                                            </div>
-                                        )
-                                    })
-                                }
+                                <div className={styles.lImg}>
+                                    <img src={require('../../images/1716.png')} alt=""/>
+                                </div>
+                                <div className={styles.rBox}>
+                                    <h1>考勤</h1>
+                                    <p className={styles.desc}>
+                                    考勤⽅案⾃定义，灵活打卡更便捷。设置不同考勤⽅案，⽀持多种打卡⽅式灵活多样的班次设置，考勤管理更清晰⼀键获取考勤报表，数据精准同步⼯资考勤异常及时提醒，员工自主管理更高效。
+                                    </p>
+                                </div>
                             </div>
-                            <div className={styles.link}>更多客户案例
-                                <IconStyle/>
-                                <i className="iconfont">&#xe62a;</i>
+                        </div>
+                        <div className={styles.reverse} id="pb">
+                            <div className={styles.content}>
+                                <div className={styles.rBox}>
+                                    <h1>排班</h1>
+                                    <p className={styles.desc}>
+                                    排班支持多种方式按组、按部门，按周、月排班，灵活统计查询，夜班费用计算等。
+                                    </p>
+                                </div>
+                                <div className={styles.lImg}>
+                                    <img src={require('../../images/1716.png')} alt=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.normal} id="bxfl">
+                            <div className={styles.content}>
+                                <div className={styles.lImg}>
+                                    <img src={require('../../images/1716.png')} alt=""/>
+                                </div>
+                                <div className={styles.rBox}>
+                                    <h1>保险福利</h1>
+                                    <p className={styles.desc}>
+                                    保险福利全流程操作保险缴纳调整，导入，月缴纳生成，未缴纳提醒，保险报表。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.reverse} id="xz">
+                            <div className={styles.content}>
+                                <div className={styles.rBox}>
+                                    <h1>薪资</h1>
+                                    <p className={styles.desc}>
+                                    个性化薪酬⽅案 系统算薪更准确针对不同员⼯类别，灵活配置薪酬⽅案。
+                                    </p>
+                                </div>
+                                <div className={styles.lImg}>
+                                    <img src={require('../../images/1716.png')} alt=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.normal} id="kp">
+                            <div className={styles.content}>
+                                <div className={styles.lImg}>
+                                    <img src={require('../../images/1716.png')} alt=""/>
+                                </div>
+                                <div className={styles.rBox}>
+                                    <h1>考评</h1>
+                                    <p className={styles.desc}>
+                                    360度考评、年度考评，续签试用考评等。灵活定义指标，考评表，测评维度，批量发布考评，汇总报表，统计。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.reverse} id="zp">
+                            <div className={styles.content}>
+                                <div className={styles.rBox}>
+                                    <h1>招聘</h1>
+                                    <p className={styles.desc}>
+                                    招聘全流程处理职位/简历一站式管理，招聘全过程管理。
+                                    </p>
+                                </div>
+                                <div className={styles.lImg}>
+                                    <img src={require('../../images/1716.png')} alt=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.normal} id="rydp">
+                            <div className={styles.content}>
+                                <div className={styles.lImg}>
+                                    <img src={require('../../images/1716.png')} alt=""/>
+                                </div>
+                                <div className={styles.rBox}>
+                                    <h1>人员调配</h1>
+                                    <p className={styles.desc}>
+                                    追踪所有人员变动
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.reverse} id="kfhl">
+                            <div className={styles.content}>
+                                <div className={styles.rBox}>
+                                    <h1>开放互联</h1>
+                                    <p className={styles.desc}>
+                                    满足事业单位一体化管理需求。与OA、HIS打通、集成微信小程序，实现系统之间互联互通，系统与用户的简单使用。
+                                    </p>
+                                </div>
+                                <div className={styles.lImg}>
+                                    <img src={require('../../images/1716.png')} alt=""/>
+                                </div>
                             </div>
                         </div>
                     </div>

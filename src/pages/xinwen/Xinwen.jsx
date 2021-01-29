@@ -64,17 +64,20 @@ const CustomerCase = () =>{
         })
     }
     const renderList = list.map((item,index)=>{
+        if(item.Mediabases!=''){
+            item.photo = 'http://192.168.1.200:9099/files/FileViewer.aspx?id='+item.Mediabases[0].ObjectId;
+        }
         return (
             <div className="box_box" key={index} onClick={()=>{getDetail(item)}}>
                 <p className="img">
-                    <img src={require('../../images/103.png')} alt=""/>
+                    <img src={item.photo} alt=""/>
                 </p>
                 <div className="cont_wrap">
                     <div className="desc">
                         {item.Title}
                     </div>
                     <div className="row">
-                        <p>签约动态 | 北京协和医院</p><p>2020-11-24</p>
+                        <p>签约动态 | 北京协和医院</p><p>{item.CreatedOn.split('T')[0]}</p>
                     </div>
                 </div>
             </div>

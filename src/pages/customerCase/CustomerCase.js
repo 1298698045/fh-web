@@ -52,10 +52,13 @@ const CustomerCase = () =>{
 
     }
     const renderList = list.map((item,index)=>{
+        if(item.Mediabases!=''){
+            item.photo = 'http://192.168.1.200:9099/files/FileViewer.aspx?id='+item.Mediabases[0].ObjectId;
+        }
         return (
             <div className="box" key={index}>
                 <p className="img">
-                    <img src={require('../../images/103.png')} alt=""/>
+                    <img src={item.photo} alt=""/>
                 </p>
                 <div className="caseCont">
                     <div className="imgs">

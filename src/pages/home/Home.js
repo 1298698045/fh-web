@@ -120,7 +120,7 @@ class Home extends Component{
                     hover:false
                 }],
             show:false,
-            plateList:[1,2,3,4,5,6,7,8,9,10],
+            plateList:[],
             index:0,
             ItemId:'8CE6E996-1BF1-48BF-BF45-AB8DBA5559E7',
             listData:[],
@@ -192,6 +192,7 @@ class Home extends Component{
         //         // reject(error)
         //     })
         // })
+        this.getCustomerCase();
         this.getQuery();
         this.successCase();
     }
@@ -214,6 +215,17 @@ class Home extends Component{
             console.log (res);
             this.setState({
                 listData:res.rows
+            })
+        },error => {
+            console.log("网络异常~",error);
+            // reject(error)
+        })
+    }
+    getCustomerCase(){
+        let url = '/api/Contentbase/GetContentbases?ItemId='+'76B773D6-7DF3-445C-9F83-5D870A34FD81'+'&PageIndex=' + 1 + '&PageSize=' + 10;
+        http("get",url).then(res => {
+            this.setState({
+                plateList:res.rows
             })
         },error => {
             console.log("网络异常~",error);
@@ -292,10 +304,15 @@ class Home extends Component{
                     <div className="cont">
                         {
                             item.list.map((v,idx)=>{
+                                if(v.Mediabases!=''){
+                                    v.photo = 'http://192.168.1.200:9099/files/FileViewer.aspx?id='+v.Mediabases[0].ObjectId;
+                                }else {
+                                    v.photo = '';
+                                }
                                 return (
                                     <div className="box" key={idx}>
                                         <p className="img">
-                                            <img src={require('../../images/r.png')} alt=""/>
+                                            <img src={v.photo} alt=""/>
                                         </p>
                                         <div className="caseCont">
                                             <div className="imgs">
@@ -322,6 +339,24 @@ class Home extends Component{
             )
         })
     }
+    plate(){
+        return (
+            this.state.plateList.map((item,index)=>{
+                if(item.Mediabases!=''){
+                    item.photo = 'http://192.168.1.200:9099/files/FileViewer.aspx?id='+item.Mediabases[0].ObjectId;
+                }else {
+                    item.photo = '';
+                }
+                return (
+                    <div className="plate" key={index}>
+                        <p>
+                            <img src={item.photo} alt=""/>
+                        </p>
+                    </div>
+                )
+            })
+        )
+    }
     render() {
         let str ;
         str = this.state.tabList.map((item,index)=>{
@@ -332,11 +367,18 @@ class Home extends Component{
                 )
         })
         let plate;
+        console.log(this.state.plateList,'----------')
         plate = this.state.plateList.map((item,index)=>{
+            console.log(item.Mediabases)
+            // if(item.Mediabases!=''){
+            //     item.photo = 'http://192.168.1.200:9099/files/FileViewer.aspx?id='+item.Mediabases[0].ObjectId;
+            // }else {
+            //     item.photo = '';
+            // }
             return (
                 <div className="plate" key={index}>
                     <p>
-                        <img src={require('../../images/766.png')} alt=""/>
+                        {/* <img src={item.photo} alt=""/> */}
                     </p>
                 </div>
             )
@@ -818,12 +860,16 @@ class Home extends Component{
                                 </div>
                             </div>
                             <div className="advertPlate">
-                                {plate}
+                                {this.plate()}
                             </div>
                             <div className="more">
-                                更多客户案例
-                                <IconStyle/>
-                                <i className="iconfont">&#xe62a;</i>
+                                
+                                <Link to={`/CustomerCase`} style={{display:"flex",color:'#b31e23',justifyContent:'center'}}>
+                                    <p>更多客户案例</p>
+                                    <IconStyle/>
+                                    <i className="iconfont">&#xe62a;</i>
+                                </Link>
+                                
                             </div>
                         </div>
                     </div>

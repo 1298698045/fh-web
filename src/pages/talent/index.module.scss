@@ -216,6 +216,7 @@
             display: flex;
             justify-content: space-between;
             .lCont{
+              width: 45%;
               .title{
                 font-size: 20px;
                 font-weight: bold;
@@ -233,10 +234,13 @@
                 p{
                   font-size: 16px;
                   color: #626775;
+                  white-space: pre-line;
+                  line-height: 2;
                 }
               }
             }
             .rCont{
+              width: 49%;
               margin-left: 90px;
               .title{
                 font-size: 20px;
@@ -255,6 +259,8 @@
                 p{
                   font-size: 16px;
                   color: #626775;
+                  white-space: pre-line;
+                  line-height: 2;
                 }
               }
             }
