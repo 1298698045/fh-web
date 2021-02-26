@@ -11,21 +11,24 @@ p{
 li{
   list-style: none;
 }
-@media screen and (max-width: 1440px) {
-  .header {
-    //display: none!important;
-  }
-  .home_content,.contents .box_wrap{
-    width: 100%;
-    min-width: 1320px;
-    padding: 0 40px;
-  }
-  .service_wrap .back .cont_text{
-    width: 100%;
-    min-width: 1320px;
-    padding: 0 40px;
-  }
-}
+//@media screen and (max-width: 1440px) {
+//  .header {
+//    //display: none!important;
+//  }
+//  .home_content,.contents .box_wrap{
+//    width: 100%;
+//    min-width: 1320px;
+//    padding: 0 40px;
+//  }
+//  .service_wrap .back .cont_text{
+//    width: 100%;
+//    min-width: 1320px;
+//    padding: 0 40px;
+//  }
+//  .banner .swiper-container .bannerText{
+//    left: 40px!important;
+//  }
+//}
 .wrap{
   width: 100%;
   height: 100%;
@@ -35,6 +38,42 @@ li{
     .banner{
       position: relative;
       .swiper-container{
+        //height: 450px !important;
+        position: relative;
+        .bannerText{
+          width: 100%;
+          position: absolute;
+          top: 102px;
+          z-index:999;
+          .bannerText_child{
+            width: 1200px;
+            margin: auto;
+            //left: 291px;
+            z-index: 999;
+            text-align: left;
+            .title{
+              font-size: 44px;
+              font-weight: bold;
+              color: #ffffff;
+            }
+            .desc{
+              font-size: 20px;
+            }
+            .btn{
+              width: 160px;
+              height: 45px;
+              line-height: 45px;
+              border: 1px solid #fff;
+              margin-top: 40px;
+              border-radius: 3px;
+              font-size: 18px;
+              text-align: center;
+              font-weight: bold;
+              cursor: pointer;
+            }
+          }
+
+        }
         .swiper-button-prev{
           left: 10%;
           width: 29px;
@@ -67,7 +106,7 @@ li{
           width: 56px;
           height: 3px;
           border-radius: 0;
-          background: #999999;
+          background: #fff;
           cursor:pointer;
         }
       }
@@ -170,7 +209,7 @@ li{
       }
     }
     .home_content{
-      width: 1320px;
+      width: 1200px;
       margin: auto;
       .tab_wrap{
         .tabs{
@@ -213,8 +252,55 @@ li{
               margin-right: 8px;
             }
           }
+          li:hover{
+            color: #4f98ff;
+            .dian{
+              background: #4f98ff;
+            }
+          }
         }
       }
+    }
+    .myService{
+      width: 1200px;
+      margin: 50px auto;
+      display: flex;
+      justify-content: space-between;
+      .leftCont{
+        width: 480px;
+        h3{
+          margin: 0;
+        }
+        .title{
+          font-size: 40px;
+          color: #2f3342;
+          font-weight: bold;
+        }
+        p{
+          margin: 0;
+        }
+        .service_desc{
+          font-size: 18px;
+          color: #626775;
+          margin-top: 11px;
+        }
+        .service_content{
+          margin-top: 31px;
+          .paragraph{
+            padding-bottom: 10px;
+            font-size: 16px;
+            color: #626775;
+          }
+          p{
+            color: #626775;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .myAdvantage{
+      background: #f8faff;
+      padding-top: 50px;
     }
     .service_wrap{
       margin-top: 62px;
@@ -244,9 +330,11 @@ li{
         }
       }
       .back{
-        padding-top: 73px;
+        padding-top: 124px;
+        width: 1200px;
+        margin: 0 auto;
         .cont_text{
-          width: 1320px;
+          width: 1200px;
           margin: 0 auto;
           .name{
             font-size: 20px;
@@ -265,7 +353,7 @@ li{
           }
         }
         .advantage{
-          width: 1320px;
+          width: 1200px;
           margin: 0 auto;
           display: flex;
           justify-content: space-between;
@@ -274,10 +362,14 @@ li{
             height: 200px;
             padding: 0 30px;
             .imgs{
-              width: 80px;
-              height: 80px;
-              background: #ccc;
+              width: 94px;
+              height: 82px;
+              //background: #ccc;
               margin: 0 auto;
+              img{
+                width: 100%;
+                height: 100%;
+              }
             }
             .cont_copywriting{
               text-align: center;
@@ -315,9 +407,13 @@ li{
         text-align: center;
       }
       .row_box_wrap{
+        margin-top: 72px;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        .child_box:hover{
+          box-shadow: 0px 5px 20px 0px rgba(47, 51, 66, 0.1);
+        }
         .child_box{
           width: 600px;
           padding: 43px 30px;
@@ -326,8 +422,12 @@ li{
           .radius{
             width: 60px;
             height: 60px;
-            border-radius: 50%;
-            background: #009fff;
+            //border-radius: 50%;
+            //background: #009fff;
+            img{
+              width: 100%;
+              height: 100%;
+            }
           }
           .right_cont{
             margin-left: 50px;
@@ -366,7 +466,7 @@ li{
     .contents{
       width: 100%;
       .box_wrap{
-        width: 1320px;
+        width: 1200px;
         margin: 0 auto;
         .title{
           text-align: center;
@@ -688,17 +788,18 @@ li{
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
-          padding: 30px 70px 0 73px;
+          padding: 30px 60px 0 60px;
           .plate:hover{
             background: #fff;
             box-shadow: 0px 2px 14px 0px rgba(23, 71, 113, 0.1);
           }
           .plate{
-            width: 211px;
+            width: 206px;
             height: 100px;
             //background: #fff;
             //margin-right: 22px;
             margin-top: 20px;
+            margin-right: 5px;
             display: flex;
             justify-content: center;
             align-items: center;

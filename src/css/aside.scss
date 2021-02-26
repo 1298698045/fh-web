@@ -48,14 +48,21 @@
       }
     }
     .box{
-      width: 50px;
-      height: 50px;
-      line-height: 50px;
+      width: 60px;
+      height: 60px;
+      //line-height: 50px;
       text-align: center;
-      background: #b31e23;
+      //background: #b31e23;
+      background-color: rgba(32, 40, 67, 0.5);
       //margin-top: 2px;
       cursor: pointer;
       float: right;
+      border-bottom-left-radius: 6px;
+      border-top-left-radius: 6px;
+      .phone_text{
+        font-size: 12px;
+        color: #ffffff;
+      }
       i{
         font-size: 20px;
         color: #fff;
@@ -64,11 +71,12 @@
     .text{
       //width: 180px;
       width: 0;
-      line-height: 50px;
+      line-height: 60px;
       text-align: center;
       padding: 0 20px;
       box-sizing: border-box;
-      background: #b31e23;
+      //background: #b31e23;
+      background-color: rgba(32, 40, 67, 0.5);
       color: #fff;
       font-size: 18px;
       font-weight: bold;

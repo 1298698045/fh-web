@@ -18,13 +18,14 @@ const Aside = () => {
                 <div className="box" onClick={handlePhone}>
                     <IconStyle/>
                     <i className="iconfont">&#xe627;</i>
+                    <p className="phone_text">电话咨询</p>
                 </div>
             </div>
             <div className="boxActive">
                 <div className="box">
                     <IconStyle/>
                     <i className="iconfont">&#xe600;</i>
-
+                    <p className="phone_text">扫描下载</p>
                 </div>
                 <div className="qrCode">
                     <div className="box_position">
@@ -43,6 +44,7 @@ const Aside = () => {
                     <div className="box">
                         <IconStyle/>
                         <i className="iconfont">&#xe63b;</i>
+                        <p className="phone_text">返回顶部</p>
                     </div>
                 </BackTop>
             </div>

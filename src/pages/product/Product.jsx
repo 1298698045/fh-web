@@ -12,26 +12,32 @@ const back = {
 };
 const list = [
     {
+        imgUrl:require('../../images/yycp_1.png'),
         name:"协同办公系统（OA）",
         path:"/WorkOA"
     },
     {
+        imgUrl:require('../../images/yycp_2.png'),
         name:"人力资源管理系统",
         path:"/HrSystem"
     },
     {
+        imgUrl:require('../../images/yycp_3.png'),
         name:"电子票据管理平台",
         path:"/ElectronSystem"
     },
     {
+        imgUrl:require('../../images/yycp_4.png'),
         name:"智能报销管理系统",
         path:"/Intelligence"
     },
     {
+        imgUrl:require('../../images/yycp_5.png'),
         name:"合同管理系统",
         path:"/ContractAdmin"
     },
     {
+        imgUrl:require('../../images/yycp_6.png'),
         name:"固定资产管理系统",
         path:"/Intelligence"
     }
@@ -57,7 +63,7 @@ const Product = () => {
                                     return (
                                         <div className={styles.box} key={index} onClick={()=>{getDetail(item)}}>
                                             <div className={styles.imgs}>
-                                                <img src={require('../../images/1547.png')} alt=""/>
+                                                <img src={item.imgUrl} alt=""/>
                                             </div>
                                             <div className={styles.name}>{item.name}</div>
                                             <div className={styles.cont_text}>为强化医院院办事务日常管理，帮助医院实现现代医院管理制度，优化工作流程，规范工作行为，提高运行效率的管理系统。有效的控制和预防风险。</div>

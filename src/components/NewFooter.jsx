@@ -14,7 +14,10 @@ const formStyle = {
 }
 const SubmitBtn = {
     background: '#b31e23',
-    border: 'none'
+    border: 'none',
+    width:'400px',
+    height:'40px',
+    borderRadius:'3px'
 }
 const NewFooter = () => {
     const [numbers,setNumbers] = useState(0);
@@ -69,6 +72,7 @@ const NewFooter = () => {
                       onFinishFailed={onFinishFailed} >
                     <Form.Item
                         label="单位名称"
+                        labelAlign={'left'}
                         name="Department"
                         rules={[{ required: true, message: '请输入单位名称!' }]}
                     >
@@ -76,6 +80,7 @@ const NewFooter = () => {
                     </Form.Item>
                     <Form.Item
                         label="姓名"
+                        labelAlign={'left'}
                         name="FullName"
                         rules={[{ required: true, message: '请输入姓名!' }]}
                     >
@@ -83,6 +88,7 @@ const NewFooter = () => {
                     </Form.Item>
                     <Form.Item
                         label="手机号"
+                        labelAlign={'left'}
                         name="MobilePhone"
                         rules={[{ required: true, message: '请输入手机号!' }]}
                     >
@@ -110,14 +116,14 @@ const NewFooter = () => {
                     {/*</Form.Item>*/}
                     <Form.Item
                         label="邮箱"
+                        labelAlign={'left'}
                         name="EMailAddress1"
                         rules={[{ required: true, message: '请输入邮箱!' }]}
                     >
                         <Input />
                     </Form.Item>
                     <Form.Item style={{
-                        display:'flex',
-                        justifyContent:"center"
+                        display:'flex'
                     }}>
                         <Button type="primary" style={SubmitBtn}  htmlType="submit" block>
                             提交申请
@@ -142,10 +148,10 @@ const NewFooter = () => {
     return (
         <>
             <div className={'contSix'}>
-                <div className="apply">
-                    专业咨询顾问，为您提供1对1专属服务
-                    <p className={'btn'} onClick={getApply}>试用申请</p>
-                </div>
+                {/*<div className="apply">*/}
+                {/*    专业咨询顾问，为您提供1对1专属服务*/}
+                {/*    <p className={'btn'} onClick={getApply}>试用申请</p>*/}
+                {/*</div>*/}
                 <div className="footerBar">
                     <div className="box-wrap">
                         <div className="lBox">

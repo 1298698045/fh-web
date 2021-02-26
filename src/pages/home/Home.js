@@ -12,7 +12,7 @@ import http from '../../utils/request';
 import {IconStyle} from '../../static/iconfont/iconfont';
 import store from '../../store'
 import CustomerCase from "../customerCase/CustomerCase";
-
+import BannerList from "../../components/BannerList";
 
 import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.min.css'
@@ -60,6 +60,12 @@ const swiperStyle = {
 const serviceBack = {
     height:496,
     backgroundImage: `url(${require('../../images/1529.jpg')})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover"
+}
+const myImgs = {
+    height:496,
+    backgroundImage: `url(${require('../../images/icon_bg.png')})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover"
 }
@@ -124,7 +130,66 @@ class Home extends Component{
             index:0,
             ItemId:'8CE6E996-1BF1-48BF-BF45-AB8DBA5559E7',
             listData:[],
-            bannerList:[]
+            bannerList:[],
+            myProductList:[
+                {
+                    img:require('../../images/yycp_1.png'),
+                    name:'协同办公系统（OA）',
+                    desc:'为强化医院院办事务日常管理，帮助医院实现现代医院管理制度，优化工作流程，规范工作行为，提高运行效率的管理系统。有效的控制和预防风险。'
+                },
+                {
+                    img:require('../../images/yycp_2.png'),
+                    name:'人力资源管理系统',
+                    desc:'为强化医院院办事务日常管理，帮助医院实现现代医院管理制度，优化工作流程，规范工作行为，提高运行效率的管理系统。有效的控制和预防风险。'
+                },
+                {
+                    img:require('../../images/yycp_3.png'),
+                    name:'电子票据管理平台',
+                    desc:'为强化医院院办事务日常管理，帮助医院实现现代医院管理制度，优化工作流程，规范工作行为，提高运行效率的管理系统。有效的控制和预防风险。'
+                },
+                {
+                    img:require('../../images/yycp_4.png'),
+                    name:'移动办公（0A）',
+                    desc:'为强化医院院办事务日常管理，帮助医院实现现代医院管理制度，优化工作流程，规范工作行为，提高运行效率的管理系统。有效的控制和预防风险。'
+                },
+                {
+                    img:require('../../images/yycp_5.png'),
+                    name:'智能报销\b管理系统',
+                    desc:'为强化医院院办事务日常管理，帮助医院实现现代医院管理制度，优化工作流程，规范工作行为，提高运行效率的管理系统。有效的控制和预防风险。'
+                },
+                {
+                    img:require('../../images/yycp_6.png'),
+                    name:'合同管理系统',
+                    desc:'为强化医院院办事务日常管理，帮助医院实现现代医院管理制度，优化工作流程，规范工作行为，提高运行效率的管理系统。有效的控制和预防风险。'
+                }
+            ],
+            advantage:[
+                {
+                    imgUrl:require('../../images/icon_1.svg'),
+                    name:'产品优势',
+                    desc:'功能专业具备医院行业特色，融入现代管理思想，满足内控需求。'
+                },
+                {
+                    imgUrl:require('../../images/icon_2.svg'),
+                    name:'团队优势',
+                    desc:'技术团队人员的工作经验丰富，熟悉医院业务与流程。'
+                },
+                {
+                    imgUrl:require('../../images/icon_3.svg'),
+                    name:'经验优势',
+                    desc:'实施超过1000家医院，积累丰富服务和研发的经验。'
+                },
+                {
+                    imgUrl:require('../../images/icon_4.svg'),
+                    name:'创新优势',
+                    desc:'不断的创新，推出满足医院战略及发展的需求的功能和产品。'
+                },
+                {
+                    imgUrl:require('../../images/icon_5.svg'),
+                    name:'服务优势',
+                    desc:'以用户为中心，用服务作为公司发展的基础。'
+                }
+            ]
         }
         this.handleRegister = this.handleRegister.bind(this);
         this.handleMouseOver = this.handleMouseOver.bind(this);
@@ -417,70 +482,43 @@ class Home extends Component{
                 {/*    </div>*/}
                 {/*</div>*/}
                 <div className="center">
-                    <div className="banner">
-                        {/*<Carousel ref="welcome">*/}
-                        {/*    <div className={'rotation'}>*/}
-                        {/*        <h3 style={contentStyle}>*/}
-                        {/*            <img src={require('../../images/banner_1.png')} alt=""/>*/}
-                        {/*        </h3>*/}
-                        {/*    </div>*/}
-                        {/*    <div>*/}
-                        {/*        <h3 style={contentStyle}>2</h3>*/}
-                        {/*    </div>*/}
-                        {/*    <div>*/}
-                        {/*        <h3 style={contentStyle}>3</h3>*/}
-                        {/*    </div>*/}
-                        {/*    <div>*/}
-                        {/*        <h3 style={contentStyle}>4</h3>*/}
-                        {/*    </div>*/}
-                        {/*</Carousel>*/}
-                        {/*<Swiper*/}
-                        {/*    style={contentStyle}*/}
-                        {/*    spaceBetween={50}*/}
-                        {/*    navigation*/}
-                        {/*    initialSlide={0} // 初始化显示哪一个*/}
-                        {/*    loop={true} // 是否循环*/}
-                        {/*    autoplay={true}*/}
-                        {/*    pagination={{ clickable: true }}*/}
-                        {/*    onSwiper={(swiper) => console.log(swiper)}*/}
-                        {/*    onSlideChange={(e) => console.log('slide change',e)}*/}
-                        {/*>*/}
-                        {/*    <SwiperSlide style={{width:'100%'}}>*/}
-                        {/*        <img src={require('../../images/banner_1.png')} alt=""/>*/}
-                        {/*    </SwiperSlide>*/}
-                        {/*    <SwiperSlide style={{width:'100%'}}>*/}
-                        {/*        <img src={require('../../images/banner_1.png')} alt=""/>*/}
-                        {/*    </SwiperSlide>*/}
-                        {/*    <SwiperSlide style={{width:'100%'}}>*/}
-                        {/*        <img src={require('../../images/banner_1.png')} alt=""/>*/}
-                        {/*    </SwiperSlide>*/}
-                        {/*</Swiper>*/}
-                        <div className="swiper-container" style={contentStyle}>
-                            <div className="swiper-wrapper">
-                                <div className="swiper-slide">
-                                    <img style={{height: '100%'}} src={require('../../images/1513.jpg')} alt=""/>*/}
-                                </div>
-                                <div className="swiper-slide">
-                                    <img style={{height: '100%'}} src={require('../../images/1513.jpg')} alt=""/>*/}
-                                </div>
-                                <div className="swiper-slide">
-                                    <img style={{height: '100%'}} src={require('../../images/1513.jpg')} alt=""/>*/}
-                                </div>
-                            </div>
-                            <div className='swiper-pagination'>
+                    <BannerList />
+                    {/*<div className="banner">*/}
+                    {/*    <div className="swiper-container" style={contentStyle}>*/}
+                    {/*        <div className="swiper-wrapper">*/}
+                    {/*            <div className="swiper-slide">*/}
+                    {/*                <img style={{height: '100%'}} src={require('../../images/banner_1.jpg')} alt=""/>*!/*/}
+                    {/*            </div>*/}
+                    {/*            <div className="swiper-slide">*/}
+                    {/*                <img style={{height: '100%'}} src={require('../../images/banner_2.jpg')} alt=""/>*!/*/}
+                    {/*            </div>*/}
+                    {/*            <div className="swiper-slide">*/}
+                    {/*                <img style={{height: '100%'}} src={require('../../images/banner_3.jpg')} alt=""/>*!/*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*        <div className='swiper-pagination'>*/}
 
-                            </div>
-                            <div className="swiper-button-prev">
-                                <IconStyle/>
-                                <i className="iconfont">&#xe629;</i>
-                            </div>
+                    {/*        </div>*/}
+                    {/*        <div className="bannerText">*/}
+                    {/*            <p className="title">协同办公管理系统（OA）</p>*/}
+                    {/*            <p className="desc">解决全周期、全领域办公需求*/}
+                    {/*                </p>*/}
+                    {/*            <p className="desc">基于平台化的产品架构，随需定制功能应用</p>*/}
+                    {/*            <p className="btn">*/}
+                    {/*                申请适用*/}
+                    {/*            </p>*/}
+                    {/*        </div>*/}
+                            {/*<div className="swiper-button-prev">*/}
+                            {/*    <IconStyle/>*/}
+                            {/*    <i className="iconfont">&#xe629;</i>*/}
+                            {/*</div>*/}
                             {/*左箭头。如果放置在swiper-container外面，需要自定义样式。*/}
-                            <div className="swiper-button-next">
-                                <IconStyle/>
-                                <i className="iconfont">&#xe62a;</i>
-                            </div>
+                            {/*<div className="swiper-button-next">*/}
+                            {/*    <IconStyle/>*/}
+                            {/*    <i className="iconfont">&#xe62a;</i>*/}
+                            {/*</div>*/}
                             {/*右箭头。如果放置在swiper-container外面，需要自定义样式。*/}
-                        </div>
+                        {/*</div>*/}
 
                         {/*<div className="copywriting">*/}
                         {/*    <h1>凤凰办公</h1>*/}
@@ -507,7 +545,7 @@ class Home extends Component{
                         {/*        <i className="iconfont">&#xe600;</i>*/}
                         {/*    </div>*/}
                         {/*</div>*/}
-                    </div>
+                    {/*</div>*/}
 
                     <div className="home_content">
                         <div className="tab_wrap">
@@ -546,36 +584,52 @@ class Home extends Component{
                             </ul>
                         </div>
                     </div>
-                    <div className="service_wrap">
-                        <h3 className="service_title">
-                            我们的服务
-                        </h3>
-                        <p className="service_desc">凤凰世纪 | 医院行业合作伙伴</p>
-                        <div className="back" style={serviceBack}>
-                            <div className="cont_text">
-                                <div className="name">认证独立软件开发商</div>
-                                <div className="text_width">
-                                    <div className="cont">
-                                        作为钉钉的服务商，为医院行业用户提供钉钉软件产品的部署、培训、实施服务；借助我们团队在医院行业21年经验和自主研发的产品，帮助医院行业用户全面提升管理效率。
-                                    </div>
-                                    <div className="cont">
-                                        <p>
-                                            1. 软件产品免费的标准部署、培训、实施服务。
-                                        </p>
-                                        <p>
-                                            2. 软件产品的VIP实施服务。
-                                        </p>
-                                        <p>
-                                            3. 医院用户科室信息化的建设需求。
-                                        </p>
-                                        <p>
-                                            4. 医院用户在内控管理方面及其它个性定制方面的需求。
-                                        </p>
-                                    </div>
-                                </div>
+                    <div className="myService">
+                        <div className="leftCont">
+                            <h3 className="title">我们的服务</h3>
+                            <p className="service_desc">凤凰世纪 | 医院行业合作伙伴</p>
+                            <div className="service_content">
+                                <p className={'paragraph'}>为医院行业用户提供办公软件产品的部署、培训、实施服务；借助我们团队在医院行业多年经验和自主研发的产品，帮助医院行业用户全面提升管理效率。</p>
+                                <p>1. 软件产品免费的标准部署、培训、实施服务。</p>
+                                <p>2. 软件产品的VIP实施服务。</p>
+                                <p>3. 医院用户科室信息化的建设需求。</p>
+                                <p>4. 医院用户在内控管理方面及其它个性定制方面的需求。</p>
                             </div>
                         </div>
+                        <div className="rightCont">
+                            <img src={require('../../images/sy_1.png')} alt=""/>
+                        </div>
                     </div>
+                    {/*<div className="service_wrap">*/}
+                    {/*    <h3 className="service_title">*/}
+                    {/*        我们的服务*/}
+                    {/*    </h3>*/}
+                    {/*    <p className="service_desc">凤凰世纪 | 医院行业合作伙伴</p>*/}
+                    {/*    <div className="back" style={serviceBack}>*/}
+                    {/*        <div className="cont_text">*/}
+                    {/*            <div className="name">认证独立软件开发商</div>*/}
+                    {/*            <div className="text_width">*/}
+                    {/*                <div className="cont">*/}
+                    {/*                    作为钉钉的服务商，为医院行业用户提供钉钉软件产品的部署、培训、实施服务；借助我们团队在医院行业21年经验和自主研发的产品，帮助医院行业用户全面提升管理效率。*/}
+                    {/*                </div>*/}
+                    {/*                <div className="cont">*/}
+                    {/*                    <p>*/}
+                    {/*                        1. 软件产品免费的标准部署、培训、实施服务。*/}
+                    {/*                    </p>*/}
+                    {/*                    <p>*/}
+                    {/*                        2. 软件产品的VIP实施服务。*/}
+                    {/*                    </p>*/}
+                    {/*                    <p>*/}
+                    {/*                        3. 医院用户科室信息化的建设需求。*/}
+                    {/*                    </p>*/}
+                    {/*                    <p>*/}
+                    {/*                        4. 医院用户在内控管理方面及其它个性定制方面的需求。*/}
+                    {/*                    </p>*/}
+                    {/*                </div>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
                     <div className="home_content">
                         <div className="product_Wrap">
                             <h3 className="row_title">
@@ -584,14 +638,16 @@ class Home extends Component{
                             <p className="row_desc">基础OA + 专业业务管理系统</p>
                             <div className="row_box_wrap">
                                 {
-                                    [1,2,3,4,5,6].map((item,index)=>{
+                                    this.state.myProductList.map((item,index)=>{
                                         return (
                                             <div className="child_box" key={index}>
-                                                <div className="radius"></div>
+                                                <div className="radius">
+                                                    <img src={item.img} alt=""/>
+                                                </div>
                                                 <div className="right_cont">
-                                                    <p className="title">人力资源管理系统</p>
+                                                    <p className="title">{item.name}</p>
                                                     <p className="text">
-                                                        为强化医院院办事务日常管理，帮助医院实现现代医院管理制度，优化工作流程，规范工作行为，提高运行效率的管理系统。有效的控制和预防风险。
+                                                        {item.desc}
                                                     </p>
                                                 </div>
                                             </div>
@@ -602,23 +658,23 @@ class Home extends Component{
                             </div>
                         </div>
                     </div>
-                    <div className="service_wrap">
+                    <div className="service_wrap myAdvantage">
                         <h3 className="service_title">
                             我们的优势
                         </h3>
                         <p className="service_desc">智能 <span></span> 互动 <span></span> 移动</p>
-                        <div className="back" style={serviceBack}>
+                        <div className="back" style={myImgs}>
                             <div className="advantage">
                                 {
-                                    [1,2,3,4,5].map((item,index)=>{
+                                    this.state.advantage.map((item,index)=>{
                                         return (
                                             <div className="boxs" key={index}>
                                                 <div className="imgs">
-
+                                                    <img src={item.imgUrl} alt=""/>
                                                 </div>
                                                 <div className="cont_copywriting">
-                                                    <p className="title">产品优势</p>
-                                                    <p>功能专业具备医院行业特色，融入现代管理思想，满足内控需求。</p>
+                                                    <p className="title">{item.name}</p>
+                                                    <p>{item.desc}</p>
                                                 </div>
                                             </div>
                                         )
@@ -863,13 +919,13 @@ class Home extends Component{
                                 {this.plate()}
                             </div>
                             <div className="more">
-                                
-                                <Link to={`/CustomerCase`} style={{display:"flex",color:'#b31e23',justifyContent:'center'}}>
+
+                                <Link to={`/CustomerCase`} style={{display:"flex",color:'#4f98ff',justifyContent:'center'}}>
                                     <p>更多客户案例</p>
                                     <IconStyle/>
                                     <i className="iconfont">&#xe62a;</i>
                                 </Link>
-                                
+
                             </div>
                         </div>
                     </div>

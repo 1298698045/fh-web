@@ -89,7 +89,7 @@ const HrSystem = () =>{
         const { left, top } = scroll;
         // if(top<800) {
         //     setIndex(0);
-        // }else if(top<1320) {
+        // }else if(top<1200) {
         //     setIndex(1)
         // }else if(top<2100) {
         //     setIndex(2)

@@ -1,12 +1,12 @@
-@media (max-width: 1440px){
-  .header{
-    max-width: 1320px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 40px;
-    background: #fff;
-  }
-}
+//@media (max-width: 1440px){
+//  .header{
+//    max-width: 1200px;
+//    width: 100%;
+//    margin: 0 auto;
+//    padding: 0 40px;
+//    background: #fff;
+//  }
+//}
 .spans:hover{
   color: #009fff;
 }
@@ -20,13 +20,13 @@
     top: 0;
     z-index: 999;
     .container{
-      background: #fff;
+      background: #f6f6f9;
       box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.06);
       .header{
-        max-width: 1320px;
+        max-width: 1200px;
         margin: auto;
         height: 60px;
-        background: #fff;
+        background: #f6f6f9;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -75,9 +75,22 @@
             }
             .phone{
               font-size: 16px;
-              color: #b31e23;
+              color: #333333;
               font-weight: bold;
             }
+          }
+          .btn{
+            width: 84px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            background: #4f98ff;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            border-radius: 3px;
+            margin-left: 20px;
+            cursor: pointer;
           }
           .login{
             width: 90px;

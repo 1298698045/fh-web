@@ -10,7 +10,7 @@ const { Link } = Anchor;
 
 const defaultIndexInfo = [
     {index:0, top: 800,  id: 'xq'},
-    {index:1, top: 1320 ,id: 'fa'},
+    {index:1, top: 1200 ,id: 'fa'},
     {index:2, top: 2100 ,id: 'yy'},
     {index:3, top: 2820, id: 'gn'},
     {index:4, top: 3500 ,id: 'kh'},
@@ -69,7 +69,7 @@ const Intelligence = () => {
         const { left, top } = scroll;
         // if(top<800) {
         //     setIndex(0);
-        // }else if(top<1320) {
+        // }else if(top<1200) {
         //     setIndex(1)
         // }else if(top<2100) {
         //     setIndex(2)

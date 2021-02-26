@@ -1,10 +1,10 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect,useRef} from "react";
 // import { HashRouter,Link ,Route } from 'react-router-dom';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Menu, Dropdown, Button } from 'antd';
 import '../css/header.scss'
 import {IconStyle} from "../static/iconfont/iconfont";
-
+import FormModal from '../components/FormModal';
 const LayoutHeader = () => {
     const [idx,setIdx] = useState(0);
     const [isShow,setIsShow] = useState(false);
@@ -62,6 +62,12 @@ const LayoutHeader = () => {
         }
     ];
     const [tabList,setTabList] = useState(list)
+    const childRef = useRef();
+    const updateChildState = () => {
+        // changeVal就是子组件暴露给父组件的方法
+        console.log(childRef,'---')
+        childRef.current.getApply(true);
+    }
     const handleRouter = (item,index) =>{
         console.log(item,index,'debugger')
         setIdx(index)
@@ -270,19 +276,22 @@ const LayoutHeader = () => {
                                 {str}
                             </ul>
                         </div>
-                        {/*<div className={'r'}>*/}
-                        {/*    <div className={'imgs'}>*/}
-                        {/*        <img style={{width:'38px',height:'38px'}} src={require('../images/890.png')} alt=""/>*/}
-                        {/*    </div>*/}
-                        {/*    <div className={'textBox'}>*/}
-                        {/*        <p className={'text'}>热线电话</p>*/}
-                        {/*        <p className={'phone'}>010-87897479</p>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
+                        <div className={'r'}>
+                            <div className={'imgs'}>
+                                <img style={{width:'15px',height:'15px'}} src={require('../images/Hotline.png')} alt=""/>
+                            </div>
+                            <div className={'textBox'}>
+                                <p className={'phone'}>010-87897479</p>
+                            </div>
+                            <div className="btn" onClick={updateChildState}>
+                                申请试用
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             {popup}
+            <FormModal ref={childRef} cRef={childRef} />
         </>
 
     )
