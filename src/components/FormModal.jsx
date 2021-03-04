@@ -61,10 +61,10 @@ const FormModal = ({cRef}) =>{
         console.log('Failed:', errorInfo);
     };
     const showModal = (
-        <Modal width={440} closable={false} footer={null} visible={isModalVisible} onCancel={(e)=>{setIsModalVisible(false)}}>
+        <Modal width={440} zIndex={99999} closable={true} footer={null} visible={isModalVisible} onCancel={(e)=>{setIsModalVisible(false)}}>
             <div className="tabs">
                 <p className={index==0?'active':''} onClick={()=>{setIndex(0)}}>试用申请咨询</p>
-                <p className={index==1?'active':''} onClick={()=>{setIndex(1)}}>在线咨询</p>
+                {/*<p className={index==1?'active':''} onClick={()=>{setIndex(1)}}>在线咨询</p>*/}
             </div>
             {index==0&&
             <div className="modalContent">
@@ -95,16 +95,17 @@ const FormModal = ({cRef}) =>{
                     >
                         <Input />
                     </Form.Item>
-                    <Form.Item
-                        label="邮箱"
-                        labelAlign={'left'}
-                        name="EMailAddress1"
-                        rules={[{ required: true, message: '请输入邮箱!' }]}
-                    >
-                        <Input />
-                    </Form.Item>
+                    {/*<Form.Item*/}
+                    {/*    label="邮箱"*/}
+                    {/*    labelAlign={'left'}*/}
+                    {/*    name="EMailAddress1"*/}
+                    {/*    rules={[{ required: true, message: '请输入邮箱!' }]}*/}
+                    {/*>*/}
+                    {/*    <Input />*/}
+                    {/*</Form.Item>*/}
                     <Form.Item style={{
-                        display:'flex'
+                        display:'flex',
+                        marginTop:'50px'
                     }}>
                         <Button type="primary" style={SubmitBtn}  htmlType="submit" block>
                             提交申请

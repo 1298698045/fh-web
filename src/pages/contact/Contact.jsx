@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useRef} from "react";
 import styles from './index.module.scss';
-import imgOne from '../../images/913.png';
+import imgOne from '../../images/gy_bg.jpg';
 import NewFooter from "../../components/NewFooter";
 import {Anchor} from "antd";
 import {useScroll} from "ahooks";
@@ -8,9 +8,10 @@ import {IconStyle} from "../../static/iconfont/iconfont";
 import imgTwo from '../../images/1450.png'
 const back = {
     width:'100%',
-    height: '434px',
+    height: '256px',
     backgroundImage: `url(${imgOne})`,
-    backgroundRepeat:'no-repeat'
+    backgroundRepeat:'no-repeat',
+    backgroundSize:'100% 100%'
 };
 const backUrl = {
     width:'100%',

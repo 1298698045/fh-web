@@ -60,10 +60,10 @@ const NewFooter = () => {
         console.log('Failed:', errorInfo);
     };
     const showModal = (
-        <Modal width={440} closable={false} footer={null} visible={isModalVisible} onCancel={(e)=>{setIsModalVisible(false)}}>
+        <Modal width={440} zIndex={99999} closable={true} footer={null} visible={isModalVisible} onCancel={(e)=>{setIsModalVisible(false)}}>
             <div className="tabs">
                 <p className={index==0?'active':''} onClick={()=>{setIndex(0)}}>试用申请咨询</p>
-                <p className={index==1?'active':''} onClick={()=>{setIndex(1)}}>在线咨询</p>
+                {/*<p className={index==1?'active':''} onClick={()=>{setIndex(1)}}>在线咨询</p>*/}
             </div>
             {index==0&&
             <div className="modalContent">
@@ -114,16 +114,17 @@ const NewFooter = () => {
                     {/*        </Col>*/}
                     {/*    </Row>*/}
                     {/*</Form.Item>*/}
-                    <Form.Item
-                        label="邮箱"
-                        labelAlign={'left'}
-                        name="EMailAddress1"
-                        rules={[{ required: true, message: '请输入邮箱!' }]}
-                    >
-                        <Input />
-                    </Form.Item>
+                    {/*<Form.Item*/}
+                    {/*    label="邮箱"*/}
+                    {/*    labelAlign={'left'}*/}
+                    {/*    name="EMailAddress1"*/}
+                    {/*    rules={[{ required: true, message: '请输入邮箱!' }]}*/}
+                    {/*>*/}
+                    {/*    <Input />*/}
+                    {/*</Form.Item>*/}
                     <Form.Item style={{
-                        display:'flex'
+                        display:'flex',
+                        marginTop:'50px'
                     }}>
                         <Button type="primary" style={SubmitBtn}  htmlType="submit" block>
                             提交申请
@@ -158,7 +159,7 @@ const NewFooter = () => {
                             <div className="column">
                                 <p className="title">快速入口</p>
                                 <p className="text" onClick={()=>{getRouter('/Home')}}>首页</p>
-                                <p className="text" onClick={getApply}>试用申请</p>
+                                <p className="text" onClick={getApply}>申请试用</p>
                                 <p className="text" onClick={()=>{getRouter('/Xinwen')}}>新闻中心</p>
                                 <p className="text" onClick={()=>{getRouter('/CustomerCase')}}>客户案例</p>
                             </div>
@@ -167,24 +168,16 @@ const NewFooter = () => {
                                 <p className="text" onClick={()=>{getRouter('/WorkOA')}}>协同办公系统（OA）</p>
                                 <p className="text" onClick={()=>{getRouter('/HrSystem')}}>人力资源管理系统</p>
                                 <p className="text" onClick={()=>{getRouter('/ElectronSystem')}}>电子票据管理平台</p>
+                                {/*<p className="text" onClick={()=>{getRouter('/MoveSystem')}}>移动办公（OA）</p>*/}
                                 <p className="text" onClick={()=>{getRouter('/Intelligence')}}>智能报销管理系统</p>
                                 <p className="text" onClick={()=>{getRouter('/ContractAdmin')}}>合同管理系统</p>
-                                <p className="text" onClick={()=>{getRouter('/WorkOA')}}>固定资产管理系统</p>
-                            </div>
-                            <div className="column">
-                                <p className="title">移动（OA）</p>
-                                <p className="text" onClick={()=>{getRouter('/ContractAdmin')}}>需求分析</p>
-                                <p className="text" onClick={()=>{getRouter('/ContractAdmin')}}>产品价值</p>
-                                <p className="text" onClick={()=>{getRouter('/ContractAdmin')}}>应用优势</p>
-                                <p className="text" onClick={()=>{getRouter('/ContractAdmin')}}>产品功能</p>
-                                <p className="text" onClick={()=>{getRouter('/ContractAdmin')}}>下载关注</p>
                             </div>
                             <div className="column">
                                 <p className="title">关于我们</p>
                                 <p className="text" onClick={()=>{getRouter('/NewAboutWe')}}>公司介绍</p>
                                 <p className="text" onClick={()=>{getRouter('/Technology')}}>技术资质</p>
-                                <p className="text" onClick={()=>{getRouter('/Talent')}}>人才招聘</p>
                                 <p className="text" onClick={()=>{getRouter('/Contact')}}>联系我们</p>
+                                <p className="text" onClick={()=>{getRouter('/Talent')}}>人才招聘</p>
                             </div>
                         </div>
                         <div className="rBox">

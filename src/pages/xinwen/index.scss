@@ -6,7 +6,7 @@
 //  }
 //}
 .ant-pagination-item-active{
-  background: #b31e23;
+  background: #4f98ff;
   border: none!important;
   font-size: 16px;
   font-weight: bold;
@@ -22,11 +22,12 @@
     border-bottom: 1px solid #e5e5e5;
     .banners{
       text-align: center;
-      padding-top: 155px;
+      padding-top: 66px;
       h3{
         font-size: 50px;
         font-weight: bold;
         color: #ffffff;
+        margin: 0;
       }
       .text{
         font-size: 20px;
@@ -62,9 +63,9 @@
               }
             }
             .title{
-              font-size: 36px;
+              font-size: 40px;
               font-weight: bold;
-              color:#333333;
+              color:#2f3342;
               padding: 0 20px;
             }
           }

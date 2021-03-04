@@ -2,6 +2,8 @@ import React,{useEffect,useState,useRef,useImperativeHandle} from "react";
 import { Modal, Button ,Form, Input,Row, Col,message } from 'antd';
 import FormModal from "./FormModal";
 import '../css/home.scss';
+import Swiper from 'swiper/dist/js/swiper.js'
+import 'swiper/dist/css/swiper.min.css'
 const contentStyle = {
     height: '570px',
     color: '#fff',
@@ -17,8 +19,24 @@ const BannerList = () => {
         console.log(childRef,'---')
         childRef.current.getApply(true);
     }
+    useEffect(()=>{
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: true,
+            diration: 1000,
+            loop: true,
+            pagination : {
+                el: '.swiper-pagination',
+                clickable: true,
+                clickableClass : 'my-pagination-clickable',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    },[])
     return (
-        <>
+        <div className={'center'}>
             <div className={'banner'}>
                 <div className="swiper-container" style={contentStyle}>
                     <div className="swiper-wrapper">
@@ -42,14 +60,14 @@ const BannerList = () => {
                             </p>
                             <p className="desc">基于平台化的产品架构，随需定制功能应用</p>
                             <p className="btn" onClick={updateChildState}>
-                                申请适用
+                                申请试用
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
             <FormModal ref={childRef} cRef={childRef} />
-        </>
+        </div>
 
     )
 }

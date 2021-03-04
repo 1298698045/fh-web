@@ -16,6 +16,8 @@ import BannerList from "../../components/BannerList";
 
 import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.min.css'
+import MyServe from "../../components/MyServe";
+import MyProduct from '../../components/MyProduct';
 
 const history = createBrowserHistory() // history模式
 // history.push('/')
@@ -64,7 +66,7 @@ const serviceBack = {
     backgroundSize: "cover"
 }
 const myImgs = {
-    height:496,
+    height:560,
     backgroundImage: `url(${require('../../images/icon_bg.png')})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover"
@@ -583,23 +585,35 @@ class Home extends Component{
 
                             </ul>
                         </div>
+                        <Link to={`/Xinwen`} style={{display:"flex",color:'#4f98ff',marginTop:'40px',justifyContent:'center'}}>
+                            <p>更多新闻动态</p>
+                            <img src={require('../../images/1_more.png')} style={{
+                                width:'20px',
+                                height:'20px',
+                                marginLeft:'10px'
+                            }} alt=""/>
+                        </Link>
                     </div>
-                    <div className="myService">
-                        <div className="leftCont">
-                            <h3 className="title">我们的服务</h3>
-                            <p className="service_desc">凤凰世纪 | 医院行业合作伙伴</p>
-                            <div className="service_content">
-                                <p className={'paragraph'}>为医院行业用户提供办公软件产品的部署、培训、实施服务；借助我们团队在医院行业多年经验和自主研发的产品，帮助医院行业用户全面提升管理效率。</p>
-                                <p>1. 软件产品免费的标准部署、培训、实施服务。</p>
-                                <p>2. 软件产品的VIP实施服务。</p>
-                                <p>3. 医院用户科室信息化的建设需求。</p>
-                                <p>4. 医院用户在内控管理方面及其它个性定制方面的需求。</p>
-                            </div>
-                        </div>
-                        <div className="rightCont">
-                            <img src={require('../../images/sy_1.png')} alt=""/>
-                        </div>
-                    </div>
+                    {/*<div className="myService">*/}
+                    {/*    <div className="leftCont">*/}
+                    {/*        <h3 className="title">我们的服务</h3>*/}
+                    {/*        <p className="service_desc">凤凰世纪 | 医院行业合作伙伴</p>*/}
+                    {/*        <div className="service_content">*/}
+                    {/*            <p className={'paragraph'}>为医院行业用户提供办公软件产品的部署、培训、实施服务；借助我们团队在医院行业多年经验和自主研发的产品，帮助医院行业用户全面提升管理效率。</p>*/}
+                    {/*            <p>1. 软件产品免费的标准部署、培训、实施服务。</p>*/}
+                    {/*            <p>2. 软件产品的VIP实施服务。</p>*/}
+                    {/*            <p>3. 医院用户科室信息化的建设需求。</p>*/}
+                    {/*            <p>4. 医院用户在内控管理方面及其它个性定制方面的需求。</p>*/}
+                    {/*        </div>*/}
+                    {/*        <div className="apply">*/}
+                    {/*            申请试用*/}
+                    {/*        </div>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="rightCont">*/}
+                    {/*        <img src={require('../../images/1_dimg.jpg')} alt=""/>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
+                    <MyServe/>
                     {/*<div className="service_wrap">*/}
                     {/*    <h3 className="service_title">*/}
                     {/*        我们的服务*/}
@@ -630,40 +644,42 @@ class Home extends Component{
                     {/*        </div>*/}
                     {/*    </div>*/}
                     {/*</div>*/}
-                    <div className="home_content">
-                        <div className="product_Wrap">
-                            <h3 className="row_title">
-                                我们的产品
-                            </h3>
-                            <p className="row_desc">基础OA + 专业业务管理系统</p>
-                            <div className="row_box_wrap">
-                                {
-                                    this.state.myProductList.map((item,index)=>{
-                                        return (
-                                            <div className="child_box" key={index}>
-                                                <div className="radius">
-                                                    <img src={item.img} alt=""/>
-                                                </div>
-                                                <div className="right_cont">
-                                                    <p className="title">{item.name}</p>
-                                                    <p className="text">
-                                                        {item.desc}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        )
-                                    })
-                                }
 
-                            </div>
-                        </div>
-                    </div>
+                    {/*<div className="home_content">*/}
+                    {/*    <div className="product_Wrap">*/}
+                    {/*        <h3 className="row_title">*/}
+                    {/*            我们的产品*/}
+                    {/*        </h3>*/}
+                    {/*        <p className="row_desc">基础OA + 专业业务管理系统</p>*/}
+                    {/*        <div className="row_box_wrap">*/}
+                    {/*            {*/}
+                    {/*                this.state.myProductList.map((item,index)=>{*/}
+                    {/*                    return (*/}
+                    {/*                        <div className="child_box" key={index}>*/}
+                    {/*                            <div className="radius">*/}
+                    {/*                                <img src={item.img} alt=""/>*/}
+                    {/*                            </div>*/}
+                    {/*                            <div className="right_cont">*/}
+                    {/*                                <p className="title">{item.name}</p>*/}
+                    {/*                                <p className="text">*/}
+                    {/*                                    {item.desc}*/}
+                    {/*                                </p>*/}
+                    {/*                            </div>*/}
+                    {/*                        </div>*/}
+                    {/*                    )*/}
+                    {/*                })*/}
+                    {/*            }*/}
+
+                    {/*        </div>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
+                    <MyProduct/>
                     <div className="service_wrap myAdvantage">
-                        <h3 className="service_title">
-                            我们的优势
-                        </h3>
-                        <p className="service_desc">智能 <span></span> 互动 <span></span> 移动</p>
                         <div className="back" style={myImgs}>
+                            <h3 className="service_title">
+                                我们的优势
+                            </h3>
+                            <p className="service_desc">智能 <span></span> 互动 <span></span> 移动</p>
                             <div className="advantage">
                                 {
                                     this.state.advantage.map((item,index)=>{
@@ -922,8 +938,11 @@ class Home extends Component{
 
                                 <Link to={`/CustomerCase`} style={{display:"flex",color:'#4f98ff',justifyContent:'center'}}>
                                     <p>更多客户案例</p>
-                                    <IconStyle/>
-                                    <i className="iconfont">&#xe62a;</i>
+                                    <img src={require('../../images/1_more.png')} style={{
+                                        width:'20px',
+                                        height:'20px',
+                                        marginLeft:'10px'
+                                    }} alt=""/>
                                 </Link>
 
                             </div>

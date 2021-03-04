@@ -17,9 +17,10 @@ const contentStyle = {
 };
 const back = {
     width:'100%',
-    height: '434px',
+    height: '256px',
     backgroundImage: `url(${imgOne})`,
-    backgroundRepeat:'no-repeat'
+    backgroundRepeat:'no-repeat',
+    backgroundSize:'100% 100%'
 };
 const CustomerCase = () =>{
     const handlePhone = ()=> {
@@ -82,24 +83,24 @@ const CustomerCase = () =>{
         <div className="wrap">
             <div className="center" style={{marginTop:'60px'}}>
                 <div className="banners" style={back}>
-                    <h3>让智慧医疗管理更便捷，让信任更简单</h3>
-                    <p className={'text'}>20+年医疗行业经验   1500+医院用户  面向医院管理，链接移动办公，成就智慧医院</p>
+                    <h3>注重客户应用因客户成功而成功</h3>
+                    <p className={'text'}>帮助医院建立管理在日常办公中有效提高效率的管理平台，形成随时随地轻松办公</p>
                 </div>
                 <div className="contents">
                     <div className="case_wrap">
                         <div className={'dividerWrap'}>
                             <div className="divider">
-                                <div className={'l'}>
-                                    <span className={'line'}></span>
-                                    <span className={'dian'}></span>
-                                </div>
+                                {/*<div className={'l'}>*/}
+                                {/*    <span className={'line'}></span>*/}
+                                {/*    <span className={'dian'}></span>*/}
+                                {/*</div>*/}
                                 <div className={'title'}>
                                     客户案例
                                 </div>
-                                <div className={'r'}>
-                                    <span className={'dian'}></span>
-                                    <span className={'line'}></span>
-                                </div>
+                                {/*<div className={'r'}>*/}
+                                {/*    <span className={'dian'}></span>*/}
+                                {/*    <span className={'line'}></span>*/}
+                                {/*</div>*/}
                             </div>
                         </div>
                         <div style={{textAlign:'center',color:'#626775',fontSize:'12px'}}>（展示部分合作医院，排名不分先后）</div>

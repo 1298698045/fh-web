@@ -146,11 +146,11 @@ const LayoutHeader = () => {
                     电子票据管理平台
                 </span>
             </Menu.Item>
-            <Menu.Item>
-                <span className={'spans'} onClick={()=>{getRouter('/MoveSystem',1)}}>
-                    移动 (OA)
-                </span>
-            </Menu.Item>
+            {/*<Menu.Item>*/}
+            {/*    <span className={'spans'} onClick={()=>{getRouter('/MoveSystem',1)}}>*/}
+            {/*        移动 (OA)*/}
+            {/*    </span>*/}
+            {/*</Menu.Item>*/}
             <Menu.Item>
                 <span className={'spans'} onClick={()=>{getRouter('Intelligence',1)}}>
                     智能报销管理系统
@@ -163,6 +163,11 @@ const LayoutHeader = () => {
     );
     const menuFour = (
         <Menu>
+            <Menu.Item>
+                <span className={'spans'} onClick={()=>{getRouterFour('/NewAboutWe',4)}}>
+                    公司简介
+                </span>
+            </Menu.Item>
             <Menu.Item>
                 <span className={'spans'} onClick={()=>{getRouterFour('/Technology',4)}}>
                     技术资质

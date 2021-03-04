@@ -1,13 +1,21 @@
 import React,{useState,useEffect,useRef} from "react";
 import styles from './index.module.scss';
-import imgOne from '../../images/913.png';
+import imgOne from '../../images/gy_bg.jpg';
 import NewFooter from "../../components/NewFooter";
 const back = {
     width:'100%',
-    height: '434px',
+    height: '256px',
     backgroundImage: `url(${imgOne})`,
-    backgroundRepeat:'no-repeat'
+    backgroundRepeat:'no-repeat',
+    backgroundSize:'100% 100%'
 };
+const footBack = {
+    width:'100%',
+    // height: '256px',
+    backgroundImage: `url(${require('../../images/5.1_tbg.jpg')})`,
+    backgroundRepeat:'no-repeat',
+    backgroundSize:'100% 100%'
+}
 const defaultIndexInfo = [
     {index:0, top: 800,  id: 'gs'},
     {index:1, top: 1200 ,id: 'js'},
@@ -56,6 +64,59 @@ const NewAboutWe = () => {
                                 </div>
                                 <div className={styles.rImg}>
                                     <img src={require('../../images/287.png')} alt=""/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.jd_cont_wrap} style={footBack}>
+                        <div className={styles.foot_cont}>
+                            <p className={styles.title}>
+                                发展历程
+                            </p>
+                            <div className={styles.process}>
+                                <div className={styles.boxTop}>
+                                    <div className={styles.l}>
+                                        <p className={styles.solid}></p>
+                                        <p className={styles.radius}></p>
+                                        <p className={styles.time}>2016</p>
+                                    </div>
+                                    <div className={styles.r}>
+                                        <p className={styles.name}>凤凰世纪成立</p>
+                                        <p className={styles.desc}>长期服务于医院和政府机构</p>
+                                    </div>
+                                </div>
+                                <div className={styles.boxBottom}>
+                                    <div className={styles.l}>
+                                        <p className={styles.time}>2018</p>
+                                        <p className={styles.radius}></p>
+                                        <p className={styles.solid}></p>
+                                    </div>
+                                    <div className={styles.r}>
+                                        <p className={styles.name}>通过国家级高新技术企业认定</p>
+                                        <p className={styles.desc}>长期服务于医院和政府机构</p>
+                                    </div>
+                                </div>
+                                <div className={styles.boxTop}>
+                                    <div className={styles.l}>
+                                        <p className={styles.solid}></p>
+                                        <p className={styles.radius}></p>
+                                        <p className={styles.time}>2019</p>
+                                    </div>
+                                    <div className={styles.r}>
+                                        <p className={styles.name}>通过了“双软企业”认证</p>
+                                        <p className={styles.desc}>《软件企业证书》《软件产品证书》</p>
+                                    </div>
+                                </div>
+                                <div className={styles.boxBottom}>
+                                    <div className={styles.l}>
+                                        <p className={styles.time}>2020</p>
+                                        <p className={styles.radius}></p>
+                                        <p className={styles.solid}></p>
+                                    </div>
+                                    <div className={styles.r}>
+                                        <p className={styles.name}>通过国家级高新技术企业认定</p>
+                                        <p className={styles.desc}>长期服务于医院和政府机构</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

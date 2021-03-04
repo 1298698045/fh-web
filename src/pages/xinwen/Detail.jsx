@@ -89,6 +89,7 @@ const Detail = () =>{
                     </div>
                 </div>
             </div>
+            <NewFooter/>
         </>
     )
 }

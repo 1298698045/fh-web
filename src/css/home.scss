@@ -29,6 +29,11 @@ li{
 //    left: 40px!important;
 //  }
 //}
+@media screen and (max-width: 1440px) {
+  .swiper-container{
+    height: 450px !important;
+  }
+}
 .wrap{
   width: 100%;
   height: 100%;
@@ -38,7 +43,7 @@ li{
     .banner{
       position: relative;
       .swiper-container{
-        //height: 450px !important;
+        height: 600px;
         position: relative;
         .bannerText{
           width: 100%;
@@ -70,6 +75,11 @@ li{
               text-align: center;
               font-weight: bold;
               cursor: pointer;
+            }
+            .btn:hover{
+              background: #4f98ff;
+              color: #ffffff;
+              border: 1px solid #4f98ff;
             }
           }
 
@@ -266,6 +276,7 @@ li{
       margin: 50px auto;
       display: flex;
       justify-content: space-between;
+      padding-top: 50px;
       .leftCont{
         width: 480px;
         h3{
@@ -296,11 +307,27 @@ li{
             font-size: 16px;
           }
         }
+        .apply{
+          width: 148px;
+          height: 48px;
+          line-height: 48px;
+          border: 1px solid #2f3342;
+          text-align: center;
+          color: #2f3342;
+          font-size: 18px;
+          margin-top: 39px;
+          box-shadow: rgba(47, 51, 66, 1) solid 1px;
+          cursor: pointer;
+        }
+        .apply:hover{
+          border: 1px solid #4f98ff;
+          color: #4f98ff;
+        }
       }
     }
     .myAdvantage{
       background: #f8faff;
-      padding-top: 50px;
+      //padding-top: 50px;
     }
     .service_wrap{
       margin-top: 62px;
@@ -330,7 +357,7 @@ li{
         }
       }
       .back{
-        padding-top: 124px;
+        padding-top: 50px;
         width: 1200px;
         margin: 0 auto;
         .cont_text{
@@ -357,6 +384,7 @@ li{
           margin: 0 auto;
           display: flex;
           justify-content: space-between;
+          padding-top: 124px;
           .boxs{
             width: 240px;
             height: 200px;
@@ -412,6 +440,7 @@ li{
         justify-content: space-between;
         flex-wrap: wrap;
         .child_box:hover{
+          cursor:pointer;
           box-shadow: 0px 5px 20px 0px rgba(47, 51, 66, 0.1);
         }
         .child_box{

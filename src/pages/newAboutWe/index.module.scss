@@ -8,7 +8,8 @@
 .About_wrap{
   .banners{
     text-align: center;
-    padding-top: 155px;
+    padding-top: 66px;
+    margin-top: 60px;
     h3{
       font-size: 50px;
       font-weight: bold;
@@ -256,6 +257,112 @@
                   font-size: 16px;
                   color: #626775;
                 }
+              }
+            }
+          }
+        }
+      }
+    }
+    .jd_cont_wrap{
+      height: 722px;
+      padding-top: 50px;
+      .foot_cont{
+        width: 1200px;
+        margin: 0 auto;
+        .title{
+          font-size: 40px;
+          font-weight: bold;
+          color: #2f3342;
+          text-align: center;
+        }
+        .process{
+          margin-top: 30px;
+          display: flex;
+          justify-content: space-between;
+          .boxTop{
+            width: 25%;
+            //display: flex;
+            position: relative;
+            .l{
+              width: 66px;
+              text-align: center;
+              .solid{
+                width: 1px;
+                height: 226px;
+                background: #4f98ff;
+                margin: 0 auto;
+              }
+              .radius{
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                background: #4f98ff;
+                margin: 0 auto;
+              }
+              .time{
+                font-size: 30px;
+                font-weight: bold;
+                color: #4f98ff;
+              }
+            }
+            .r{
+              width: 100%;
+              position: absolute;
+              left: 66px;
+              top: 20px;
+              //padding-top: 20px;
+              .name{
+                font-size: 20px;
+                font-weight: bold;
+                color: #2f3342;
+              }
+              .desc{
+                font-size: 16px;
+                color: #626675;
+              }
+            }
+          }
+          .boxBottom{
+            width: 25%;
+            margin-top: 180px;
+            //display: flex;
+            position: relative;
+            .l{
+              width: 66px;
+              text-align: center;
+              .solid{
+                width: 1px;
+                height: 226px;
+                background: #4f98ff;
+                margin: 0 auto;
+              }
+              .radius{
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                background: #4f98ff;
+                margin: 0 auto;
+              }
+              .time{
+                font-size: 30px;
+                font-weight: bold;
+                color: #4f98ff;
+              }
+            }
+            .r{
+              width: 100%;
+              position: absolute;
+              left: 66px;
+              top: 200px;
+              //padding-top: 200px;
+              .name{
+                font-size: 20px;
+                font-weight: bold;
+                color: #2f3342;
+              }
+              .desc{
+                font-size: 16px;
+                color: #626675;
               }
             }
           }
